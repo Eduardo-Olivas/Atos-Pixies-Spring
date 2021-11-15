@@ -23,8 +23,6 @@ public class HelloController {
 		return "landingpage";
 	}
 	
-	
-	
 	@RequestMapping("/loginpage")
 	public String loginPage() {
 		return "loginpage";
