@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Edit Sale</title>
+</head>
+<body>
+    <div align="center">
+        <h1>Edit LDRoles</h1>
+        <br />
+        <form action="#" th:action="@{/update_LDRoles}" th:object="${LDRoles}"
+            method="post">
+ 
+            <table border="0" cellpadding="10">
+                <tr>
+                    <td>LDRoleID:</td>
+                    <td><input type="text" th:field="*{LDRoleID}" readonly="readonly" /></td>
+                </tr>            
+                <tr>
+                    <td>LDRoleName:</td>
+                    <td><input type="text" th:field="*{LDRoleName}" /></td>
+                </tr>
+                <tr>
+                    <td>LDRoleDescription:</td>
+                    <td><input type="text" th:field="*{LDRoleDescription}" /></td>
+                </tr>                        
+                <tr>
+                    <td colspan="2"><button type="submit">Save</button> </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
