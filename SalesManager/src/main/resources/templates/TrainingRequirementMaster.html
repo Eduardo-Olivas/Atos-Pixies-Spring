@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Sales Manager Application</title>
+</head>
+<body>
+<div align="center">
+    <h1>TrainingRequirementMaster Records</h1>
+    <a href="/new_TrainingRequirementMaster">Enter New Sale</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>RequirementID</th>
+                <th>RequirementReceivedDate</th>
+                <th>RequirementUser</th>
+                <th>RequirementUserVertical</th>
+                <th>TrainingArea</th>
+				<th>TrainingDescription</th>
+				<th>RequestedTrainingStartDate</th>
+				<th>TotalCandidates</th>
+				<th>TrainingTimeZone</th>
+				<th>TotalDurationDays</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="TrainingRequirementMaster : ${listTrainingRequirementMaster}">
+                <td th:text="${TrainingRequirementMaster.RequirementID}">RequirementID</td>
+                <td th:text="${TrainingRequirementMaster.RequirementReceivedDate}">RequirementReceivedDate</td>
+                <td th:text="${TrainingRequirementMaster.RequirementUser}">RequirementUser</td>
+				<td th:text="${TrainingRequirementMaster.RequirementUserVertical}">RequirementUserVertical</td>
+				<td th:text="${TrainingRequirementMaster.TrainingArea}">TrainingArea</td>
+				<td th:text="${TrainingRequirementMaster.TrainingDescription}">TrainingDescription</td>
+				<td th:text="${TrainingRequirementMaster.RequestedTrainingStartDate}">RequestedTrainingStartDate</td>
+				<td th:text="${TrainingRequirementMaster.TotalCandidates}">TotalCandidates</td>
+				<td th:text="${TrainingRequirementMaster.TrainingTimeZone}">TrainingTimeZone</td>
+				<td th:text="${TrainingRequirementMaster.TotalDurationDays}">TotalDurationDays</td>
+
+                <td>
+                    <a th:href="@{'/edit_TrainingRequirementMaster/' + ${TrainingRequirementMaster.RequirementID}}">Edit</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a th:href="@{'/delete_TrainingRequirementMaster/' + ${TrainingRequirementMaster.RequirementID}}">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>   
+</body>
+</html>

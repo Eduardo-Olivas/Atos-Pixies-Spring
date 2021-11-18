@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Sales Manager Application</title>
+</head>
+<body>
+<div align="center">
+    <h1>TrainingParticipantData Records</h1>
+    <a href="/new_TrainingParticipantData">Enter New Sale</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>ParticipantID</th>
+                <th>EmployeeID</th>
+                <th>EmployeeName</th>
+                <th>Email</th>
+                <th>Contact</th>
+				<th>RequirementID</th>
+				<th>AttendanceStatus</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="TrainingParticipantData : ${listTrainingParticipantData}">
+                <td th:text="${TrainingParticipantData.ParticipantID}">ParticipantID</td>
+                <td th:text="${TrainingParticipantData.EmployeeID}">EmployeeID</td>
+                <td th:text="${TrainingParticipantData.EmployeeName}">EmployeeName</td>
+				<td th:text="${TrainingParticipantData.Email}">Email</td>
+				<td th:text="${TrainingParticipantData.Contact}">Contact</td>
+				<td th:text="${TrainingParticipantData.RequirementID}">RequirementID</td>
+				<td th:text="${TrainingParticipantData.AttendanceStatus}">AttendanceStatus</td>
+
+                <td>
+                    <a th:href="@{'/edit_TrainingParticipantData/' + ${TrainingParticipantData.ParticipantID}}">Edit</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a th:href="@{'/delete_TrainingParticipantData/' + ${TrainingParticipantData.ParticipantID}}">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>   
+</body>
+</html>

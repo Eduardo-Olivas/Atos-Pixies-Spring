@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Edit Sale</title>
+</head>
+<body>
+    <div align="center">
+        <h1>Edit TrainingParticipantData</h1>
+        <br />
+        <form action="#" th:action="@{/update_TrainingParticipantData}" th:object="${TrainingParticipantData}"
+            method="post">
+
+            <table border="0" cellpadding="10">
+                <tr>
+                    <td>ParticipantID:</td>
+                    <td><input type="text" th:field="*{ParticipantID}" readonly="readonly" /></td>
+                </tr>            
+                <tr>
+                    <td>EmployeeID:</td>
+                    <td><input type="text" th:field="*{EmployeeID}" /></td>
+                </tr>
+                <tr>
+                    <td>EmployeeName:</td>
+                    <td><input type="text" th:field="*{EmployeeName}" /></td>
+                </tr>    
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="text" th:field="*{Email}" /></td>
+                </tr>    
+                <tr>
+                    <td>Contact:</td>
+                    <td><input type="text" th:field="*{Contact}" /></td>
+                </tr>        
+                <tr>
+                    <td>RequirementID:</td>
+                    <td><input type="text" th:field="*{RequirementID}" /></td>
+                </tr>   
+                <tr>
+                    <td>AttendanceStatus:</td>
+                    <td><input type="text" th:field="*{AttendanceStatus}" /></td>
+                </tr>                      
+                <tr>
+                    <td colspan="2"><button type="submit">Save</button> </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
