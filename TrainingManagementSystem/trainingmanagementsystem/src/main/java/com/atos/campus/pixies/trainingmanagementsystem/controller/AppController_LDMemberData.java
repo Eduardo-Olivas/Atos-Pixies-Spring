@@ -1,6 +1,9 @@
-package net.codejava.controller;
+package com.atos.campus.pixies.trainingmanagementsystem.controller;
 
 import java.util.List;
+
+import com.atos.campus.pixies.trainingmanagementsystem.dao.LDMemberDataDAO;
+import com.atos.campus.pixies.trainingmanagementsystem.model.LDMemberData;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,9 +13,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-
-import net.codejava.dao.LDMemberDataDAO;
-import net.codejava.model.LDMemberData;
 
 
 
