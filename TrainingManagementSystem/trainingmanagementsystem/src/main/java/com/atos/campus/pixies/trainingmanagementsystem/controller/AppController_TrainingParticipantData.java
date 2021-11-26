@@ -1,9 +1,6 @@
-package com.atos.campus.pixies.trainingmanagementsystem.controller;
+package net.codejava.controller;
 
 import java.util.List;
-
-import com.atos.campus.pixies.trainingmanagementsystem.dao.TrainingParticipantDataDAO;
-import com.atos.campus.pixies.trainingmanagementsystem.model.TrainingParticipantData;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +10,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import net.codejava.dao.TrainingParticipantDataDAO;
+import net.codejava.model.TrainingParticipantData;
 
 
 

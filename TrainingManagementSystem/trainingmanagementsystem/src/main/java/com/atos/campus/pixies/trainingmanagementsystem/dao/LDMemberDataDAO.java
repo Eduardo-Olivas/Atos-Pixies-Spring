@@ -1,8 +1,6 @@
-package com.atos.campus.pixies.trainingmanagementsystem.dao;
+package net.codejava.dao;
 
 import java.util.List;
-
-import com.atos.campus.pixies.trainingmanagementsystem.model.LDMemberData;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -11,6 +9,9 @@ import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import net.codejava.model.LDMemberData;
 
 @Repository
 public class LDMemberDataDAO {

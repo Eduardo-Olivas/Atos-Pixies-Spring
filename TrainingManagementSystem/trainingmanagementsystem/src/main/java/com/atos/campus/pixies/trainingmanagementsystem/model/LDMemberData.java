@@ -1,4 +1,6 @@
-package com.atos.campus.pixies.trainingmanagementsystem.model;
+package net.codejava.model;
+
+
 
 public class LDMemberData {
 
