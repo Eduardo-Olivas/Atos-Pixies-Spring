@@ -22,7 +22,7 @@ public class AppController_LandingPage {
 
 	@RequestMapping("/LandingPage")
 	public String viewHomePage() {
-	    return "partial";
+	    return "LandingPage";
 	}
 	
 }
