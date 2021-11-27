@@ -29,6 +29,14 @@ public class AppController_TrainingRequirementMaster {
 	    return "TrainingRequirementMaster";
 	}
 	
+	@RequestMapping("/TrainingRequirementMaster/{id}")
+	public String showOneRequirement(@PathVariable String id, Model map) {
+		TrainingRequirementMaster training =dao.get(id);
+		map.addAttribute("training",training);
+		
+		return "OneTrainingRequirement";
+	}
+	
 	@RequestMapping("/new_TrainingRequirementMaster")
 	public String showNewForm(Model model) {
 		TrainingRequirementMaster TrainingRequirementMaster = new TrainingRequirementMaster();
