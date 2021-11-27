@@ -1,6 +1,9 @@
-package net.codejava.controller;
+package com.atos.campus.pixies.trainingmanagementsystem.controller;
 
 import java.util.List;
+
+import com.atos.campus.pixies.trainingmanagementsystem.dao.SalesDAO;
+import com.atos.campus.pixies.trainingmanagementsystem.model.Sale;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,11 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import net.codejava.dao.SalesDAO;
-import net.codejava.model.Sale;
-
 @Controller
-public class AppController_Sales {
+public class AppControllerSales {
 	
 	@Autowired
 	private SalesDAO dao;

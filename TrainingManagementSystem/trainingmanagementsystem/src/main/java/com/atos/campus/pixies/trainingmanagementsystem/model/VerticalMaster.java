@@ -1,4 +1,4 @@
-package net.codejava.model;
+package com.atos.campus.pixies.trainingmanagementsystem.model;
 
 public class VerticalMaster {
 	

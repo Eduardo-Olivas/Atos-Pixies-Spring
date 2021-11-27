@@ -1,6 +1,9 @@
-package net.codejava.controller;
+package com.atos.campus.pixies.trainingmanagementsystem.controller;
 
 import java.util.List;
+
+import com.atos.campus.pixies.trainingmanagementsystem.dao.LDRolesDAO;
+import com.atos.campus.pixies.trainingmanagementsystem.model.LDRoles;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,11 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import net.codejava.dao.LDRolesDAO;
-import net.codejava.model.LDRoles;
-
 @Controller
-public class AppController_LDRoles {
+public class AppControllerLDRoles {
 	
 	@Autowired
 	private LDRolesDAO dao;
