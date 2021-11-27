@@ -2,11 +2,14 @@ package net.codejava.model;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class TrainingProposals {
 
 	private String ProporsalID;
 	private String  ExecutionID;
 	private String  MemberID;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date  ProposedDate;
 	private String  ProposedTime;
 	private int  ProposedDuration;
