@@ -75,7 +75,7 @@
   position:relative;
   display:flex;
 }
-.image-1{
+.atos-logo{
   position:relative;
   z-index:4;
   pointer-events:none;
@@ -86,9 +86,9 @@
   margin-top:-132px;
   margin-bottom:55px;
   min-height:77px;
-  content:url(assets/images/image_1.png);
+  content:url(../images/Atos_Logo.png);
 }
-.image-1-outer{
+.atos-logo-outer{
   pointer-events:none;
   z-index:4;
   position:relative;
