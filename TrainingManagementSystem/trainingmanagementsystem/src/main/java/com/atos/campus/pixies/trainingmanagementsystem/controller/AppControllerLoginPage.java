@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
-public class AppController_RequestFormPage {
+public class AppControllerLoginPage {
 	
 
-	@RequestMapping("/RequestFormPage")
+	@RequestMapping("/LoginPage")
 	public String viewHomePage() {
-	    return "RequestFormPage";
+	    return "LoginPage";
 	}
 	
 }

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class AppController_LDRoles {
+public class AppControllerLDRoles {
 	
 	@Autowired
 	private LDRolesDAO dao;

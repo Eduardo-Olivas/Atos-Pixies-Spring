@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class AppController_Sales {
+public class AppControllerSales {
 	
 	@Autowired
 	private SalesDAO dao;

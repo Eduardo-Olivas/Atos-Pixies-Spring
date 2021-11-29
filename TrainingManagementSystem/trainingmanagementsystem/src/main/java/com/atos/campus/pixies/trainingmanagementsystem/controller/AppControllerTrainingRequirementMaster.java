@@ -17,7 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
-public class AppController_TrainingRequirementMaster {
+public class AppControllerTrainingRequirementMaster {
 	
 	@Autowired
 	private TrainingRequirementMasterDAO dao;
