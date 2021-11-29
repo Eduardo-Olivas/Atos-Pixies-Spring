@@ -17,7 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
-public class AppControllerTrainingProposals {
+public class AppController_TrainingProposals {
 	
 	@Autowired
 	private TrainingProposalsDAO dao;

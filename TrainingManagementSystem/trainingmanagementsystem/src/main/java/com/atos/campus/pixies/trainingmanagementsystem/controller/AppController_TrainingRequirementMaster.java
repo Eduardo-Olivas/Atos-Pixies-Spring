@@ -17,7 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
-public class AppControllerTrainingRequirementMaster {
+public class AppController_TrainingRequirementMaster {
 	
 	@Autowired
 	private TrainingRequirementMasterDAO dao;
@@ -27,6 +27,14 @@ public class AppControllerTrainingRequirementMaster {
 		List<TrainingRequirementMaster> listTrainingRequirementMaster = dao.list();
 		model.addAttribute("listTrainingRequirementMaster", listTrainingRequirementMaster);
 	    return "TrainingRequirementMaster";
+	}
+	
+	@RequestMapping("/TrainingRequirementMaster/{id}")
+	public String showOneRequirement(@PathVariable String id, Model map) {
+		TrainingRequirementMaster training =dao.get(id);
+		map.addAttribute("training",training);
+		
+		return "OneTrainingRequirement";
 	}
 	
 	@RequestMapping("/new_TrainingRequirementMaster")

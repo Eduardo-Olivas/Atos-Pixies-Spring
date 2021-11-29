@@ -17,7 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
-public class AppControllerVerticalMaster {
+public class AppController_VerticalMaster {
 	
 	@Autowired
 	private VerticalMasterDAO dao;

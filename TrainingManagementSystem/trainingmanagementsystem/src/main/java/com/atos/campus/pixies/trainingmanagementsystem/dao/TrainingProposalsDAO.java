@@ -28,7 +28,7 @@ public class TrainingProposalsDAO {
 	
 	public void save(TrainingProposals TrainingProposals) {
 		SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
-		insertActor.withTableName("TrainingProposals").usingColumns("ProporsalID", "ExecutionID", "MemberID","Email","ProposedDate","ProposedTime","ProposedDuration");
+		insertActor.withTableName("TrainingProposals").usingColumns("ProporsalID", "ExecutionID", "MemberID","ProposedDate","ProposedTime","ProposedDuration");
 		BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(TrainingProposals);
 		
 		insertActor.execute(param);		
