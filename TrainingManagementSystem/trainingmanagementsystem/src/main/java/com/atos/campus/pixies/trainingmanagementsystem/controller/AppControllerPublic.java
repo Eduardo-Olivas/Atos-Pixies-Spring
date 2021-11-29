@@ -6,16 +6,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
-public class AppControllerNavCommon {
+public class AppControllerPublic {
 
 	@RequestMapping("/")
 	public String viewIndex() {
 	    return "index";
 	}
 
-	@RequestMapping("/NavCommon")
-	public String viewHomePage() {
-	    return "NavCommon";
+	@RequestMapping("/layout")
+	public String viewLayout() {
+	    return "layout";
 	}
-	
 }
