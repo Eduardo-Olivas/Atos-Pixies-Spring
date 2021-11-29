@@ -1,14 +1,14 @@
-.row-trainning {
+.row-training {
     display: flex;
     flex-wrap: wrap;
     margin: 30px auto;
 }
 
-.row-trainning>.trainning_card {
+.row-training>.training_card {
     margin-bottom: 30px;
 }
 
-.trainning_card {
+.training_card {
     margin: 0 8px;
     padding: 20px;
     background-color: #b2d9d9;
@@ -16,11 +16,11 @@
     border-radius: 30px;
 }
 
-.trainning_card .trainning_card-body .label {
+.training_card .training_card-body .label {
     font-weight: 600;
 }
 
-.row-trainning:hover {
+.row-training:hover {
     background-color: yellow;
 }
 
