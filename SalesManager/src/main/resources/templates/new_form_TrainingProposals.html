@@ -21,7 +21,6 @@
     <!--Styles-->
     <link rel="stylesheet" href="../css/base.css" />
     <script type="text/javascript" src="../jquery/jquery.js"></script>
-    
     <!--Add your style file here-->
     <!--Add your style file here-->
     <title>New Proposal</title>
@@ -31,7 +30,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="navbar-brand">
-                <img src="./images/atos_logo.svg" alt="logo-atos" class="img-fluid" />
+                <img src="../images/Atos2.svg" alt="logo-atos" class="img-fluid" />
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
@@ -69,35 +68,32 @@
                     <h1 class="title-for-trainer-details">Training Details</h1>
                     <img id="img-trainer" src="./images/imgTrainer.svg" alt="" srcset="">
                     <div class="container-requirements-trainer">
-                        <span>Requirement User:</span>
-                        <span> <strong> REQ001 </strong> </span>
+                        <span>Requirement ID:</span>
+                        <span> <strong id="id-api"> REQ001 </strong> </span>
                         <br>
                         <span>Received Date:</span>
-                        <span> <strong> 12 Oct 2021 </strong> </span>
+                        <span> <strong id="date-api"> 12 Oct 2021 </strong> </span>
                         <br>
                         <span>User:</span>
-                        <span> <strong> Carolina Navas </strong> </span>
+                        <span> <strong id="user-api"> Carolina Navas </strong> </span>
                         <br>
                         <span>Requirement Vertical</span>
-                        <span> <strong> Retail </strong> </span>
-                        <br>
-                        <span>Training Area</span>
-                        <span> <strong> BackEnd </strong> </span>
-                        <br>
-                        <span>Training Description</span>
-                        <span> <strong> Ruby on Rails </strong> </span>
-                        <br>
-                        <span>Requested Training Date</span>
-                        <span> <strong> 12 Dic 2021 </strong> </span>
+                        <span> <strong id="vertical-api"> Retail </strong> </span>
                         <br>
                         <span>Total Candidates</span>
-                        <span> <strong> 22 students </strong> </span>
+                        <span> <strong id="total-api"> BackEnd </strong> </span>
+                        <br>
+                        <span>Total duration days</span>
+                        <span> <strong id="days-api"> Ruby on Rails </strong> </span>
+                        <br>
+                        <span>Training Area</span>
+                        <span> <strong id="area-api"> 12 Dic 2021 </strong> </span>
+                        <br>
+                        <span>Description</span>
+                        <span> <strong id="description-api"> 22 students </strong> </span>
                         <br>
                         <span>Timezone</span>
-                        <span> <strong> Mexico </strong> </span>
-                        <br>
-                        <span>Duration Days</span>
-                        <span> <strong> 5 days </strong> </span>
+                        <span> <strong id="timezone-api"> Mexico </strong> </span>
                     </div>
                 </div>
                 <div class="third-container">
@@ -110,15 +106,24 @@
                     </div>
                     <div class="container-details-yes">
                         <h2 class="title-for-trainer-details-2">Please enter training details: </h2>
+                        <p id="execution-id-url" th:text="${executionID}" >Requirement</p>
                         <div class="container-inputs-accepted">
-                            <form action="">
-                                <button id="button-for-sending-no" class="btn">Send</button>
-                                <label for="">Date</label>
-                                <input class="input-date-trainer" type="date" name="" id="">
-                                <label for="">Datetime</label>
-                                <input placeholder="10am - 1pm" class="input-date-trainer" type="datetime" name="" id="">
-                                <label for="">Duration</label>
-                                <input placeholder="Eg. 40" class="input-date-trainer" type="number">
+                            <form action="#" th:action="@{/save_TrainingProposals}" th:object="${TrainingProposals}" method="post">
+                                <button id="button-for-sending-no" type="submit" class="btn">Send</button>
+                                <label for="">ProposalID
+                                	<input class="input-date-trainer" type="text" th:field="*{ProporsalID}" />
+                                </label>
+                                <label for="">ExecutionID
+                                	<input class="input-date-trainer" readonly="readonly"  type=text th:value="${executionID}" name="ExecutionID" />
+                                </label>
+                                <label for="">MemberID:</label>
+                                	<input class="input-date-trainer" type="text" th:field="*{MemberID}" >
+                                <label for="">ProposedDate:</label>
+                                	<input class="input-date-trainer" type=date th:field="*{ProposedDate}" />
+                                <label for="">ProposedTime:</label>
+                                	<input class="input-date-trainer" type="time" th:field="*{ProposedTime}" >
+                                <label for="">ProposedDuration:</label>
+                                	<input class="input-date-trainer" type="number" th:field="*{ProposedDuration}" />
                             </form>
                         </div>
                     </div>
@@ -142,7 +147,10 @@
         </div>
     </footer>
     <!--Bootstrap JS and Pop-->
+    
     <script src="../javascript/trainerInteraction.js"></script>
+    <script src="../javascript/joselitos2.js"></script>
+  
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js " integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB " crossorigin="anonymous "></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js " integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13 " crossorigin="anonymous "></script>
 </body>

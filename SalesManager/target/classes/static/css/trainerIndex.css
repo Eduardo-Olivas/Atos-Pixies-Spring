@@ -57,8 +57,9 @@
 }
 
 .container-details-yes {
-    flex: 1;
+    flex: 2;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     border: 1px solid #33F7AF;
@@ -66,7 +67,7 @@
     border-radius: 9px;
     height: 100%;
     width: 100%;
-    padding: 1em;
+    padding: 3em;
     position: relative;
 }
 
@@ -135,6 +136,7 @@
 
 .switch {
     position: relative;
+    top: 30px;
     display: inline-block;
     width: 60px;
     height: 34px;
