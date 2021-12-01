@@ -1,46 +1,150 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
     xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="utf-8" />
-<title>New Sale</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@300&family=Poppins:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+    <!--Icons-->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!--Styles-->
+    <link rel="stylesheet" href="../css/base.css" />
+    <script type="text/javascript" src="../jquery/jquery.js"></script>
+    
+    <!--Add your style file here-->
+    <!--Add your style file here-->
+    <title>New Proposal</title>
 </head>
+
 <body>
-    <div align="center">
-        <h1>Enter New TrainingProposals</h1>
-        <br />
-        <form action="#" th:action="@{/save_TrainingProposals}" th:object="${TrainingProposals}"
-            method="post">
- 
-            <table border="0" cellpadding="10">
-              <tr>
-                    <td>ProporsalID:</td>
-                    <td><input type="text" th:field="*{ProporsalID}" /></td>
-                </tr>            
-                <tr>
-                    <td>ExecutionID:</td>
-                    <td><input type="text" th:field="*{ExecutionID}" /></td>
-                </tr>
-                <tr>
-                    <td>MemberID:</td>
-                    <td><input type="text" th:field="*{MemberID}" /></td>
-                </tr>    
-                <tr>
-                    <td>ProposedDate:</td>
-                    <td><input type="date" th:field="*{ProposedDate}" /></td>
-                </tr>    
-                <tr>
-                    <td>ProposedTime:</td>
-                    <td><input type="time" th:field="*{ProposedTime}" /></td>
-                </tr>        
-                <tr>
-                    <td>ProposedDuration:</td>
-                    <td><input type="number" th:field="*{ProposedDuration}" /></td>
-                </tr>
-                <tr>
-                    <td colspan="2"><button type="submit">Save</button> </td>
-                </tr>
-            </table>
-        </form>
-    </div>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="navbar-brand">
+                <img src="./images/atos_logo.svg" alt="logo-atos" class="img-fluid" />
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav  mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Logout</a>
+                    </li>
+                    <li class="nav-user">
+                        <i class="fas fa-user"></i>
+                    </li>
+                </ul>
+
+            </div>
+            </div>
+        </nav>
+    </header>
+    <section class="main row">
+        <div class="main__menu col-md-1 col-12 order-md-first order-last">
+            <div class="main__menu_container">
+                <ul>
+                    <li class="menu-item">
+                        <i class="fas fa-search-plus"></i>
+                        <p>Trainnings Status</p>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="main__content col-md-11 col-12">
+            <div class="red">
+                <div class="second-container">
+                    <h1 class="title-for-trainer-details">Training Details</h1>
+                    <img id="img-trainer" src="./images/imgTrainer.svg" alt="" srcset="">
+                    <div class="container-requirements-trainer">
+                        <span>Requirement User:</span>
+                        <span> <strong> REQ001 </strong> </span>
+                        <br>
+                        <span>Received Date:</span>
+                        <span> <strong> 12 Oct 2021 </strong> </span>
+                        <br>
+                        <span>User:</span>
+                        <span> <strong> Carolina Navas </strong> </span>
+                        <br>
+                        <span>Requirement Vertical</span>
+                        <span> <strong> Retail </strong> </span>
+                        <br>
+                        <span>Training Area</span>
+                        <span> <strong> BackEnd </strong> </span>
+                        <br>
+                        <span>Training Description</span>
+                        <span> <strong> Ruby on Rails </strong> </span>
+                        <br>
+                        <span>Requested Training Date</span>
+                        <span> <strong> 12 Dic 2021 </strong> </span>
+                        <br>
+                        <span>Total Candidates</span>
+                        <span> <strong> 22 students </strong> </span>
+                        <br>
+                        <span>Timezone</span>
+                        <span> <strong> Mexico </strong> </span>
+                        <br>
+                        <span>Duration Days</span>
+                        <span> <strong> 5 days </strong> </span>
+                    </div>
+                </div>
+                <div class="third-container">
+                    <div class="container-decision">
+                        <h1 class="title-for-trainer-details-1">Your mission, should you choose to accept it ? </h1>
+                        <label  class="switch">
+                            <input id="switch-for-trainer" type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="container-details-yes">
+                        <h2 class="title-for-trainer-details-2">Please enter training details: </h2>
+                        <div class="container-inputs-accepted">
+                            <form action="">
+                                <button id="button-for-sending-no" class="btn">Send</button>
+                                <label for="">Date</label>
+                                <input class="input-date-trainer" type="date" name="" id="">
+                                <label for="">Datetime</label>
+                                <input placeholder="10am - 1pm" class="input-date-trainer" type="datetime" name="" id="">
+                                <label for="">Duration</label>
+                                <input placeholder="Eg. 40" class="input-date-trainer" type="number">
+                            </form>
+                        </div>
+                    </div>
+                    <div class="container-details">
+                        <button id="button-for-sending-no" class="btn">Send</button>
+                        <h2 class="title-for-trainer-details-1">Please explain, why you rejected the training. </h2>
+                        <input class="text-area-trainer-reject" placeholder="This message will be sent to your LBP" type="text-area">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="first-section-footer ">
+            <div class="atos-name ">Atos | Syntel</div>
+            <div>Center of Excellence</div>
+        </div>
+        <div class="second-section-footer ">
+            <a href="https://github.com/Ulilop/Atos-Pixies " class="link "> Atos Pixies Team</a>
+            <div>© 2021 Copyright</div>
+        </div>
+    </footer>
+    <!--Bootstrap JS and Pop-->
+    <script src="../javascript/trainerInteraction.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js " integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB " crossorigin="anonymous "></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js " integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13 " crossorigin="anonymous "></script>
 </body>
+
+</html>

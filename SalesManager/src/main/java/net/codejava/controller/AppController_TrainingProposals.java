@@ -37,11 +37,20 @@ public class AppController_TrainingProposals {
 	    return "new_form_TrainingProposals";
 	}
 	
+	@RequestMapping("/new_TrainingProposals/{id}")
+	public String showNewFormWithOther(@PathVariable String id, Model model) {
+		TrainingProposals TrainingProposals = new TrainingProposals();
+	    model.addAttribute("TrainingProposals", TrainingProposals);
+	    model.addAttribute("executionID", id);
+	     
+	    return "new_form_TrainingProposals";
+	}
+	
 	@RequestMapping(value = "/save_TrainingProposals", method = RequestMethod.POST)
 	public String save(@ModelAttribute("TrainingProposals") TrainingProposals TrainingProposals) {
 	    dao.save(TrainingProposals);
 	     
-	    return "redirect:/TrainingProposals";
+	    return "redirect:/TrainingExecutionMaster";
 	}
 	
 	@RequestMapping("/edit_TrainingProposals/{ProporsalID}")
