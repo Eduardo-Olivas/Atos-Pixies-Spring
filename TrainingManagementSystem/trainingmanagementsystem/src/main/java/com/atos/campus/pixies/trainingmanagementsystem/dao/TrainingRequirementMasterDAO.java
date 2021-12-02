@@ -47,10 +47,10 @@ public class TrainingRequirementMasterDAO {
 		String sql = "UPDATE TrainingRequirementMaster SET RequirementID=:RequirementID, "
 				+ "RequirementReceivedDate=:RequirementReceivedDate, RequirementUser=:RequirementUser, "
 				+ "RequirementUserVertical=:RequirementUserVertical, TrainingArea=:TrainingArea, "
-				+ "TrainingDescription=:TrainingDescription "
-				+ "RequestedTrainingStartDate=:RequestedTrainingStartDate "
-				+ "TotalCandidates=:TotalCandidates "
-				+ "TrainingTimeZone=:TrainingTimeZone "
+				+ "TrainingDescription=:TrainingDescription, "
+				+ "RequestedTrainingStartDate=:RequestedTrainingStartDate, "
+				+ "TotalCandidates=:TotalCandidates,"
+				+ "TrainingTimeZone=:TrainingTimeZone,"
 				+ "TotalDurationDays=:TotalDurationDays "
 				+ "WHERE RequirementID=:RequirementID";
 		BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(TrainingRequirementMaster);
