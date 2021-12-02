@@ -60,5 +60,3 @@ public class AppController_NavCommon {
 	}
 
 }
-
-}
