@@ -1,7 +1,5 @@
-
 @import "trainerIndex.css";
 @import "trainerIndex2.css";
-
 *::after,
 *::before {
     margin: 0;
@@ -25,7 +23,7 @@ body {
     line-height: 1.7;
     color: var(--color-black);
     box-sizing: border-box;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
 }
 
 .link {
@@ -37,7 +35,6 @@ body {
 .link:hover {
     text-decoration: none;
     color: var(--color-white);
-    font-size: 1.6rem;
 }
 
 
@@ -102,19 +99,27 @@ body {
 /*3.Main*/
 
 .main {
-    /*display: flex;*/
-    margin-top: 5px;
+    display: flex;
     min-height: 71vh;
+    background-color: #f8f8f8;
+}
+
+.main__content {
+    padding: 1.5rem;
+    width: 100%;
+    margin-top: 15px;
+    /*min-height: 70vh;9*/
+}
+
+.main__menu {
+    background: #ffffff;
+    z-index: 2;
+    border-radius: 0px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 
 /*Sidebar*/
-
-.main .main__menu {
-    background: #e8e8e8;
-    z-index: 2;
-    border-radius: 10px;
-}
 
 .main__menu_container ul {
     width: 100%;
@@ -123,35 +128,203 @@ body {
     list-style-type: none;
 }
 
-.main__menu_container ul .menu-item {
+.menu-item {
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
     text-align: center;
-    margin: 0 auto;
-    list-style-type: none;
-    border-bottom: 2px solid var(--color-primary);
-    border-radius: 20px 20px 20px 20px;
+    padding: 1rem;
 }
 
-.main__menu_container ul .menu-item:hover {
-    background: var(--color-white);
+.menu-item.active {
+    display: block;
+    background-color: var(--color-primary);
+    color: var(--color-white);
 }
 
-.main__menu_container ul .menu-item i {
+.menu-item.active i {
+    color: var(--color-white);
+}
+
+.menu-item.active p {
+    display: block;
+    font-size: 1rem;
+}
+
+.menu-item i {
     color: var(--color-primary);
-    margin-top: 10px;
-    font-size: 2.3rem;
+    font-size: 2.50rem;
 }
 
-.main__menu_container ul .menu-item p {
-    font-size: 1.2rem;
-    padding: 0.5rem;
+.menu-item p {
+    display: none;
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+
+.menu-item:hover {
+    background: var(--color-primary);
+    color: var(--color-white);
+}
+
+.menu-item:hover i {
+    color: var(--color-white);
+}
+
+.menu-item:hover p {
+    display: block;
+    font-size: 1rem;
 }
 
 
 /*Main Content*/
 
-.main__content {
-    min-height: 70vh;
+.main__content-header {
+    display: inline;
+    font-size: 1.7rem;
 }
+
+.main__content-header h2 {
+    display: inline;
+}
+
+.main__content-header div {
+    font-size: 2rem;
+    margin-left: 5px;
+    display: inline;
+}
+
+.main__content-header div i {
+    color: var(--color-primary);
+    padding: 2px;
+}
+
+
+/*Basic Card*/
+
+.card {
+    width: 100%;
+    /*height: 100%;*/
+    padding: 1rem 1.5rem;
+    background: #ffff;
+    border-radius: 0.75rem;
+    box-shadow: 1px 5px rgb(0 0 0 / 4%), 0 1px 6px rgb(0 0 0 / 4%)
+}
+
+.card h3 {
+    padding: 0 1.5rem;
+    font-size: 1.7rem;
+}
+
+
+/*Card trainnings*/
+
+.card-trainning {
+    text-align: center;
+    padding: 0;
+    min-width: 150px;
+    max-width: 220px;
+    transition: all .3s cubic-bezier(0.075, 0.82, 0.165, 1)
+}
+
+.card-trainning:hover {
+    cursor: pointer;
+    transform: scale(105%);
+}
+
+.card-trainning-body:hover h3 {
+    margin-top: -2px;
+}
+
+.card-trainning-body {
+    padding: -10px;
+    margin-left: -5px;
+    border-radius: 0.75rem;
+}
+
+.card-trainning-body h3 {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    color: white;
+    margin-bottom: 8px;
+}
+
+.card-trainning-body i {
+    font-size: 3.3rem;
+}
+
+.card-trainning-body .card-info {
+    padding: 1rem 1.5rem;
+    text-align: left;
+}
+
+.checkbox {
+    font-size: 2rem;
+}
+
+.process {
+    border: 5px solid #7ff592;
+}
+
+.confirmed {
+    border: 5px solid #AC7FF5;
+}
+
+.new {
+    border: 5px solid #7fcbf5;
+}
+
+.rejected {
+    border: 5px solid #ff5454;
+}
+
+.process-txt {
+    color: #7ff592;
+}
+
+.confirmed-txt {
+    color: #AC7FF5;
+}
+
+.new-txt {
+    color: #7fcbf5;
+}
+
+.rejected-txt {
+    color: #ff5454;
+}
+
+.process-bg {
+    background-color: #7ff592;
+}
+
+.confirmed-bg {
+    background-color: #AC7FF5;
+}
+
+.new-bg {
+    padding: 5px;
+    background-color: #7fcbf5;
+}
+
+.rejected-bg {
+    background-color: #ff5454;
+}
+
+.btn {
+    font-size: 1.3rem;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+}
+
+.font-bold {
+    font-weight: bold;
+}
+
+.table {}
 
 
 /*4.-Footer*/
@@ -159,18 +332,12 @@ body {
 .footer {
     width: 100%;
     background-color: var(--color-primary);
-    color: var(--color-white);
-    height: 12rem;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    color: var(--color-white) !important;
     text-align: center;
 }
 
-.atos-name {
-    font-size: 1.9rem;
-    line-height: 1.2rem;
-    font-weight: 600;
+.atos-logo {
+    width: 60px;
 }
 
 
@@ -191,9 +358,16 @@ body {
 }
 
 @media (max-width: 769px) {
-    .main {}
+    .main {
+        flex-direction: column-reverse;
+    }
     .main__menu_container ul {
         display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .menu-item {
+        height: 100%;
     }
 }
 

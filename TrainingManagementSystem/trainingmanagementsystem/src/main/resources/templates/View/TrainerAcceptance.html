@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en"
+      xml:lang="en" 
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate=~{main_layout.html}>
+<head>
+    <title>Training Management System</title>
+    <!-- Your meta, links and scripts goes here-->
+</head>
+<body>
+    <!-- Main component -->
+    <div layout:fragment="main-content">
+        <div class="main__content-header">
+            <h2>Trainner Acceptance</h2>
+            <div>[<i class="fas fa-plus-square"></i>]</div>
+            <hr/>
+        </div>
+        <div class="row d-flex  align-items-stretch">
+            <div class="col-md-4 col-12 mb-4">
+                <div class="card">
+                    <h3>Training Details</h3>
+                    <div class="card-body">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Field</th>
+                                    <th scope="col">Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Requirement User: </th>
+                                    <td class="text-muted">REQ001</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Received Date: </th>
+                                    <td class="text-muted">12-Oct-2021</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">User: </th>
+                                    <td class="text-muted">Username username</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Requirement Vertical: </th>
+                                    <td class="text-muted">Retail</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Training Area: </th>
+                                    <td class="text-muted">Backend</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Training Description: </th>
+                                    <td class="text-muted">Ruby on Rails</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Requested Training Date: </th>
+                                    <td class="text-muted">12-Dec-2021</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Total Candidates: </th>
+                                    <td class="text-muted">22 Students</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Timezone: </th>
+                                    <td class="text-muted">Mexico</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Duration: </th>
+                                    <td class="text-muted">5 D</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 col-12 mb-4">
+                <div class="card container">
+                    <h3>Your mission, should you choose to accept it?</h3>
+                    <div class="form-check form-switch m-auto">
+                        <input class="form-check-input checkbox" type="checkbox" role="switch" id="switch">
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div id="rejected">
+                                <h4>Please explain, why you rejected the training.</h4>
+                                <hr/>
+                                <div class="form-floating">
+                                    <textarea class="form-control" placeholder="Leave a comment here" id="comment" style="height: 100px"></textarea>
+                                    <label for="comment">Comments</label>
+                                </div>
+                                <button class="btn btn-primary mt-3">Send</button>
+                            </div>
+                            <div id="accepted">
+                                <h4>Please enter training details</h4>
+                                <hr/>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <label for="date" class="form-label">Date</label>
+                                        <input type="date" class="form-control" id="date">
+                                    </div>
+                                    <div class="col-4">
+                                        <label for="datetime" class="form-label">Datetime</label>
+                                        <input type="txt" class="form-control" id="datetime">
+                                    </div>
+                                    <div class="col-4">
+                                        <label for="duration" class="form-label">Duration</label>
+                                        <input type="number" class="form-control" id="duration">
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary mt-3">Send</button>
+
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

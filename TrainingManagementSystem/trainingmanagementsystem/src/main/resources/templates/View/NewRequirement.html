@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en"
+      xml:lang="en" 
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate=~{main_layout.html}>
+<head>
+    <title>Training Management System</title>
+    <!-- Your meta, links and scripts goes here-->
+</head>
+<body>
+    <!-- Main component -->
+    <div layout:fragment="main-content">
+        <div class="main__content-header">
+            <h2>New Requirements</h2>
+            <div>[<i class="fas fa-plus-square"></i>]</div>
+            <hr/>
+        </div>
+        <div class="row d-flex  align-items-stretch">
+            <div class="col-md-7 col-12 mb-4">
+                <div class="card">
+                    <h3>New Requirements</h3>
+                    <div class="card-body">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Label</th>
+                                    <th scope="col">Value</th>
+                                    <th scope="col">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Received date: </th>
+                                    <td class="text-muted">DD/MM/YYYY</td>
+                                    <td class="text-muted">Small Description</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">User: </th>
+                                    <td class="text-muted">RequirementUser</td>
+                                    <td class="text-muted">Small Description</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Vertical: </th>
+                                    <td class="text-muted">Requirement User Vertical</td>
+                                    <td class="text-muted">...</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Area: </th>
+                                    <td class="text-muted">Trainning Area</td>
+                                    <td class="text-muted">......</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Participants: </th>
+                                    <td class="text-muted">Total of Participants</td>
+                                    <td class="text-muted">Small Description</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Duration: </th>
+                                    <td class="text-muted">Total Duration Day</td>
+                                    <td class="text-muted">...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5 col-12 mb-4">
+                <div class="card">
+                    <h3>Trainners</h3>
+                    <div class="card-body">
+                        <form class="row">
+                            <div class="col-12 form-check form-switch mb-1">
+                                <input class="form-check-input" type="checkbox" role="switch" id="trainner">
+                                <label class="form-check-label" for="trainner">All</label>
+                            </div>
+                            <div class="col-12 form-check form-switch mb-1">
+                                <input class="form-check-input" type="checkbox" role="switch" id="trainner">
+                                <label class="form-check-label" for="trainner">Antonio Guerrero Espinoza</label>
+                            </div>
+                            <div class="col-12 form-check form-switch mb-1">
+                                <input class="form-check-input" type="checkbox" role="switch" id="trainner">
+                                <label class="form-check-label" for="trainner">Eduardo Olivas Hermosillo</label>
+                            </div>
+                            <div class="col-12 form-check form-switch mb-1">
+                                <input class="form-check-input" type="checkbox" role="switch" id="trainner">
+                                <label class="form-check-label" for="trainner">Fracnisco Javier Favela Najera</label>
+                            </div>
+                            <div class="col-12 form-check form-switch mb-1">
+                                <input class="form-check-input" type="checkbox" role="switch" id="trainner">
+                                <label class="form-check-label" for="trainner">Jose Eduardo Chapa Gonzalez</label>
+                            </div>
+                            <div class="col-12 form-check form-switch mb-1">
+                                <input class="form-check-input" type="checkbox" role="switch" id="trainner">
+                                <label class="form-check-label" for="trainner">Jose Luis Matias Pineada</label>
+                            </div>
+                            <div class="col-12 form-check form-switch mb-1">
+                                <input class="form-check-input" type="checkbox" role="switch" id="trainner">
+                                <label class="form-check-label" for="trainner">Luis Jair Contreras Cervantes</label>
+                            </div>
+                            <div class="col-12 form-check form-switch mb-1">
+                                <input class="form-check-input" type="checkbox" role="switch" id="trainner">
+                                <label class="form-check-label" for="trainner">Samuel Alejandro Bullon Tenorio</label>
+                            </div>
+                            <div class="col-12 form-check form-switch mb-1">
+                                <input class="form-check-input" type="checkbox" role="switch" id="trainner">
+                                <label class="form-check-label" for="trainner">Victor Ulises Lopez Arias</label>
+                            </div>
+                            <div class="col-12 mb-2">
+                                <button type="submit" class="btn btn-primary">Send Request</button>
+                            </div>
+                            <div class="col-12 mb-3">
+                                <label for="commets">Trainner Status Message</label>
+                                <textarea class="form-control" placeholder="Leave a comment here" id="message"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary">Message to business</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  
+</body>
+</html>

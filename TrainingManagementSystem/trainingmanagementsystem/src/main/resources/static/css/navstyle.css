@@ -171,3 +171,23 @@ font-weight: normal;
 font-size: 60px;
 font-family: Roboto;
 }
+
+.page-footer {
+  position: fixed;
+  width: 100vw;
+  bottom: 0px;
+}
+
+#title-for-training {
+  margin: 0;
+  font-size: medium;
+  font-style: italic;
+}
+
+#img-logo {
+  height: 3em;
+}
+
+.navbar {
+  width: 100vw;
+}

@@ -22,17 +22,17 @@
 }
 
 .login p {
-    margin-top: 100px;
+    margin-top: 55px;
     text-align: center;
 }
 
 .login h1 {
-    margin-top: 10px;
+    margin:21px 0px;
     text-align: center;
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin: 30px 0px;
 }
 
 .form-control {
@@ -56,12 +56,16 @@ input[type='password'] {
 .button-login {
     margin: 70px auto 0;
     width: 80%;
-    height: auto;
+    height: 35px;
     text-align: center;
     background: #009BF9;
     color: #FFFFFF;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 5px 7px rgba(0, 0, 0, 0.15);
     border-radius: 10px;
+    border: none;
+}
+.button-login:hover {
+    background: #00568b;
 }
 
 @media (max-width: 900px) {

@@ -1,0 +1,66 @@
+.deploy-container {
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 3em;
+    overflow: scroll;
+    font-family: Poppins;
+}
+
+.container-card-for-index{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 50%;
+    width: 12%;
+    background-color: #09E596;
+    margin: 30px;
+    border-radius: 7px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    padding: 1em;
+    position: relative;
+    overflow: hidden;
+}
+
+.container-card-for-index:hover {
+    height: 50%;
+    width: 12%;
+    background-color: white;
+    margin: 30px;
+    border-radius: 7px;
+    border-bottom: 40px solid #09E596;
+    transition: 550ms ease-in-out;
+    transform: scale(1.2);
+}
+
+.card-title-container-trainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 100%;
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    padding: 3em;
+}
+
+.user-content-trainer {
+    position: relative;
+    top: 40%;
+    color: #09E596;
+    font-weight: 400;
+    margin: 0;
+}
+
+.user-content-user-trainer {
+    position: relative;
+    top: 40%;
+    color: #09E596;
+    font-weight: 700;
+}

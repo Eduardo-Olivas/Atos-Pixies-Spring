@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"
+      xml:lang="en" 
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate=~{main_layout.html}>
+<head>
+    <title>Training Management System</title>
+    <!-- Your meta, links and scripts goes here-->
+</head>
+<body>
+    <!-- Main component -->
+    <div layout:fragment="main-content">
+        <div class="main__content-header">
+            <h2>Rejected Training</h2>
+            <div>[<i class="fas fa-plus-square"></i>]</div>
+            <hr/>
+        </div>
+        <div class="row d-flex  align-items-stretch">
+            <div class="col-md-7 col-12 mb-4">
+                <div class="card">
+                    <h3>Confirmed requirements</h3>
+                    <div class="card-body">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Label</th>
+                                    <th scope="col">Value</th>
+                                    <th scope="col">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Received date: </th>
+                                    <td class="text-muted">DD/MM/YYYY</td>
+                                    <td class="text-muted">Small Description</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Start date: </th>
+                                    <td class="text-muted">DD/MM/YYYY</td>
+                                    <td class="text-muted">Small Description</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">User: </th>
+                                    <td class="text-muted">requirement user</td>
+                                    <td class="text-muted">Small Description</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Vertical: </th>
+                                    <td class="text-muted">Vertical requirement user </td>
+                                    <td class="text-muted">......</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Area: </th>
+                                    <td class="text-muted">Area</td>
+                                    <td class="text-muted">...</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Participants: </th>
+                                    <td class="text-muted">Total of Participants</td>
+                                    <td class="text-muted">Small Description</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Duration: </th>
+                                    <td class="text-muted">days</td>
+                                    <td class="text-muted">....</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5 col-12 mb-4">
+                <div class="card">
+                    <h3>Form</h3>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="trainer" class="form-label">Trainer</label>
+                                <input type="txt" class="form-control" id="trainer" placeholder="Enter trainer name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="comments">Reasons of rejection</label>
+                                <textarea class="form-control" placeholder="Leave a comment here" id="comments" style="height: 100px"></textarea>
+                            </div>
+                            <button class="btn btn-primary mt-3">Send</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

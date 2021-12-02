@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en"
+      xml:lang="en" 
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate=~{main_layout.html}>
+<head>
+    <title>Training Management System</title>
+    <!-- Your meta, links and scripts goes here-->
+</head>
+<body>
+    <!-- Main component -->
+    <div layout:fragment="main-content">
+        <div class="main__content-header">
+            <h2>New Trainning Request</h2>
+            <div>[<i class="fas fa-plus-square"></i>]</div>
+            <hr/>
+        </div>
+        <div class="row">
+            <div class="col-6 m-auto">
+                <div class="card">
+                    <h3>New Trainning Request</h3>
+                    <div class="card-body">
+                        <form class="row g-3">
+                            <div class="col-12">
+                                <label for="date" class="form-label">Date</label>
+                                <input type="date" class="form-control" id="date">
+                            </div>
+                            <div class="col-6">
+                                <label for="date" class="form-label">Vertical</label>
+                                <select class="form-select" aria-label="Vertical">
+                                    <option selected>Select an option</option>
+                                    <option value="1">Accounting</option>
+                                    <option value="2">HR</option>
+                                  </select>
+                            </div>
+                            <div class="col-6">
+                                <label for="area" class="form-label">Area</label>
+                                <input type="text" class="form-control" id="area" placeholder="Area">
+                            </div>
+                            <div class="col-12">
+                                <label for="commets">Comments</label>
+                                <textarea class="form-control" placeholder="Leave a comment here" id="comments"></textarea>
+                            </div>
+                            <div class="col">
+                                <label for="commets">Total Canditates</label>
+                                <input type="number" class="form-control" id="area" placeholder="Total canditates">
+                            </div>
+                            <div class="col">
+                                <label for="timeZone">Time Zone</label>
+                                <input type="txt" class="form-control" id="timeZone" placeholder="Time zone">
+                            </div>
+                            <div class="col">
+                                <label for="duration">Duration in days</label>
+                                <input type="number" class="form-control" id="duration" placeholder="Duration">
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary">Request</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

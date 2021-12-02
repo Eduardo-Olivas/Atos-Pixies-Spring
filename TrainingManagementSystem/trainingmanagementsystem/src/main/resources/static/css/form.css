@@ -1,0 +1,113 @@
+.form {
+  background-color: #0175AE;
+  border-radius: 0.8rem;
+  box-sizing: border-box;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-flow: row wrap;
+  margin: 2rem 10%;
+  max-width: 50rem;
+}
+
+.form__title {
+  color: #eee;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.form__input-container {
+  min-height: 3rem;
+  min-width: 5rem;
+  position: relative;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.form__input {
+  background-color: #FFFFFF;
+  border-radius: 0.4rem;
+  border: 0;
+  box-sizing: border-box;
+  color: #000000;
+  height: 100%;
+  outline: 0;
+  padding: 0.4rem 1rem 0;
+  width: 100%;
+}
+
+.form__cut {
+  background-color: #0175AE;
+  border-radius: 0.5rem;
+  height: 2rem;
+  left: 0.5rem;
+  position: absolute;
+  top: -2rem;
+  transform: translateY(0);
+  transition: transform 200ms;
+  width: 80%;
+}
+
+.form__input:focus ~ .form__cut,
+.form__input:not(:placeholder-shown) ~ .form__cut {
+  transform: translateY(0.5rem);
+}
+
+.form__placeholder {
+  color: #878787;
+  top: 1.5rem;
+  left: 1rem;
+  line-height: 0;
+  pointer-events: none;
+  position: absolute;
+  transform-origin: 0 0;
+  transition: transform 200ms, color 200ms;
+}
+
+.form__input:focus ~ .form__placeholder,
+.form__input:not(:placeholder-shown) ~ .form__placeholder {
+  transform: translateY(-1.85rem) translateX(0) scale(0.80);
+}
+
+.form__input:not(:placeholder-shown) ~ .form__placeholder {
+  color: #CCCCCC;
+}
+
+.form__input:focus ~ .form__placeholder {
+  color: #FFFFFF;
+}
+
+.form__input:focus:required:invalid {
+  outline: none !important;
+  border-color: #719ECE;
+  box-shadow: 0 0 1rem #719ECE;
+} 
+.form__input:focus:required:invalid ~ .form__placeholder {
+  color: #ff1500;
+} 
+
+.form__submit {
+  background-color: #009BF9;
+  border-radius: 0.5rem;
+  border: 0;
+  box-sizing: border-box;
+  color: #eee;
+  cursor: pointer;
+  font-size: 3rem;
+  height: 5rem;
+  margin-top: 2rem;
+  box-shadow: 0rem 0.4rem 0.4rem #00000075;
+  text-align: center;
+  width: 100%;
+}
+
+.form__submit:hover {
+	background-color: #1653b6;
+}
+
+.form__submit:active {
+  background-color: #06b;
+  position:relative;
+	top:2px;
+}

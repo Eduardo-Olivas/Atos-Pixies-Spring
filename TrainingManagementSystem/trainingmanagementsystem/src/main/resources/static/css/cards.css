@@ -1,0 +1,62 @@
+.card-container {
+    background-color: white;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 1rem;
+}
+.card {
+    box-sizing: border-box;
+    display: inline-block;
+    background: #fff;
+    border-radius: 0.5rem;
+    margin: 1rem;
+    position: relative;
+    box-shadow: 0 0 1px rgba(0,0,0,0.1), 5px 5px 5px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.5,.25,1);
+}
+
+.card:hover {
+    cursor: pointer;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    transform: scale(110%);
+}
+
+.card__info{
+    display:grid;
+    margin: 5px;
+    justify-self: center;
+    grid-template-columns: max-content max-content;
+    grid-gap:5px;
+    row-gap: 5px;
+    text-align: center;
+}
+.card__info-label {
+    font-weight: bold;
+    text-align: right;
+}
+.card__info-label:after { content: ":"; }
+.card__title {
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+    text-align: center;
+    padding: 5% 0;
+    display: flex;
+    justify-content: space-evenly;
+    margin-right: -0.1rem;
+}
+.new {
+    background-color: #7FCBF5;
+}
+
+.in-process {
+    background-color: #7FF592;
+}
+
+.confirmed {
+    background-color: #AC7FF5;
+}
+
+.rejected {
+    background-color: #FF5454;
+}
