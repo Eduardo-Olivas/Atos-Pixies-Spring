@@ -37,7 +37,7 @@ async function convertion(){
 				
 				title.innerText = infoApi.trainingArea
 				content1.innerText = "Starting Date: " + infoApi.requestedTrainingStartDate
-				content2.innerText = "Requirement User: " + infoApi.requirementUser
+				content2.innerText = "From: " + infoApi.requirementUser
 				content3.innerText = "Total Candidates: " + infoApi.totalCandidates
 				content4.innerText = "Duration: " + infoApi.totalDurationDays
 				content5.innerText = "Description: " + infoApi.trainingDescription
