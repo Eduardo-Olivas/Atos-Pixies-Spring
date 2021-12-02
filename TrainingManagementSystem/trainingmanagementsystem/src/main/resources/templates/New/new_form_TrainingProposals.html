@@ -4,7 +4,7 @@
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate=~{main_layout.html}>
+      layout:decorate="~{main_layout.html}">
 <head>
     <title>Training Management System</title>
     <!-- Your meta, links and scripts goes here-->
@@ -75,12 +75,12 @@
                                 	<input class="input-date-trainer" type="text" th:field="*{ProporsalID}" />
                                 </label>
                                 <label for="">ExecutionID
-                                	<input class="input-date-trainer" readonly="readonly"  type=text th:value="${executionID}" name="ExecutionID" />
+                                	<input class="input-date-trainer" readonly="readonly"  type="text" th:value="${executionID}" name="ExecutionID" />
                                 </label>
                                 <label for="">MemberID:</label>
                                 	<input class="input-date-trainer" type="text" th:field="*{MemberID}" >
                                 <label for="">ProposedDate:</label>
-                                	<input class="input-date-trainer" type=date th:field="*{ProposedDate}" />
+                                	<input class="input-date-trainer" type="date" th:field="*{ProposedDate}" />
                                 <label for="">ProposedTime:</label>
                                 	<input class="input-date-trainer" type="time" th:field="*{ProposedTime}" >
                                 <label for="">ProposedDuration:</label>

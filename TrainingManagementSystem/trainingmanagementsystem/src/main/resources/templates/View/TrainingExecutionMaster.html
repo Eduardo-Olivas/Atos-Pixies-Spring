@@ -4,7 +4,7 @@
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate=~{main_layout.html}>
+      layout:decorate="~{main_layout.html}">
 <head>
     <title>Training Management System</title>
     <!-- Your meta, links and scripts goes here-->
@@ -37,9 +37,9 @@
     <div layout:fragment="main-content">
         <div class="deploy-container">       	
             <div id="div-card-conatiner"  th:each="TrainingExecutionMaster : ${listTrainingExecutionMaster}" class="container-card-for-index">
-                <p id="requirement-id-identifier" th:text=${TrainingExecutionMaster.RequirementID} > </p>
+                <p id="requirement-id-identifier" th:text="${TrainingExecutionMaster.RequirementID}"> </p>
                 <h3  id="requirement-id" class="card-title-container-trainer" th:text="${TrainingExecutionMaster.RequirementID}">RequirementID</h3>
-                <p id="execution-id-identifier" th:text=${TrainingExecutionMaster.ExecutionID} > </p>
+                <p id="execution-id-identifier" th:text="${TrainingExecutionMaster.ExecutionID}"> </p>
                 <p class="user-trainer" th:text="${TrainingExecutionMaster.ConfirmedDate}"> Confirmed Date </p>
                 <p class="user-trainer" th:text="${TrainingExecutionMaster.ConfirmedTime}" >User</p>
                 <p class="user-trainer" th:text="${TrainingExecutionMaster.TotalHRS} + ' hrs'">User</p>
