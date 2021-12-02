@@ -100,7 +100,7 @@
 	z-index: 9999; 
 	position: absolute; 
 	background-color: white;
-	padding: 5em;
+	padding: 2em 5em;
 	height: 60%; 
 	width: 60%; 
 	opacity: none;
@@ -137,5 +137,27 @@
 	top: 54px;
     right: -5px;
     width: 75px;
+}
+#injecting-title {
+    border-bottom: 4px solid #09E596;
+    font-size: 2.5em;
+}
+
+#injecting-contents-5{
+    font-weight: 700;
+}
+
+#injecting-contents-2 {
+    font-weight: 600;
+}
+
+#proposal-status-tag {
+    position: absolute;
+    bottom: -95px;
+    font-weight: 900;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
