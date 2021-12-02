@@ -1,18 +1,18 @@
 let resource;
 const apiCall = async () => {
-	retrievedData = await fetch("http://localhost:8085/api/TrainingRequirements");
+	retrievedData = await fetch("/api/TrainingRequirements");
 	data = await retrievedData.json();
 	return data;
 }
 
 const apiCallOne = async (param) => {
-	retrievedData = await fetch("http://localhost:8085/api/TrainingRequirements/"+ param);
+	retrievedData = await fetch("/api/TrainingRequirements/"+ param);
 	data = await retrievedData.json();
 	return data;
 }
 
 const apiCallProposals = async (param) => {
-	retrievedData = await fetch("http://localhost:8085/api/proposals/foreign-key/"+ param);
+	retrievedData = await fetch("/api/proposals/foreign-key/"+ param);
 	data = await retrievedData.json();
 	return data;
 }

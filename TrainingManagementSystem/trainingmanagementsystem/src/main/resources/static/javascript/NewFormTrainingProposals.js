@@ -3,7 +3,7 @@ $(document).ready( function(){
     let parameter = $('#execution-id-url').text();
 
     const apiExecution = async (param) => {
-        data = await fetch("http://localhost:8085/api/TrainingExecutionMaster/" + param);
+        data = await fetch("/api/TrainingExecutionMaster/" + param);
         parsed = await data.json();
         console.log(parsed);
         return parsed;
@@ -11,7 +11,7 @@ $(document).ready( function(){
     
     const apiCallOne = async (parameter) => {
 		
-        retrievedData = await fetch("http://localhost:8085/api/TrainingRequirements/" + parameter);
+        retrievedData = await fetch("/api/TrainingRequirements/" + parameter);
         data = await retrievedData.json();
         $("#id-api").text(data.requirementID);
         $("#date-api").text(data.requirementReceivedDate);
