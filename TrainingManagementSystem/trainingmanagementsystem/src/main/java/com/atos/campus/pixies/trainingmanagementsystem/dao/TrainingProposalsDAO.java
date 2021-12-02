@@ -26,6 +26,15 @@ public class TrainingProposalsDAO {
 		return listTrainingProposals;
 	}
 	
+	public List<TrainingProposals> listSpecial(String id) {
+		String sql = "SELECT * FROM TrainingProposals WHERE ExecutionID = ?";
+		Object[] args = {id};
+		List<TrainingProposals> listTrainingProposals = jdbcTemplate.query(sql,args,
+				BeanPropertyRowMapper.newInstance(TrainingProposals.class));
+
+		return listTrainingProposals;
+	}
+	
 	public void save(TrainingProposals TrainingProposals) {
 		SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
 		insertActor.withTableName("TrainingProposals").usingColumns("ProporsalID", "ExecutionID", "MemberID","ProposedDate","ProposedTime","ProposedDuration");
@@ -36,6 +45,13 @@ public class TrainingProposalsDAO {
 	
 	public TrainingProposals get(String ProporsalID) {
 		String sql = "SELECT * FROM TrainingProposals WHERE ProporsalID = ?";
+		Object[] args = {ProporsalID};
+		TrainingProposals TrainingProposals = jdbcTemplate.queryForObject(sql, args, BeanPropertyRowMapper.newInstance(TrainingProposals.class));
+		return TrainingProposals;
+	}
+	
+	public TrainingProposals getOneSpecial(String ProporsalID) {
+		String sql = "SELECT * FROM TrainingProposals WHERE ExecutionID = ?";
 		Object[] args = {ProporsalID};
 		TrainingProposals TrainingProposals = jdbcTemplate.queryForObject(sql, args, BeanPropertyRowMapper.newInstance(TrainingProposals.class));
 		return TrainingProposals;

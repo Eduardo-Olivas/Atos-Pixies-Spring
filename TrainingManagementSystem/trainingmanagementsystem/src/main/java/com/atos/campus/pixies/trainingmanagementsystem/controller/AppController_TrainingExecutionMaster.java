@@ -17,7 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
-public class AppControllerTrainingExecutionMaster {
+public class AppController_TrainingExecutionMaster {
 	
 	@Autowired
 	private TrainingExecutionMasterDAO dao;
@@ -26,7 +26,7 @@ public class AppControllerTrainingExecutionMaster {
 	public String viewHomePage(Model model) {
 		List<TrainingExecutionMaster> listTrainingExecutionMaster = dao.list();
 		model.addAttribute("listTrainingExecutionMaster", listTrainingExecutionMaster);
-	    return "TrainingExecutionMaster";
+	    return "View/TrainingExecutionMaster";
 	}
 	
 	@RequestMapping("/new_TrainingExecutionMaster")
@@ -41,14 +41,14 @@ public class AppControllerTrainingExecutionMaster {
 	public String save(@ModelAttribute("TrainingExecutionMaster") TrainingExecutionMaster TrainingExecutionMaster) {
 	    dao.save(TrainingExecutionMaster);
 	     
-	    return "redirect:/TrainingExecutionMaster";
+	    return "redirect:/View/TrainingExecutionMaster";
 	}
 	
 	@RequestMapping("/edit_TrainingExecutionMaster/{RequirementID}")
 	public ModelAndView showEditForm(@PathVariable(name = "RequirementID") String RequirementID) {
 	    ModelAndView mav = new ModelAndView("edit_form_TrainingExecutionMaster");
 	    TrainingExecutionMaster TrainingExecutionMaster = dao.get(RequirementID);
-	    mav.addObject("TrainingExecutionMaster", TrainingExecutionMaster);
+	    mav.addObject("View/TrainingExecutionMaster", TrainingExecutionMaster);
 	     
 	    return mav;
 	}
@@ -57,12 +57,12 @@ public class AppControllerTrainingExecutionMaster {
 	public String update(@ModelAttribute("TrainingExecutionMaster") TrainingExecutionMaster TrainingExecutionMaster) {
 	    dao.update(TrainingExecutionMaster);
 	     
-	    return "redirect:/TrainingExecutionMaster";
+	    return "redirect:/View/TrainingExecutionMaster";
 	}
 	
 	@RequestMapping("/delete_TrainingExecutionMaster/{RequirementID}")
 	public String delete(@PathVariable(name = "RequirementID") String RequirementID) {
 	    dao.delete(RequirementID);
-	    return "redirect:/TrainingExecutionMaster";       
+	    return "redirect:/View/TrainingExecutionMaster";       
 	}	
 }

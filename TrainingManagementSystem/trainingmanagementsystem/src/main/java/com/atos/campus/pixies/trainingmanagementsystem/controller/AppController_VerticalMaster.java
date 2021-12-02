@@ -17,7 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
-public class AppControllerVerticalMaster {
+public class AppController_VerticalMaster {
 	
 	@Autowired
 	private VerticalMasterDAO dao;
@@ -31,8 +31,8 @@ public class AppControllerVerticalMaster {
 	
 	@RequestMapping("/new_VerticalMaster")
 	public String showNewForm(Model model) {
-		VerticalMaster verticalMaster = new VerticalMaster();
-	    model.addAttribute("VerticalMaster", verticalMaster);
+		VerticalMaster VerticalMaster = new VerticalMaster();
+	    model.addAttribute("VerticalMaster", VerticalMaster);
 	     
 	    return "new_form_VerticalMaster";
 	}

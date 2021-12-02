@@ -41,6 +41,13 @@ public class TrainingExecutionMasterDAO {
 		return TrainingExecutionMaster;
 	}
 	
+	public TrainingExecutionMaster getOne(String ExecutionID) {
+		String sql = "SELECT * FROM TrainingExecutionMaster WHERE ExecutionID = ?";
+		Object[] args = {ExecutionID};
+		TrainingExecutionMaster TrainingExecutionMaster = jdbcTemplate.queryForObject(sql, args, BeanPropertyRowMapper.newInstance(TrainingExecutionMaster.class));
+		return TrainingExecutionMaster;
+	}
+	
 	public void update(TrainingExecutionMaster TrainingExecutionMaster) {
 		String sql = "UPDATE TrainingExecutionMaster SET RequirementID=:RequirementID, ExecutionID=:ExecutionID, ConfirmedDate=:ConfirmedDate, ConfirmedTime=:ConfirmedTime, Trainer=:Trainer, TotalHRS=:TotalHRS, ProposalStatus=:ProposalStatus, TotalParticipantsAllowed=:TotalParticipantsAllowed WHERE RequirementID=:RequirementID";
 		BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(TrainingExecutionMaster);

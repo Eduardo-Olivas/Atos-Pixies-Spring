@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
-public class AppControllerLoginPage {
+public class AppController_LoginPage {
 	
 
 	@RequestMapping("/LoginPage")

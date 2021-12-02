@@ -17,7 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
-public class AppControllerLDMemberData {
+public class AppController_LDMemberData {
 	
 	@Autowired
 	private LDMemberDataDAO dao;
