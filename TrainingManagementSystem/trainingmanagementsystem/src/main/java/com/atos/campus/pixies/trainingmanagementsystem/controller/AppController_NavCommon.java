@@ -10,7 +10,6 @@ public class AppController_NavCommon {
 
 	@RequestMapping("/layout")
 	public String viewLayout() {
-	    return "layout";
 	    return "main_layout";
 	}
 
