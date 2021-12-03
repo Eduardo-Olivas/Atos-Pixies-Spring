@@ -20,29 +20,29 @@ public class AppController_LDRoles {
 	@Autowired
 	private LDRolesDAO dao;
 	
-	@RequestMapping("/LDRoles")
+	@RequestMapping("/Crud/LDRoles")
 	public String viewHomePage(Model model) {
 		List<LDRoles> listLDRoles = dao.list();
 		model.addAttribute("listLDRoles", listLDRoles);
-	    return "LDRoles";
+	    return "Crud/LDRoles";
 	}
 	
-	@RequestMapping("/new_LDRoles")
+	@RequestMapping("/Crud/new_LDRoles")
 	public String showNewForm(Model model) {
 		LDRoles LDRoles = new LDRoles();
 	    model.addAttribute("LDRoles", LDRoles);
 	     
-	    return "new_form_LDRoles";
+	    return "New/new_form_LDRoles";
 	}
 	
 	@RequestMapping(value = "/save_LDRoles", method = RequestMethod.POST)
 	public String save(@ModelAttribute("LDRoles") LDRoles LDRoles) {
 	    dao.save(LDRoles);
 	     
-	    return "redirect:/LDRoles";
+	    return "redirect:/Crud/LDRoles";
 	}
 	
-	@RequestMapping("/edit_LDRoles/{LDRoleID}")
+	@RequestMapping("Edit/edit_LDRoles/{LDRoleID}")
 	public ModelAndView showEditForm(@PathVariable(name = "LDRoleID") int LDRoleID) {
 	    ModelAndView mav = new ModelAndView("edit_form_LDRoles");
 	    LDRoles LDRoles = dao.get(LDRoleID);
@@ -55,12 +55,12 @@ public class AppController_LDRoles {
 	public String update(@ModelAttribute("LDRoles") LDRoles LDRoles) {
 	    dao.update(LDRoles);
 	     
-	    return "redirect:/LDRoles";
+	    return "redirect:/Crud/LDRoles";
 	}
 	
 	@RequestMapping("/delete_LDRoles/{LDRoleID}")
 	public String delete(@PathVariable(name = "LDRoleID") int LDRoleID) {
 	    dao.delete(LDRoleID);
-	    return "redirect:/LDRoles";       
+	    return "redirect:/Crud/LDRoles";       
 	}	
 }
