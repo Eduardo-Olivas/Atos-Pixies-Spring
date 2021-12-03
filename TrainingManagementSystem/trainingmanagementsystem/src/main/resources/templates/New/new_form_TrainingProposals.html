@@ -16,9 +16,9 @@
     <link rel="stylesheet" type="text/css" href="../css/trainerIndex.css" />
     <link rel="stylesheet" type="text/css" href="../css/trainerIndexContainer.css" />
     <!-- Custom JSS -->
-    <script src="../javascript/TrainingExecutionMaster.js"></script>
-    <script src="../javascript/TrainerInteraction.js"></script>
     <script src="../javascript/NewFormTrainingProposals.js"></script>
+    
+    
 </head>
 <body>
     <!-- Main component -->
@@ -96,7 +96,24 @@
                 </div>
             </div>
         </div>
+	        <script>
+		    $(document).ready(
+		    	    $('.container-details-yes').hide(),
+		    	    $('#switch-for-trainer').click(
+		    	        function(){
+		    	            if($(this).is(':checked')){
+		    	                $('.container-details').hide();
+		    	                $('.container-details-yes').show();
+		    	            } else {
+		    	                $('.container-details').show();
+		    	                $('.container-details-yes').hide();
+		    	            }
+		    	        }
+		    	    )
+		    	);
+	    </script> 
     </div>
+    
 </body>
 
 </html>
