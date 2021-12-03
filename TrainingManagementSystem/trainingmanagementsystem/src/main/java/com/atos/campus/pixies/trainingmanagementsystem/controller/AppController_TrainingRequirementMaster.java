@@ -26,7 +26,7 @@ public class AppController_TrainingRequirementMaster {
 	public String viewHomePage(Model model) {
 		List<TrainingRequirementMaster> listTrainingRequirementMaster = dao.list();
 		model.addAttribute("listTrainingRequirementMaster", listTrainingRequirementMaster);
-	    return "TrainingRequirementMaster";
+	    return "Crud/TrainingRequirementMaster";
 	}
 	
 	@RequestMapping("/TrainingRequirementMaster/{id}")
@@ -37,22 +37,22 @@ public class AppController_TrainingRequirementMaster {
 		return "OneTrainingRequirement";
 	}
 	
-	@RequestMapping("/new_TrainingRequirementMaster")
+	@RequestMapping("/New/new_TrainingRequirementMaster")
 	public String showNewForm(Model model) {
 		TrainingRequirementMaster TrainingRequirementMaster = new TrainingRequirementMaster();
 	    model.addAttribute("TrainingRequirementMaster", TrainingRequirementMaster);
 	     
-	    return "new_form_TrainingRequirementMaster";
+	    return "New/new_form_TrainingRequirementMaster";
 	}
 	
 	@RequestMapping(value = "/save_TrainingRequirementMaster", method = RequestMethod.POST)
 	public String save(@ModelAttribute("TrainingRequirementMaster") TrainingRequirementMaster TrainingRequirementMaster) {
 	    dao.save(TrainingRequirementMaster);
 	     
-	    return "redirect:/TrainingRequirementMaster";
+	    return "redirect:/Crud/TrainingRequirementMaster";
 	}
 	
-	@RequestMapping("/edit_TrainingRequirementMaster/{RequirementID}")
+	@RequestMapping("/Edit/edit_TrainingRequirementMaster/{RequirementID}")
 	public ModelAndView showEditForm(@PathVariable(name = "RequirementID") String RequirementID) {
 	    ModelAndView mav = new ModelAndView("edit_form_TrainingRequirementMaster");
 	    TrainingRequirementMaster TrainingRequirementMaster = dao.get(RequirementID);
@@ -65,12 +65,12 @@ public class AppController_TrainingRequirementMaster {
 	public String update(@ModelAttribute("TrainingRequirementMaster") TrainingRequirementMaster TrainingRequirementMaster) {
 	    dao.update(TrainingRequirementMaster);
 	     
-	    return "redirect:/TrainingRequirementMaster";
+	    return "redirect:/Crud/TrainingRequirementMaster";
 	}
 	
 	@RequestMapping("/delete_TrainingRequirementMaster/{RequirementID}")
 	public String delete(@PathVariable(name = "RequirementID") String RequirementID) {
 	    dao.delete(RequirementID);
-	    return "redirect:/TrainingRequirementMaster";       
+	    return "redirect:/Crud/TrainingRequirementMaster";       
 	}	
 }
