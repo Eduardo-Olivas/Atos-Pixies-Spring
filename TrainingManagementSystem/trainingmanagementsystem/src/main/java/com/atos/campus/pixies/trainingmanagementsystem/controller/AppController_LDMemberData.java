@@ -22,31 +22,31 @@ public class AppController_LDMemberData {
 	@Autowired
 	private LDMemberDataDAO dao;
 	
-	@RequestMapping("/LDMemberData")
+	@RequestMapping("/Crud/LDMemberData")
 	public String viewHomePage(Model model) {
 		List<LDMemberData> listLDMemberData = dao.list();
 		model.addAttribute("listLDMemberData", listLDMemberData);
-	    return "LDMemberData";
+	    return "Crud/LDMemberData";
 	}
 	
-	@RequestMapping("/new_LDMemberData")
+	@RequestMapping("/New/new_LDMemberData")
 	public String showNewForm(Model model) {
 		LDMemberData LDMemberData = new LDMemberData();
 	    model.addAttribute("LDMemberData", LDMemberData);
 	     
-	    return "new_form_LDMemberData";
+	    return "New/new_form_LDMemberData";
 	}
 	
 	@RequestMapping(value = "/save_LDMemberData", method = RequestMethod.POST)
 	public String save(@ModelAttribute("LDMemberData") LDMemberData LDMemberData) {
 	    dao.save(LDMemberData);
 	     
-	    return "redirect:/LDMemberData";
+	    return "redirect:/Crud/LDMemberData";
 	}
 	
-	@RequestMapping("/edit_LDMemberData/{MemberID}")
+	@RequestMapping("/Edit/edit_LDMemberData/{MemberID}")
 	public ModelAndView showEditForm(@PathVariable(name = "MemberID") String MemberID) {
-	    ModelAndView mav = new ModelAndView("edit_form_LDMemberData");
+	    ModelAndView mav = new ModelAndView("Edit/edit_form_LDMemberData");
 	    LDMemberData LDMemberData = dao.get(MemberID);
 	    mav.addObject("LDMemberData", LDMemberData);
 	     
@@ -57,12 +57,12 @@ public class AppController_LDMemberData {
 	public String update(@ModelAttribute("LDMemberData") LDMemberData LDMemberData) {
 	    dao.update(LDMemberData);
 	     
-	    return "redirect:/LDMemberData";
+	    return "redirect:/Crud/LDMemberData";
 	}
 	
 	@RequestMapping("/delete_LDMemberData/{MemberID}")
 	public String delete(@PathVariable(name = "MemberID") String MemberID) {
 	    dao.delete(MemberID);
-	    return "redirect:/LDMemberData";       
+	    return "redirect:/Crud/LDMemberData";       
 	}	
 }
