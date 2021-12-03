@@ -2,18 +2,21 @@ let resource;
 const apiCall = async () => {
 	retrievedData = await fetch("/api/TrainingRequirements");
 	data = await retrievedData.json();
+	console.log(data);
 	return data;
 }
 
 const apiCallOne = async (param) => {
 	retrievedData = await fetch("/api/TrainingRequirements/"+ param);
 	data = await retrievedData.json();
+	console.log(data);
 	return data;
 }
 
 const apiCallProposals = async (param) => {
 	retrievedData = await fetch("/api/proposals/foreign-key/"+ param);
 	data = await retrievedData.json();
+	console.log(data);
 	return data;
 }
 
@@ -24,6 +27,10 @@ async function convertion(){
 	$(document).ready(function(){
 
 		let cards = Array.from( document.querySelectorAll("#div-card-conatiner") )
+		console.log($("#div-card-conatiner"));
+		console.log(cards);
+		alert("JOSELITO");
+
 		cards.forEach( (card) => {
 			card.addEventListener("click", async function(e){
 				let title = document.querySelector("#injecting-title");
@@ -32,8 +39,10 @@ async function convertion(){
 				let content3 = document.querySelector("#injecting-contents-3");
 				let content4 = document.querySelector("#injecting-contents-4");
 				let content5 = document.querySelector("#injecting-contents-5");
-				
-				let infoApi = await apiCallOne(card.firstElementChild.innerText);
+				console.log(card.firstElementChild.innerText);
+
+				let infoApi = await apiCallOne(card.firstElementChild.innerText).catch( e => console.log(e) )
+				console.log(infoApi);
 				
 				title.innerText = infoApi.trainingArea
 				content1.innerText = "Starting Date: " + infoApi.requestedTrainingStartDate
