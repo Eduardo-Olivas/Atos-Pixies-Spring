@@ -42,9 +42,9 @@ public class AppController_LDRoles {
 	    return "redirect:/Crud/LDRoles";
 	}
 	
-	@RequestMapping("Edit/edit_form_LDRoles/{LDRoleID}")
+	@RequestMapping("Edit/edit_LDRoles/{LDRoleID}")
 	public ModelAndView showEditForm(@PathVariable(name = "LDRoleID") int LDRoleID) {
-	    ModelAndView mav = new ModelAndView("edit_form_LDRoles");
+	    ModelAndView mav = new ModelAndView("Edit/edit_form_LDRoles");
 	    LDRoles LDRoles = dao.get(LDRoleID);
 	    mav.addObject("LDRoles", LDRoles);
 	     
