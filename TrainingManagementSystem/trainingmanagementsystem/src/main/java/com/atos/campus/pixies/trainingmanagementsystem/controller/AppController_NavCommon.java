@@ -28,11 +28,6 @@ public class AppController_NavCommon {
 	    return "View/InProcessTraining";
 	}
 
-	@RequestMapping("/Login")
-	public String Login() {
-	    return "View/Login";
-	}
-
 	@RequestMapping("/NewRequirement")
 	public String NewRequirement() {
 	    return "View/NewRequirement";
@@ -53,9 +48,9 @@ public class AppController_NavCommon {
 	    return "View/TrainerAcceptance";
 	}
 
-	@RequestMapping("/TrainningRequest")
-	public String TrainningRequest() {
-	    return "View/TrainningRequest";
+	@RequestMapping("/TrainingRequest")
+	public String TrainingRequest() {
+	    return "View/TrainingRequest";
 	}
 
 }
