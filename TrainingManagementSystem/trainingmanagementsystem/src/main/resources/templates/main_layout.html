@@ -70,23 +70,31 @@
             <div class="main__menu_container">
                 <ul>
                     <li class="menu-item active">
-                        <i class="fas fa-plus-square"></i>
-                        <p>New Trainning</p>
+                        <a th:href="@{'/TrainingExecutionMaster/'}">
+							<i class="fas fa-plus-square"></i>
+                    	</a>
+						<p>New Trainning</p>
                         <p>Request</p>
                     </li>
                     <li class="menu-item">
-                        <i class="fas fa-file-alt"></i>
+                        <a th:href="@{'/TrainingExecutionMaster/'}">
+							<i class="fas fa-file-alt"></i>
+						</a>
                         <p>Trainning</p>
                         <p>Request
                         </p>
                     </li>
                     <li class="menu-item">
-                        <i class="fas fa-border-all"></i>
+                        <a th:href="@{'/TrainingExecutionMaster/'}">
+							<i class="fas fa-border-all"></i>
+						</a>
                         <p>View All</p>
                         <p>Trainnings</p>
                     </li>
                     <li class="menu-item">
-                        <i class="fas fa-search-plus"></i>
+						<a th:href="@{'/TrainningStatusPage/'}">
+                        	<i class="fas fa-search-plus"></i>
+					    </a>
                         <p>Trainning</p>
                         <p>Status</p>
                     </li>

@@ -1,5 +1,5 @@
 .deploy-container {
-    background-color: white;
+    background-color: #b9c9cf;
     height: 70vh;
     width: 100%;
     display: flex;
@@ -16,19 +16,20 @@
     align-items: center;
     height: 50%;
     width: 12%;
-    background-color: #09E596;
+    background-color: #11a570;
     margin: 30px;
     border-radius: 7px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     padding: 1em;
     position: relative;
     overflow: hidden;
+	text-align: center;
 }
 
 .container-card-for-index:hover {
     height: 50%;
     width: 12%;
-    background-color: white;
+    background-color: rgb(6, 159, 106);
     margin: 30px;
     border-radius: 7px;
     border: 1px solid #09E596;
@@ -57,6 +58,7 @@
     font-size: 10px;
     font-weight: 200;
     margin: 0;
+	text-transform: uppercase;
 }
 
 .user-content-user-trainer {
@@ -99,13 +101,14 @@
 .content-injection-container-on {
 	z-index: 9999; 
 	position: absolute; 
-	background-color: white;
+	background-color: #979797;
 	padding: 2em 5em;
 	height: 82%; 
 	width: 70%; 
 	opacity: none;
 	border: 2px solid #09E596;
 	border-radius: 10% / 50%;
+	text-align: center;
 }
 
 .icon-x-position {
@@ -125,11 +128,11 @@
 }
 
 .btn-for-card {
-	position: absolute;
-	top: 54px;
-    right: -62px;
+    position: absolute;
+    top: 54px;
+    right: -3px;
     width: 75px;
-    transition: 1000ms ease-in-out;
+    transition: 400ms ease-out;
 }
 
 .btn-for-card:hover {
@@ -159,5 +162,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+	text-align: center;
+    color: black;
 }
 
