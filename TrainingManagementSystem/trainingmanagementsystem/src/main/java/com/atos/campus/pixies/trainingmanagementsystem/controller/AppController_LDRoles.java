@@ -44,7 +44,7 @@ public class AppController_LDRoles {
 	
 	@RequestMapping("Edit/edit_LDRoles/{LDRoleID}")
 	public ModelAndView showEditForm(@PathVariable(name = "LDRoleID") int LDRoleID) {
-	    ModelAndView mav = new ModelAndView("edit_form_LDRoles");
+	    ModelAndView mav = new ModelAndView("Edit/edit_form_LDRoles");
 	    LDRoles LDRoles = dao.get(LDRoleID);
 	    mav.addObject("LDRoles", LDRoles);
 	     
