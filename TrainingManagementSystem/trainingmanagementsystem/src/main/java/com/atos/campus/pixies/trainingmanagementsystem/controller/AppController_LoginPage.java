@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class AppController_LoginPage {
 	
 
-	@RequestMapping("/LoginPage")
+	@RequestMapping("/Login")
 	public String viewHomePage() {
-	    return "LoginPage";
+	    return "Login";
 	}
 	
 }
