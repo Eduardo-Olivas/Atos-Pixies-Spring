@@ -33,7 +33,6 @@ public class AppController_TrainingProposals {
 	public String showNewForm(Model model) {
 		TrainingProposals TrainingProposals = new TrainingProposals();
 	    model.addAttribute("TrainingProposals", TrainingProposals);
-	     
 	    return "New/new_form_TrainingProposals";
 	}
 	
@@ -53,10 +52,10 @@ public class AppController_TrainingProposals {
 	    return "redirect:/Crud/TrainingProposals";
 	}
 	
-	@RequestMapping("/Edit/edit_TrainingProposals/{ProporsalID}")
-	public ModelAndView showEditForm(@PathVariable(name = "ProporsalID") String ProporsalID) {
+	@RequestMapping("/Edit/edit_TrainingProposals/{ProposalID}")
+	public ModelAndView showEditForm(@PathVariable(name = "ProposalID") String ProposalID) {
 	    ModelAndView mav = new ModelAndView("edit_form_TrainingProposals");
-	    TrainingProposals TrainingProposals = dao.get(ProporsalID);
+	    TrainingProposals TrainingProposals = dao.get(ProposalID);
 	    mav.addObject("TrainingProposals", TrainingProposals);
 	     
 	    return mav;
@@ -69,9 +68,9 @@ public class AppController_TrainingProposals {
 	    return "redirect:/Crud/TrainingProposals";
 	}
 	
-	@RequestMapping("/delete_TrainingProposals/{ProporsalID}")
-	public String delete(@PathVariable(name = "ProporsalID") String ProporsalID) {
-	    dao.delete(ProporsalID);
+	@RequestMapping("/delete_TrainingProposals/{ProposalID}")
+	public String delete(@PathVariable(name = "ProposalID") String ProposalID) {
+	    dao.delete(ProposalID);
 	    return "redirect:/Crud/TrainingProposals";       
 	}	
 }

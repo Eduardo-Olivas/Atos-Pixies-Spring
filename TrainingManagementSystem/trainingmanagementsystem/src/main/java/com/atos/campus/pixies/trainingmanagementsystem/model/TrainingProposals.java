@@ -24,20 +24,30 @@ public class TrainingProposals {
 			@Parameter(name = SequenceStyleGenerator.INCREMENT_PARAM, value = "1"),
             @Parameter(name = StringIdGenerator.PREFIX, value = "TP"),
             @Parameter(name = StringIdGenerator.NUMBER_FORMAT, value = "%03d")})
-	private String ProporsalID;
+	private String ProposalID;
 	private String  RequirementID;
 	private String  MemberID;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date  ProposedDate;
 	private String  ProposedTime;
 	private int  ProposedDuration;
-	
-	
-	public String getProporsalID() {
-		return ProporsalID;
+
+	public TrainingProposals(){};
+
+	public TrainingProposals(String RequirementID, String MemberID) {
+		this.RequirementID = RequirementID;
+		this.MemberID = MemberID;
+		@SuppressWarnings("unchecked") 
+		this.ProposedDate = new SimpleDateFormat("yyyy-MM-dd").parse("1970-01-01");
+		this.ProposedTime = "";
+		this.ProposedDuration = 0;
 	}
-	public void setProporsalID(String proporsalID) {
-		ProporsalID = proporsalID;
+	
+	public String getProposalID() {
+		return ProposalID;
+	}
+	public void setProposalID(String proposalID) {
+		ProposalID = proposalID;
 	}
 	public String getRequirementID() {
 		return RequirementID;
@@ -71,7 +81,7 @@ public class TrainingProposals {
 	}
 	@Override
 	public String toString() {
-		return "TrainingProposals [ProporsalID=" + ProporsalID + ", RequirementID=" + RequirementID + ", MemberID="
+		return "TrainingProposals [ProposalID=" + ProposalID + ", RequirementID=" + RequirementID + ", MemberID="
 				+ MemberID + ", ProposedDate=" + ProposedDate + ", ProposedTime=" + ProposedTime + ", ProposedDuration="
 				+ ProposedDuration + "]";
 	}

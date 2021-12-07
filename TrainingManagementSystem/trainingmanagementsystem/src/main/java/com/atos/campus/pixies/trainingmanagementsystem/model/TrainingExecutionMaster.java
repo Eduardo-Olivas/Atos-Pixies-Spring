@@ -23,8 +23,8 @@ public class TrainingExecutionMaster {
 			@Parameter(name = SequenceStyleGenerator.INCREMENT_PARAM, value = "1"),
             @Parameter(name = StringIdGenerator.PREFIX, value = "EXC"),
             @Parameter(name = StringIdGenerator.NUMBER_FORMAT, value = "%02d")})
-	private String RequirementID;
 	private String ExecutionID;
+	private String ProporsalID;
 	private Date ConfirmedDate;
 	private String ConfirmedTime;
 	private String Trainer;
