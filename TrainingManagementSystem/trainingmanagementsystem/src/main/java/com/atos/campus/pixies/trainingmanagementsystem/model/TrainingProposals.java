@@ -7,7 +7,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class TrainingProposals {
 
 	private String ProporsalID;
-	private String  ExecutionID;
+	private String  RequirementID;
 	private String  MemberID;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date  ProposedDate;
@@ -21,11 +21,11 @@ public class TrainingProposals {
 	public void setProporsalID(String proporsalID) {
 		ProporsalID = proporsalID;
 	}
-	public String getExecutionID() {
-		return ExecutionID;
+	public String getRequirementID() {
+		return RequirementID;
 	}
-	public void setExecutionID(String executionID) {
-		ExecutionID = executionID;
+	public void setRequirementID(String requirementID) {
+		RequirementID = requirementID;
 	}
 	public String getMemberID() {
 		return MemberID;
@@ -53,7 +53,7 @@ public class TrainingProposals {
 	}
 	@Override
 	public String toString() {
-		return "TrainingProposals [ProporsalID=" + ProporsalID + ", ExecutionID=" + ExecutionID + ", MemberID="
+		return "TrainingProposals [ProporsalID=" + ProporsalID + ", RequirementID=" + RequirementID + ", MemberID="
 				+ MemberID + ", ProposedDate=" + ProposedDate + ", ProposedTime=" + ProposedTime + ", ProposedDuration="
 				+ ProposedDuration + "]";
 	}

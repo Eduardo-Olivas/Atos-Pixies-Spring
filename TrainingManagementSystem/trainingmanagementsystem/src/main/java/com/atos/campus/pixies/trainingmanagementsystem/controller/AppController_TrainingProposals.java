@@ -41,7 +41,7 @@ public class AppController_TrainingProposals {
 	public String showNewFormWithOther(@PathVariable String id, Model model) {
 		TrainingProposals TrainingProposals = new TrainingProposals();
 	    model.addAttribute("TrainingProposals", TrainingProposals);
-	    model.addAttribute("executionID", id);
+	    model.addAttribute("requirementID", id);
 	     
 	    return "New/new_form_TrainingProposals";
 	}

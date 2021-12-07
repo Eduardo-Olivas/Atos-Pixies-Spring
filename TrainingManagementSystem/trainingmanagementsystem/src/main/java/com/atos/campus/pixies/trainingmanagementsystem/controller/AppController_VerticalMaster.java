@@ -26,7 +26,7 @@ public class AppController_VerticalMaster {
 	public String viewHomePage(Model model) {
 		List<VerticalMaster> listVerticalMaster = dao.list();
 		model.addAttribute("listVerticalMaster", listVerticalMaster);
-	    return "Crud/VerticalMaster";
+	    return "/Crud/VerticalMaster";
 	}
 	
 	@RequestMapping("/New/new_VerticalMaster")
@@ -44,7 +44,7 @@ public class AppController_VerticalMaster {
 	    return "redirect:/Crud/VerticalMaster";
 	}
 	
-	@RequestMapping("/Edit/edit_VerticalMaster/{VID}")
+	@RequestMapping("/Edit/edit_form_VerticalMaster/{VID}")
 	public ModelAndView showEditForm(@PathVariable(name = "VID") String VID) {
 	    ModelAndView mav = new ModelAndView("edit_form_VerticalMaster");
 	    VerticalMaster VerticalMaster = dao.get(VID);
@@ -57,12 +57,12 @@ public class AppController_VerticalMaster {
 	public String update(@ModelAttribute("VerticalMaster") VerticalMaster VerticalMaster) {
 	    dao.update(VerticalMaster);
 	     
-	    return "redirect:/Crud/VerticalMaster";
+	    return "redirect:Crud/VerticalMaster";
 	}
 	
 	@RequestMapping("/delete_VerticalMaster/{VID}")
 	public String delete(@PathVariable(name = "VID") String VID) {
 	    dao.delete(VID);
-	    return "redirect:/Crud/VerticalMaster";       
+	    return "redirect:Crud/VerticalMaster";       
 	}	
 }

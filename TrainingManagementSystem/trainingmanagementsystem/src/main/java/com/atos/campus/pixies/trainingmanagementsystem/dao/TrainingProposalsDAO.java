@@ -27,7 +27,7 @@ public class TrainingProposalsDAO {
 	}
 	
 	public List<TrainingProposals> listSpecial(String id) {
-		String sql = "SELECT * FROM TrainingProposals WHERE ExecutionID = ?";
+		String sql = "SELECT * FROM TrainingProposals WHERE ProporsalID = ?";
 		Object[] args = {id};
 		List<TrainingProposals> listTrainingProposals = jdbcTemplate.query(sql,args,
 				BeanPropertyRowMapper.newInstance(TrainingProposals.class));
@@ -37,7 +37,7 @@ public class TrainingProposalsDAO {
 	
 	public void save(TrainingProposals TrainingProposals) {
 		SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
-		insertActor.withTableName("TrainingProposals").usingColumns("ProporsalID", "ExecutionID", "MemberID","ProposedDate","ProposedTime","ProposedDuration");
+		insertActor.withTableName("TrainingProposals").usingColumns("ProporsalID", "RequirementID", "MemberID","ProposedDate","ProposedTime","ProposedDuration");
 		BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(TrainingProposals);
 		
 		insertActor.execute(param);		
@@ -51,14 +51,14 @@ public class TrainingProposalsDAO {
 	}
 	
 	public TrainingProposals getOneSpecial(String ProporsalID) {
-		String sql = "SELECT * FROM TrainingProposals WHERE ExecutionID = ?";
+		String sql = "SELECT * FROM TrainingProposals WHERE ProporsalID = ?";
 		Object[] args = {ProporsalID};
 		TrainingProposals TrainingProposals = jdbcTemplate.queryForObject(sql, args, BeanPropertyRowMapper.newInstance(TrainingProposals.class));
 		return TrainingProposals;
 	}
 	
 	public void update(TrainingProposals TrainingProposals) {
-		String sql = "UPDATE TrainingProposals SET ProporsalID=:ProporsalID, ExecutionID=:ExecutionID, MemberID=:MemberID, Email=:Email, ProposedDate=:ProposedDate, ProposedTime=:ProposedTime, ProposedDuration=:ProposedDuration WHERE ProporsalID=:ProporsalID";
+		String sql = "UPDATE TrainingProposals SET ProporsalID=:ProporsalID, RequirementID=:RequirementID, MemberID=:MemberID, Email=:Email, ProposedDate=:ProposedDate, ProposedTime=:ProposedTime, ProposedDuration=:ProposedDuration WHERE ProporsalID=:ProporsalID";
 		BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(TrainingProposals);
 		NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(jdbcTemplate);
 		template.update(sql, param);		

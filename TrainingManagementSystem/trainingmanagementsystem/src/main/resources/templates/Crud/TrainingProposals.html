@@ -14,7 +14,7 @@
         <thead>
             <tr>
                 <th>ProporsalID</th>
-                <th>ExecutionID</th>
+                <th>RequirementID</th>
                 <th>MemberID</th>
                 <th>ProposedDate</th>
                 <th>ProposedTime</th>
@@ -24,7 +24,7 @@
         <tbody>
             <tr th:each="TrainingProposals : ${listTrainingProposals}">
                 <td th:text="${TrainingProposals.ProporsalID}">ProporsalID</td>
-                <td th:text="${TrainingProposals.ExecutionID}">ExecutionID</td>
+                <td th:text="${TrainingProposals.RequirementID}">RequirementID</td>
                 <td th:text="${TrainingProposals.MemberID}">MemberID</td>
 				<td th:text="${TrainingProposals.ProposedDate}">ProposedDate</td>
 				<td th:text="${TrainingProposals.ProposedTime}">ProposedTime</td>

@@ -34,7 +34,7 @@ public class AppController_LDMemberData {
 		LDMemberData LDMemberData = new LDMemberData();
 	    model.addAttribute("LDMemberData", LDMemberData);
 	     
-	    return "New/new_form_LDMemberData";
+	    return "new_form_LDMemberData";
 	}
 	
 	@RequestMapping(value = "/save_LDMemberData", method = RequestMethod.POST)
