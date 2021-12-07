@@ -54,7 +54,7 @@ public class AppController_TrainingProposals {
 	
 	@RequestMapping("/Edit/edit_TrainingProposals/{ProposalID}")
 	public ModelAndView showEditForm(@PathVariable(name = "ProposalID") String ProposalID) {
-	    ModelAndView mav = new ModelAndView("edit_form_TrainingProposals");
+	    ModelAndView mav = new ModelAndView("Edit/edit_form_TrainingProposals");
 	    TrainingProposals TrainingProposals = dao.get(ProposalID);
 	    mav.addObject("TrainingProposals", TrainingProposals);
 	     

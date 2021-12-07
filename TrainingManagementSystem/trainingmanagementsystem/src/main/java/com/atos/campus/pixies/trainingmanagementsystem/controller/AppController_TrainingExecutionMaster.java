@@ -46,7 +46,7 @@ public class AppController_TrainingExecutionMaster {
 	
 	@RequestMapping("/edit_TrainingExecutionMaster/{RequirementID}")
 	public ModelAndView showEditForm(@PathVariable(name = "RequirementID") String RequirementID) {
-	    ModelAndView mav = new ModelAndView("edit_form_TrainingExecutionMaster");
+	    ModelAndView mav = new ModelAndView("Edit/edit_form_TrainingExecutionMaster");
 	    TrainingExecutionMaster TrainingExecutionMaster = dao.get(RequirementID);
 	    mav.addObject("View/TrainingExecutionMaster", TrainingExecutionMaster);
 	     
@@ -63,6 +63,6 @@ public class AppController_TrainingExecutionMaster {
 	@RequestMapping("/delete_TrainingExecutionMaster/{RequirementID}")
 	public String delete(@PathVariable(name = "RequirementID") String RequirementID) {
 	    dao.delete(RequirementID);
-	    return "redirect:/View/TrainingExecutionMaster";       
+	    return "redirect:/View/TrainingExecutionMaster";      
 	}	
 }
