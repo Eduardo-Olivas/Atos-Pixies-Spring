@@ -19,6 +19,7 @@
                 <th>ProposedDate</th>
                 <th>ProposedTime</th>
 				<th>ProposedDuration</th>
+				<th>Status</th>
             </tr>
         </thead>
         <tbody>
@@ -29,7 +30,8 @@
 				<td th:text="${TrainingProposals.ProposedDate}">ProposedDate</td>
 				<td th:text="${TrainingProposals.ProposedTime}">ProposedTime</td>
 				<td th:text="${TrainingProposals.ProposedDuration}">ProposedDuration</td>
-
+				<td th:text="${TrainingProposals.ProposalStatus}">Status</td>
+				<a class="btn-for-card btn btn-primary" th:href="@{/New/new_TrainingProposals/{id}(id=${TrainingProposals.RequirementID})}">+Proposal</a>
                 <td>
                     <a th:href="@{'/Edit/edit_TrainingProposals/' + ${TrainingProposals.ProposalID}}">Edit</a>
                     &nbsp;&nbsp;&nbsp;
