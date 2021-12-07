@@ -39,6 +39,11 @@ public class AppController_InProcessTraining {
 		List<TrainingProposals> proposals;
 		List<LDMemberData> ldMembers;
 		
+<<<<<<< HEAD
+=======
+		Test test = new Test();
+		
+>>>>>>> EduardoChapa
 		requirement = trmDAO.get(requirementID);
 		vertical = vmDAO.get(requirement.getRequirementUserVertical());
 		proposals = tpDAO.getByRequirementID(requirementID);
@@ -51,7 +56,21 @@ public class AppController_InProcessTraining {
 		model.addAttribute("vertical", vertical);
 		model.addAttribute("proposals", proposals);
 		model.addAttribute("ldMembers", ldMembers);
+<<<<<<< HEAD
 
 	    return "View/InProcessTraining";
 	}
 }
+=======
+		model.addAttribute("test", test);
+
+	    return "View/InProcessTraining";
+	}
+}
+
+class Test {
+	public void sayHi() {
+		System.out.println("Hi");
+	}
+}
+>>>>>>> EduardoChapa
