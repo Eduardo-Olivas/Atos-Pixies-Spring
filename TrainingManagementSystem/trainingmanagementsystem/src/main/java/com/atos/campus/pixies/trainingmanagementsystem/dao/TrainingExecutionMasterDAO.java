@@ -26,7 +26,7 @@ public class TrainingExecutionMasterDAO {
 		return listTrainingExecutionMaster;
 	}
 	
-	public void save(TrainingExecutionMaster TrainingExecutionMaster) {
+	public void save(TrainingExecutionMaster TrainingExecutionMaster) { 
 		SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
 		insertActor.withTableName("TrainingExecutionMaster").usingColumns("RequirementID", "ExecutionID", "ConfirmedDate","ConfirmedTime","Trainer","TotalHRS","ProposalStatus","TotalParticipantsAllowed");
 		BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(TrainingExecutionMaster);

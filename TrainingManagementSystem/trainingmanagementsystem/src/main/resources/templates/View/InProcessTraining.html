@@ -22,13 +22,16 @@
                 <div class="card">
                     <h3>Request Details</h3>
                     <div class="card-body">
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius doloremque quas placeat excepturi id, adipisci eveniet mollitia natus maiores enim cumque exercitationem fugiat quaerat, ullam, dicta dolorem consectetur dolores
-                            rem? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet consectetur dolores laudantium accusantium quisquam! Minima hic temporibus quis blanditiis qui nemo nulla assumenda ex voluptatum placeat? Id veniam molestias
-                            illum!
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam tempore placeat rem. Natus dolor, distinctio possimus, eaque deleniti magni dolores, ex quaerat quos aspernatur perferendis vitae necessitatibus error accusamus quia.
-                        </p>
+                        <p th:text="'Requirement ID: ' + ${requirement.requirementID}"/>
+                        <p th:text="'Received date: ' + ${requirement.requirementReceivedDate}"/>
+                        <p th:text="'Required by: ' + ${requirement.requirementUser}"/>
+                        <p th:text="'From vertical: ' + ${vertical.verticalName}"/>
+                        <p th:text="'Training area: ' + ${requirement.trainingArea}"/>
+                        <p th:text="'Description: ' + ${requirement.trainingDescription}"/>
+                        <p th:text="'Requested starting date: ' + ${#dates.format(requirement.requestedTrainingStartDate, 'dd-MMM-yyyy')}"/>
+                        <p th:text="'Number of participants: ' + ${requirement.totalCandidates}"/>
+                        <p th:text="'Time zone: ' + ${requirement.trainingTimeZone}"/>
+                        <p th:text="'Training duration: ' + ${requirement.totalDurationDays} + ' days'"/>
                     </div>
                 </div>
             </div>
@@ -37,38 +40,19 @@
                     <h3>Trainers</h3>
                     <div class="card-body">
                         <div class="row">
-                            <form class="col-lg-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="trainner1" checked>
-                                    <label class="form-check-label" for="trainner1">
-                                      Trainer 1
-                                    </label>
+                            <form class="col-lg-4" >
+                                <div class="form-check" th:each="proposal, iter : ${proposals}">
+                                    <input class="form-check-input" type="checkbox" value="" id="trainer">
+                                    <label class="form-check-label" for="trainer" th:text="'Trainer name: ' + ${ldMembers[iter.index].MemberName}"/>
+                                    <label class="form-check-label" for="trainer" th:text="'Proposed date: ' + ${#dates.format(proposal.ProposedDate, 'dd-MMM-yyyy')}"/>
+                                    <label class="form-check-label" for="trainer" th:text="'Proposed time: ' + ${proposal.ProposedTime}"/>
+                                    <label class="form-check-label" for="trainer" th:text="'Proposed duration: ' + ${proposal.ProposedDuration} + ' days'"/>
+                                    <br>
                                 </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="trainner2">
-                                    <label class="form-check-label" for="trainner2">
-                                      Trainer 2
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="trainner3" checked>
-                                    <label class="form-check-label" for="trainner3">
-                                      Trainer 3
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="trainner4">
-                                    <label class="form-check-label" for="trainner4">
-                                      Trainer 4
-                                    </label>
-                                </div>
-                                <button class="btn btn-primary">
-                                    Send
-                                </button>
+                                <button class="btn btn-primary" >
+                            		Send
+                            	</button>
                             </form>
-                            <div class="col-lg-8 text-justify">
-                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor, deleniti est quisquam, provident facere deserunt dignissimos earum, ad distinctio minima saepe modi dolores quasi animi quam repellat a eligendi omnis.</p>
-                            </div>
                         </div>
                     </div>
                 </div>

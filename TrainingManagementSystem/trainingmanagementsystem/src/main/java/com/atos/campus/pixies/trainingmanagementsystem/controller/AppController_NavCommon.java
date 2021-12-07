@@ -23,10 +23,10 @@ public class AppController_NavCommon {
 	    return "View/IndexTrainer";
 	}
 
-	@RequestMapping("/InProcessTraining")
-	public String InProcessTraining() {
-	    return "View/InProcessTraining";
-	}
+//	@RequestMapping("/InProcessTraining")
+//	public String InProcessTraining() {
+//	    return "View/InProcessTraining";
+//	}
 
 	@RequestMapping("/Login")
 	public String Login() {
