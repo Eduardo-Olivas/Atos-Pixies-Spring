@@ -34,7 +34,7 @@ public class AppController_TrainingProposals {
 		TrainingProposals TrainingProposals = new TrainingProposals();
 	    model.addAttribute("TrainingProposals", TrainingProposals);
 	     
-	    return "/new/new_form_TrainingProposals";
+	    return "/New/new_form_TrainingProposals";
 	}
 	
 	@RequestMapping("/new_TrainingProposals/{id}")
@@ -43,7 +43,7 @@ public class AppController_TrainingProposals {
 	    model.addAttribute("TrainingProposals", TrainingProposals);
 	    model.addAttribute("executionID", id);
 	     
-	    return "/new/new_form_TrainingProposals";
+	    return "/New/new_form_TrainingProposals";
 	}
 	
 	@RequestMapping(value = "/save_TrainingProposals", method = RequestMethod.POST)
