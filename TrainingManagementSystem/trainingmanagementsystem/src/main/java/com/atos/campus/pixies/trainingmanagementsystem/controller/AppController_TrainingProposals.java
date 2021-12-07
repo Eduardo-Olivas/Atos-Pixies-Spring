@@ -22,14 +22,14 @@ public class AppController_TrainingProposals {
 	@Autowired
 	private TrainingProposalsDAO dao;
 	
-	@RequestMapping("/TrainingProposals")
+	@RequestMapping("/Crud/TrainingProposals")
 	public String viewHomePage(Model model) {
 		List<TrainingProposals> listTrainingProposals = dao.list();
 		model.addAttribute("listTrainingProposals", listTrainingProposals);
 	    return "Crud/TrainingProposals";
 	}
 	
-	@RequestMapping("/new_TrainingProposals")
+	@RequestMapping("/New/new_TrainingProposals")
 	public String showNewForm(Model model) {
 		TrainingProposals TrainingProposals = new TrainingProposals();
 	    model.addAttribute("TrainingProposals", TrainingProposals);
@@ -37,7 +37,7 @@ public class AppController_TrainingProposals {
 	    return "New/new_form_TrainingProposals";
 	}
 	
-	@RequestMapping("/new_TrainingProposals/{id}")
+	@RequestMapping("/New/new_TrainingProposals/{id}")
 	public String showNewFormWithOther(@PathVariable String id, Model model) {
 		TrainingProposals TrainingProposals = new TrainingProposals();
 	    model.addAttribute("TrainingProposals", TrainingProposals);
@@ -53,7 +53,7 @@ public class AppController_TrainingProposals {
 	    return "redirect:/Crud/TrainingProposals";
 	}
 	
-	@RequestMapping("/edit_TrainingProposals/{ProporsalID}")
+	@RequestMapping("/Edit/edit_TrainingProposals/{ProporsalID}")
 	public ModelAndView showEditForm(@PathVariable(name = "ProporsalID") String ProporsalID) {
 	    ModelAndView mav = new ModelAndView("edit_form_TrainingProposals");
 	    TrainingProposals TrainingProposals = dao.get(ProporsalID);
