@@ -2,6 +2,7 @@ package com.atos.campus.pixies.trainingmanagementsystem.dao;
 
 import java.util.List;
 
+import com.atos.campus.pixies.trainingmanagementsystem.model.TrainingExecutionMaster;
 import com.atos.campus.pixies.trainingmanagementsystem.model.TrainingProposals;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,13 @@ public class TrainingProposalsDAO {
 				BeanPropertyRowMapper.newInstance(TrainingProposals.class));
 
 		return listTrainingProposals;
+	}
+	
+	public List<TrainingProposals> getByRequirementID(String requirementID) {
+		String query = "SELECT * FROM TrainingProposals WHERE RequirementID = ?";
+		Object[] args = {requirementID};
+		List<TrainingProposals> res = jdbcTemplate.query(query, args, BeanPropertyRowMapper.newInstance(TrainingProposals.class));
+		return res;
 	}
 	
 	public List<TrainingProposals> listSpecial(String id) {
@@ -67,5 +75,12 @@ public class TrainingProposalsDAO {
 	public void delete(String ProposalID) {
 		String sql = "DELETE FROM TrainingProposals WHERE ProposalID = ?";
 		jdbcTemplate.update(sql, ProposalID);
+	}
+
+	public List<TrainingProposals> getByRequirementID(String requirementID) {
+		String query = "SELECT * FROM TrainingProposals WHERE RequirementID = ?";
+		Object[] args = {requirementID};
+		List<TrainingProposals> proposals = jdbcTemplate.query(query, args, BeanPropertyRowMapper.newInstance(TrainingProposals.class));
+		return proposals;
 	}
 }

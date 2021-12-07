@@ -63,6 +63,6 @@ public class AppController_TrainingExecutionMaster {
 	@RequestMapping("/delete_TrainingExecutionMaster/{RequirementID}")
 	public String delete(@PathVariable(name = "RequirementID") String RequirementID) {
 	    dao.delete(RequirementID);
-	    return "redirect:/View/TrainingExecutionMaster";       
+	    return "redirect:/View/TrainingExecutionMaster";      
 	}	
 }
