@@ -72,7 +72,7 @@
                             <form action="#" th:action="@{/save_TrainingProposals}" th:object="${TrainingProposals}" method="post">
                                 <button id="button-for-sending-no" type="submit" class="btn">Send</button>
                                 <label for="">ProposalID
-                                	<input class="input-date-trainer" type="text" th:field="*{ProporsalID}" />
+                                	<input class="input-date-trainer" type="text" th:field="*{ProposalID}" />
                                 </label>
                                 <label for="">ExecutionID
                                 	<input class="input-date-trainer" readonly="readonly"  type="text" th:value="${executionID}" name="ExecutionID" />

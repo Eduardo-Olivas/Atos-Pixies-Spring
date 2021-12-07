@@ -13,7 +13,7 @@
     <table border="1" cellpadding="10">
         <thead>
             <tr>
-                <th>ProporsalID</th>
+                <th>ProposalID</th>
                 <th>RequirementID</th>
                 <th>MemberID</th>
                 <th>ProposedDate</th>
@@ -23,7 +23,7 @@
         </thead>
         <tbody>
             <tr th:each="TrainingProposals : ${listTrainingProposals}">
-                <td th:text="${TrainingProposals.ProporsalID}">ProporsalID</td>
+                <td th:text="${TrainingProposals.ProposalID}">ProposalID</td>
                 <td th:text="${TrainingProposals.RequirementID}">RequirementID</td>
                 <td th:text="${TrainingProposals.MemberID}">MemberID</td>
 				<td th:text="${TrainingProposals.ProposedDate}">ProposedDate</td>
@@ -31,9 +31,9 @@
 				<td th:text="${TrainingProposals.ProposedDuration}">ProposedDuration</td>
 
                 <td>
-                    <a th:href="@{'/Edit/edit_TrainingProposals/' + ${TrainingProposals.ProporsalID}}">Edit</a>
+                    <a th:href="@{'/Edit/edit_TrainingProposals/' + ${TrainingProposals.ProposalID}}">Edit</a>
                     &nbsp;&nbsp;&nbsp;
-                    <a th:href="@{'/delete_TrainingProposals/' + ${TrainingProposals.ProporsalID}}">Delete</a>
+                    <a th:href="@{'/delete_TrainingProposals/' + ${TrainingProposals.ProposalID}}">Delete</a>
                 </td>
             </tr>
         </tbody>

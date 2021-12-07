@@ -57,7 +57,7 @@ async function convertion(){
 				infoApiProposals.forEach( e => {
 					if(card.firstElementChild.nextElementSibling.nextElementSibling.innerText == e.executionID  ){
 						listItem = document.createElement("li");
-						listItem.innerText = e.proporsalID
+						listItem.innerText = e.proposalID
 						list.appendChild(listItem)
 					}
 				})

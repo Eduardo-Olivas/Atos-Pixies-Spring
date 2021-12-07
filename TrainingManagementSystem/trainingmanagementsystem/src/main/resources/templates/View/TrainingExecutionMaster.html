@@ -46,7 +46,7 @@
             <div id="div-card-conatiner"  th:each="TrainingExecutionMaster : ${listTrainingExecutionMaster}" class="container-card-for-index">
                 <p id="requirement-id-identifier" th:text="${TrainingExecutionMaster.ExecutionID}"> </p>
                 <h3  id="requirement-id" class="card-title-container-trainer" th:text="${TrainingExecutionMaster.ExecutionID}">ExecutionID</h3>
-                <p id="execution-id-identifier" th:text="${TrainingExecutionMaster.ProporsalID}">ProporsalID</p>
+                <p id="execution-id-identifier" th:text="${TrainingExecutionMaster.ProposalID}">ProposalID</p>
                 <p class="user-trainer" th:text="${TrainingExecutionMaster.ConfirmedDate}"> Confirmed Date </p>
                 <p class="user-trainer" th:text="${TrainingExecutionMaster.ConfirmedTime}" >User</p>
                 <p class="user-trainer" th:text="${TrainingExecutionMaster.TotalHRS} + ' hrs'">User</p>
