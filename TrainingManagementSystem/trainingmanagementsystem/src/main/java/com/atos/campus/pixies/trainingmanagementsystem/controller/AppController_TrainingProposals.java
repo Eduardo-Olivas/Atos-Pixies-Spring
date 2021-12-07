@@ -26,7 +26,7 @@ public class AppController_TrainingProposals {
 	public String viewHomePage(Model model) {
 		List<TrainingProposals> listTrainingProposals = dao.list();
 		model.addAttribute("listTrainingProposals", listTrainingProposals);
-	    return "TrainingProposals";
+	    return "Crud/TrainingProposals";
 	}
 	
 	@RequestMapping("/new_TrainingProposals")
@@ -34,7 +34,7 @@ public class AppController_TrainingProposals {
 		TrainingProposals TrainingProposals = new TrainingProposals();
 	    model.addAttribute("TrainingProposals", TrainingProposals);
 	     
-	    return "/New/new_form_TrainingProposals";
+	    return "New/new_form_TrainingProposals";
 	}
 	
 	@RequestMapping("/new_TrainingProposals/{id}")
@@ -43,14 +43,14 @@ public class AppController_TrainingProposals {
 	    model.addAttribute("TrainingProposals", TrainingProposals);
 	    model.addAttribute("executionID", id);
 	     
-	    return "/New/new_form_TrainingProposals";
+	    return "New/new_form_TrainingProposals";
 	}
 	
 	@RequestMapping(value = "/save_TrainingProposals", method = RequestMethod.POST)
 	public String save(@ModelAttribute("TrainingProposals") TrainingProposals TrainingProposals) {
 	    dao.save(TrainingProposals);
 	     
-	    return "redirect:/TrainingExecutionMaster";
+	    return "redirect:/Crud/TrainingProposals";
 	}
 	
 	@RequestMapping("/edit_TrainingProposals/{ProporsalID}")
@@ -66,12 +66,12 @@ public class AppController_TrainingProposals {
 	public String update(@ModelAttribute("TrainingProposals") TrainingProposals TrainingProposals) {
 	    dao.update(TrainingProposals);
 	     
-	    return "redirect:/TrainingProposals";
+	    return "redirect:/Crud/TrainingProposals";
 	}
 	
 	@RequestMapping("/delete_TrainingProposals/{ProporsalID}")
 	public String delete(@PathVariable(name = "ProporsalID") String ProporsalID) {
 	    dao.delete(ProporsalID);
-	    return "redirect:/TrainingProposals";       
+	    return "redirect:/Crud/TrainingProposals";       
 	}	
 }
