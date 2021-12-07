@@ -1,5 +1,7 @@
 package com.atos.campus.pixies.trainingmanagementsystem.model;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -31,13 +33,13 @@ public class TrainingProposals {
 	private Date  ProposedDate;
 	private String  ProposedTime;
 	private int  ProposedDuration;
+	private String ProposalStatus;
 
 	public TrainingProposals(){};
 
-	public TrainingProposals(String RequirementID, String MemberID) {
+	public TrainingProposals(String RequirementID, String MemberID) throws ParseException {
 		this.RequirementID = RequirementID;
 		this.MemberID = MemberID;
-		@SuppressWarnings("unchecked") 
 		this.ProposedDate = new SimpleDateFormat("yyyy-MM-dd").parse("1970-01-01");
 		this.ProposedTime = "";
 		this.ProposedDuration = 0;
@@ -79,6 +81,13 @@ public class TrainingProposals {
 	public void setProposedDuration(int proposedDuration) {
 		ProposedDuration = proposedDuration;
 	}
+	public String getProposalStatus() {
+		return ProposalStatus;
+	}
+	public void setProposalStatus(String ProposalStatus) {
+		this.ProposalStatus = ProposalStatus;
+	}
+
 	@Override
 	public String toString() {
 		return "TrainingProposals [ProposalID=" + ProposalID + ", RequirementID=" + RequirementID + ", MemberID="

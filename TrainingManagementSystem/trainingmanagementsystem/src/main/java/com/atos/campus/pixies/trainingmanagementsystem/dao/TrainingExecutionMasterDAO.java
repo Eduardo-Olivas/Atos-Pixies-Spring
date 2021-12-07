@@ -28,15 +28,15 @@ public class TrainingExecutionMasterDAO {
 	
 	public void save(TrainingExecutionMaster TrainingExecutionMaster) {
 		SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
-		insertActor.withTableName("TrainingExecutionMaster").usingColumns("RequirementID", "ExecutionID", "ConfirmedDate","ConfirmedTime","Trainer","TotalHRS","ProposalStatus","TotalParticipantsAllowed");
+		insertActor.withTableName("TrainingExecutionMaster").usingColumns("ExecutionID", "ProposalID", "ConfirmedDate","ConfirmedTime","Trainer","TotalHRS","ProposalStatus","TotalParticipantsAllowed");
 		BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(TrainingExecutionMaster);
 		
 		insertActor.execute(param);		
 	}
 	
-	public TrainingExecutionMaster get(String RequirementID) {
-		String sql = "SELECT * FROM TrainingExecutionMaster WHERE RequirementID = ?";
-		Object[] args = {RequirementID};
+	public TrainingExecutionMaster get(String ExecutionID) {
+		String sql = "SELECT * FROM TrainingExecutionMaster WHERE ExecutionID = ?";
+		Object[] args = {ExecutionID};
 		TrainingExecutionMaster TrainingExecutionMaster = jdbcTemplate.queryForObject(sql, args, BeanPropertyRowMapper.newInstance(TrainingExecutionMaster.class));
 		return TrainingExecutionMaster;
 	}
@@ -49,14 +49,14 @@ public class TrainingExecutionMasterDAO {
 	}
 	
 	public void update(TrainingExecutionMaster TrainingExecutionMaster) {
-		String sql = "UPDATE TrainingExecutionMaster SET RequirementID=:RequirementID, ExecutionID=:ExecutionID, ConfirmedDate=:ConfirmedDate, ConfirmedTime=:ConfirmedTime, Trainer=:Trainer, TotalHRS=:TotalHRS, ProposalStatus=:ProposalStatus, TotalParticipantsAllowed=:TotalParticipantsAllowed WHERE RequirementID=:RequirementID";
+		String sql = "UPDATE TrainingExecutionMaster SET ExecutionID=:ExecutionID, ProposalID=:ProposalID, ConfirmedDate=:ConfirmedDate, ConfirmedTime=:ConfirmedTime, Trainer=:Trainer, TotalHRS=:TotalHRS, ProposalStatus=:ProposalStatus, TotalParticipantsAllowed=:TotalParticipantsAllowed, TrainerResponse:=TrainerResponse WHERE ExecutionID=:ExecutionID";
 		BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(TrainingExecutionMaster);
 		NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(jdbcTemplate);
 		template.update(sql, param);		
 	}
 	
-	public void delete(String RequirementID) {
-		String sql = "DELETE FROM TrainingExecutionMaster WHERE RequirementID = ?";
-		jdbcTemplate.update(sql, RequirementID);
+	public void delete(String ExecutionID) {
+		String sql = "DELETE FROM TrainingExecutionMaster WHERE ExecutionID = ?";
+		jdbcTemplate.update(sql, ExecutionID);
 	}
 }

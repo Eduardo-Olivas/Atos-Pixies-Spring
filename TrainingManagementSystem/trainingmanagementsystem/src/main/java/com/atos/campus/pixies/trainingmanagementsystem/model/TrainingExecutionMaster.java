@@ -24,19 +24,28 @@ public class TrainingExecutionMaster {
             @Parameter(name = StringIdGenerator.PREFIX, value = "EXC"),
             @Parameter(name = StringIdGenerator.NUMBER_FORMAT, value = "%02d")})
 	private String ExecutionID;
-	private String ProporsalID;
+	private String ProposalID;
 	private Date ConfirmedDate;
 	private String ConfirmedTime;
 	private String Trainer;
 	private int TotalHRS;
 	private String ProposalStatus;
 	private int TotalParticipantsAllowed;
-	
-	public String getRequirementID() {
-		return RequirementID;
+	private String TrainerResponse;
+
+	public String getTrainerResponse() {
+		return this.TrainerResponse;
 	}
-	public void setRequirementID(String requirementID) {
-		RequirementID = requirementID;
+
+	public void setTrainerResponse(String TrainerResponse) {
+		this.TrainerResponse = TrainerResponse;
+	}
+	
+	public String getProposalID() {
+		return ProposalID;
+	}
+	public void setProposalID(String ProposalID) {
+		ProposalID = ProposalID;
 	}
 	public String getExecutionID() {
 		return ExecutionID;
@@ -82,7 +91,7 @@ public class TrainingExecutionMaster {
 	}
 	@Override
 	public String toString() {
-		return "TrainingExecutionMaster [RequirementID=" + RequirementID + ", ExecutionID=" + ExecutionID
+		return "TrainingExecutionMaster [ProposalID=" + ProposalID + ", ExecutionID=" + ExecutionID
 				+ ", ConfirmedDate=" + ConfirmedDate + ", ConfirmedTime=" + ConfirmedTime + ", Trainer=" + Trainer
 				+ ", TotalHRS=" + TotalHRS + ", ProposalStatus=" + ProposalStatus + ", TotalParticipantsAllowed="
 				+ TotalParticipantsAllowed + "]";
