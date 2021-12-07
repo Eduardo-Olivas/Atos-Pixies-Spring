@@ -1,9 +1,12 @@
 package com.atos.campus.pixies.trainingmanagementsystem.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
-
+@Entity
 public class TrainingParticipantData {
 
+	@Id
 	private String ParticipantID;
 	private String EmployeeID;
 	private String EmployeeName;
