@@ -1,5 +1,6 @@
 package com.atos.campus.pixies.trainingmanagementsystem.model;
 
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -17,15 +18,15 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Entity
 public class TrainingProposals {
 
-//	@Id
-//    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TPSequence")
-//    @GenericGenerator(
-//		name = "TPSequence", 
-//        strategy = "com.atos.campus.pixies.trainingmanagementsystem.model.StringIdGenerator", 
-//        parameters = {
-//			@Parameter(name = SequenceStyleGenerator.INCREMENT_PARAM, value = "1"),
-//            @Parameter(name = StringIdGenerator.PREFIX, value = "TP"),
-//            @Parameter(name = StringIdGenerator.NUMBER_FORMAT, value = "%03d")})
+	@Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TPSequence")
+    @GenericGenerator(
+		name = "TPSequence", 
+        strategy = "com.atos.campus.pixies.trainingmanagementsystem.model.StringIdGenerator", 
+        parameters = {
+			@Parameter(name = SequenceStyleGenerator.INCREMENT_PARAM, value = "1"),
+            @Parameter(name = StringIdGenerator.PREFIX, value = "TP"),
+            @Parameter(name = StringIdGenerator.NUMBER_FORMAT, value = "%03d")})
 	private String ProposalID;
 	private String  RequirementID;
 	private String  MemberID;
@@ -42,6 +43,12 @@ public class TrainingProposals {
 		this.RequirementID = RequirementID;
 		this.MemberID = MemberID;
 		this.ProposedDate = new SimpleDateFormat("yyyy-MM-dd").parse("1970-01-01");
+	}
+
+	public TrainingProposals(String RequirementID, String MemberID, Date ProposedDate) throws ParseException {
+		this.RequirementID = "";
+		this.MemberID = "";
+		this.ProposedDate = ProposedDate;
 		this.ProposedTime = "";
 		this.ProposedDuration = 0;
 	}

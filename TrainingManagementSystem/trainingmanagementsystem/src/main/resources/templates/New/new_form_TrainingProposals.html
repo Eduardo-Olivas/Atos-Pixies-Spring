@@ -13,10 +13,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Karla:wght@300&family=Poppins:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
     <!-- Additional CSS-->
-    <link rel="stylesheet" type="text/css" href="../css/trainerIndex.css" />
-    <link rel="stylesheet" type="text/css" href="../css/trainerIndexContainer.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/trainerIndex.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/trainerIndexContainer.css" />
     <!-- Custom JSS -->
-    <script src="../javascript/NewFormTrainingProposals.js"></script>
+    <script src="../../javascript/NewFormTrainingProposals.js"></script>
     
     
 </head>
@@ -27,7 +27,7 @@
             <div class="red">
                 <div class="second-container">
                     <h1 class="title-for-trainer-details">Training Details</h1>
-                    <img id="img-trainer" src="./images/imgTrainer.svg" alt="" srcset="">
+                    <img id="img-trainer" src="../../images/imgTrainer.svg" alt="" srcset="">
                     <div class="container-requirements-trainer">
                         <span>Requirement ID:</span>
                         <span> <strong id="id-api"> REQ001 </strong> </span>
@@ -67,15 +67,15 @@
                     </div>
                     <div class="container-details-yes">
                         <h2 class="title-for-trainer-details-2">Please enter training details: </h2>
-                        <p id="execution-id-url" th:text="${executionID}" >Requirement</p>
+                        
                         <div class="container-inputs-accepted">
                             <form action="#" th:action="@{/save_TrainingProposals}" th:object="${TrainingProposals}" method="post">
                                 <button id="button-for-sending-no" type="submit" class="btn">Send</button>
                                 <label for="">ProposalID
                                 	<input class="input-date-trainer" type="text" th:field="*{ProposalID}" />
                                 </label>
-                                <label for="">ExecutionID
-                                	<input class="input-date-trainer" readonly="readonly"  type="text" th:value="${executionID}" name="ExecutionID" />
+                                <label for="">RequirementID:
+                                	<input class="input-date-trainer" type="text" th:field="*{RequirementID}" >
                                 </label>
                                 <label for="">MemberID:</label>
                                 	<input class="input-date-trainer" type="text" th:field="*{MemberID}" >
@@ -85,6 +85,8 @@
                                 	<input class="input-date-trainer" type="time" th:field="*{ProposedTime}" >
                                 <label for="">ProposedDuration:</label>
                                 	<input class="input-date-trainer" type="number" th:field="*{ProposedDuration}" />
+                                <label for="">Status:</label>
+                                	<input class="input-date-trainer" type="text" th:field="*{ProposalStatus}" />
                             </form>
                         </div>
                     </div>
