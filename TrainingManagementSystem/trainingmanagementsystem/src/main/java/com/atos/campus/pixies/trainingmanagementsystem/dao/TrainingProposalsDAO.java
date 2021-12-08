@@ -3,7 +3,6 @@ package com.atos.campus.pixies.trainingmanagementsystem.dao;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.atos.campus.pixies.trainingmanagementsystem.model.TrainingExecutionMaster;
 import com.atos.campus.pixies.trainingmanagementsystem.model.TrainingProposals;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,7 +51,17 @@ public class TrainingProposalsDAO {
 		insertActor.execute(param);		
 	}
 	
+	public TrainingProposals get(String query, String param) {
+		Object[] args = {param};
+		TrainingProposals TrainingProposals = jdbcTemplate.queryForObject(query, args, BeanPropertyRowMapper.newInstance(TrainingProposals.class));
+		return TrainingProposals;
+	}
+
 	public TrainingProposals get(String ProposalID) {
+		return get("SELECT * FROM TrainingProposals WHERE ProposalID = ?", ProposalID);
+	}
+
+	public TrainingProposals getBy(String ProposalID) {
 		String sql = "SELECT * FROM TrainingProposals WHERE ProposalID = ?";
 		Object[] args = {ProposalID};
 		TrainingProposals TrainingProposals = jdbcTemplate.queryForObject(sql, args, BeanPropertyRowMapper.newInstance(TrainingProposals.class));

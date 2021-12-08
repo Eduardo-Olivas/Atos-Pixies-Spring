@@ -8,25 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class AppController_NavCommon {
 
-	@RequestMapping("/layout")
-	public String viewLayout() {
-	    return "main_layout";
+	@RequestMapping("/CreateTrainingRequirementMaster")
+	public String TrainingRequirementMaster() {
+	    return "Crud/TrainingRequirementMaster";
 	}
-
-	@RequestMapping("/IndexLBP")
-	public String IndexLBP() {
-	    return "View/IndexLBP";
-	}
-
-	@RequestMapping("/IndexTrainer")
-	public String IndexTrainer() {
-	    return "View/IndexTrainer";
-	}
-
-//	@RequestMapping("/InProcessTraining")
-//	public String InProcessTraining() {
-//	    return "View/InProcessTraining";
-//	}
 
 	@RequestMapping("/NewRequirement")
 	public String NewRequirement() {
