@@ -31,17 +31,26 @@ public class AppController_TrainingExecutionMaster {
 	
 	@RequestMapping("/new_TrainingExecutionMaster")
 	public String showNewForm(Model model) {
-		TrainingExecutionMaster TrainingExecutionMaster = new TrainingExecutionMaster();
+		TrainingExecutionMaster TrainingExecutionMaster = new TrainingExecutionMaster(null, null, null, null, null, 0, null, 0, null);
 	    model.addAttribute("TrainingExecutionMaster", TrainingExecutionMaster);
 	     
 	    return "new_form_TrainingExecutionMaster";
+	}
+	
+	@RequestMapping("/new_TrainingExecutionMaster/{id}")
+	public String showNewFormExe(@PathVariable String id, Model model) {
+		TrainingExecutionMaster TrainingExecutionMaster = new TrainingExecutionMaster(null, id, null, null, null, 0, null, 0, null);
+	    model.addAttribute("TrainingExecutionMaster", TrainingExecutionMaster);
+	    model.addAttribute("proposalID", id);
+	    
+	    return "New/new_form_TrainingExecutionMaster";
 	}
 	
 	@RequestMapping(value = "/save_TrainingExecutionMaster", method = RequestMethod.POST)
 	public String save(@ModelAttribute("TrainingExecutionMaster") TrainingExecutionMaster TrainingExecutionMaster) {
 	    dao.save(TrainingExecutionMaster);
 	     
-	    return "redirect:/View/TrainingExecutionMaster";
+	    return "redirect:/index-Trainer/allRequirements";
 	}
 	
 	@RequestMapping("/edit_TrainingExecutionMaster/{RequirementID}")

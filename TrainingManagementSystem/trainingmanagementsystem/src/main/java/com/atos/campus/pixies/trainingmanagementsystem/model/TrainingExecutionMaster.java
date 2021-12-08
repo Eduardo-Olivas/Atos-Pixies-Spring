@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 import org.hibernate.id.enhanced.SequenceStyleGenerator;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class TrainingExecutionMaster {
@@ -25,13 +26,28 @@ public class TrainingExecutionMaster {
             @Parameter(name = StringIdGenerator.NUMBER_FORMAT, value = "%02d")})
 	private String ExecutionID;
 	private String ProposalID;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date ConfirmedDate;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private String ConfirmedTime;
 	private String Trainer;
 	private int TotalHRS;
 	private String ProposalStatus;
 	private int TotalParticipantsAllowed;
 	private String TrainerResponse;
+	
+	public TrainingExecutionMaster(String ExecutionID, String ProposalID, Date ConfirmedDate, String ConfirmedTime, String Trainer, int TotalHRS, String ProposalStatus, int TotalParticipantsAllowed, String TrainerResponse) {
+		this.ExecutionID = ExecutionID;
+		this.ProposalID = ProposalID;
+		this.ConfirmedDate = ConfirmedDate;
+		this.ConfirmedTime = ConfirmedTime;
+		this.Trainer = Trainer;
+		this.TotalHRS = TotalHRS;
+		this.ProposalStatus = ProposalStatus;
+		this.TotalParticipantsAllowed = TotalParticipantsAllowed;
+		this.TrainerResponse = "";
+		
+	}
 
 	public String getTrainerResponse() {
 		return this.TrainerResponse;
@@ -45,7 +61,7 @@ public class TrainingExecutionMaster {
 		return ProposalID;
 	}
 	public void setProposalID(String ProposalID) {
-		ProposalID = ProposalID;
+		this.ProposalID = ProposalID;
 	}
 	public String getExecutionID() {
 		return ExecutionID;

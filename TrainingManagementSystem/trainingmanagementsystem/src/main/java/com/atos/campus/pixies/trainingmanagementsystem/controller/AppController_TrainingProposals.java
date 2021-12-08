@@ -29,6 +29,13 @@ public class AppController_TrainingProposals {
 	    return "Crud/TrainingProposals";
 	}
 	
+	@RequestMapping("/index-Trainer/allRequirements")
+	public String viewIndexPage(Model model) {
+		List<TrainingProposals> listTrainingProposals = dao.list();
+		model.addAttribute("listTrainingProposals", listTrainingProposals);
+	    return "View/IndexTrainer";
+	}
+	
 	@RequestMapping("/New/new_TrainingProposals")
 	public String showNewForm(Model model) {
 		TrainingProposals TrainingProposals = new TrainingProposals();
@@ -41,6 +48,7 @@ public class AppController_TrainingProposals {
 		TrainingProposals TrainingProposals = new TrainingProposals();
 	    model.addAttribute("TrainingProposals", TrainingProposals);
 	    model.addAttribute("requirementID", id);
+	    model.addAttribute("id", id);
 	     
 	    return "New/new_form_TrainingProposals";
 	}

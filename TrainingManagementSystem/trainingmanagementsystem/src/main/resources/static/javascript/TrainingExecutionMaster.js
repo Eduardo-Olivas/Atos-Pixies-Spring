@@ -29,7 +29,6 @@ async function convertion(){
 		let cards = Array.from( document.querySelectorAll("#div-card-conatiner") )
 		console.log($("#div-card-conatiner"));
 		console.log(cards);
-		alert("JOSELITO");
 
 		cards.forEach( (card) => {
 			card.addEventListener("click", async function(e){
