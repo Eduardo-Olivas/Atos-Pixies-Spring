@@ -19,157 +19,38 @@
         </div>
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-3  col mb-4">
-                    <div class="card card-trainning">
-                        <div class="card-trainning-body new">
-                            <h3 class="new-bg">ID12356</h3>
-                            <i class="new-txt fas fa-plus-circle"></i>
-                            <div class="card-info">
-                                <div><span class="font-bold">User: </span>Mahesh</div>
-                                <div><span class="font-bold">Start Date: </span>10-Jan-2021</div>
-                                <div><span class="font-bold">Area: </span>Java</div>
-                                <div><span class="font-bold">Duration: </span>200 days</div>
-                                <div><span class="font-bold">Participants: </span>100</div>
+                    <div th:each="TrainingRequirementMaster : ${listTrainingMaster}" class="col-md-3  col mb-4">
+                        <span id="ProposalID" th:text="${mapTrainingProposal.get(TrainingRequirementMaster.RequirementID).ProposalID}" style="display: none;">ProposalID</span>
+                        <div class="card card-trainning">
+                            <div class="card-trainning-body new">
+                                <h3 class="new-bg" th:text="${TrainingRequirementMaster.RequirementID}">ID</h3>
+                                <i class="new-txt fas fa-plus-circle"></i>
+                                <div class="card-info">
+                                    <div>
+                                        <span class="font-bold">User: </span>
+                                        <p th:text="${TrainingRequirementMaster.RequirementUser}">RequirementUser</p>
+                                    </div>
+                                    <div>
+                                        <span class="font-bold">Start Date: </span>
+                                        <p th:text="${TrainingRequirementMaster.RequestedTrainingStartDate}">RequestedTrainingStartDate</p>
+                                    </div>
+                                    <div>
+                                        <span class="font-bold">Area: </span>
+                                        <p th:text="${TrainingRequirementMaster.RequirementUserVertical}">RequirementUserVertical</p>
+                                    </div>
+                                    <div>
+                                        <span class="font-bold">Duration: </span>
+                                        <p th:text="${TrainingRequirementMaster.TotalDurationDays}">TotalDurationDays</p>
+                                    </div>
+                                    <div>
+                                        <span class="font-bold">Participants: </span>
+                                        <p th:text="${TrainingRequirementMaster.TotalCandidates}">TotalCandidates</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3  col mb-4">
-                    <div class="card card-trainning">
-                        <div class="card-trainning-body new">
-                            <h3 class="new-bg">ID12356</h3>
-                            <i class="new-txt fas fa-plus-circle"></i>
-                            <div class="card-info">
-                                <div><span class="font-bold">User: </span>Mahesh</div>
-                                <div><span class="font-bold">Start Date: </span>10-Jan-2021</div>
-                                <div><span class="font-bold">Area: </span>Java</div>
-                                <div><span class="font-bold">Duration: </span>200 days</div>
-                                <div><span class="font-bold">Participants: </span>100</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3  col mb-4">
-                    <div class="card card-trainning">
-                        <div class="card-trainning-body rejected">
-                            <h3 class="rejected-bg">ID12356</h3>
-                            <i class="rejected-txt fas fa-times"></i>
-                            <div class="card-info">
-                                <div><span class="font-bold">User: </span>Mahesh</div>
-                                <div><span class="font-bold">Start Date: </span>10-Jan-2021</div>
-                                <div><span class="font-bold">Area: </span>Java</div>
-                                <div><span class="font-bold">Duration: </span>200 days</div>
-                                <div><span class="font-bold">Participants: </span>100</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col  mb-4">
-                    <div class="card card-trainning">
-                        <div class="card-trainning-body process">
-                            <h3 class="process-bg">ID12356</h3>
-                            <i class="process-txt fas fa-spinner"></i>
-                            <div class="card-info">
-                                <div><span class="font-bold">User: </span>Mahesh</div>
-                                <div><span class="font-bold">Start Date: </span>10-Jan-2021</div>
-                                <div><span class="font-bold">Area: </span>Java</div>
-                                <div><span class="font-bold">Duration: </span>200 days</div>
-                                <div><span class="font-bold">Participants: </span>100</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3  col mb-4">
-                    <div class="card card-trainning">
-                        <div class="card-trainning-body confirmed">
-                            <h3 class="confirmed-bg">ID13654</h3>
-                            <i class="confirmed-txt fas fa-check-circle"></i>
-                            <div class="card-info">
-                                <div><span class="font-bold">User: </span>Mahesh</div>
-                                <div><span class="font-bold">Start Date: </span>10-Jan-2021</div>
-                                <div><span class="font-bold">Area: </span>Java</div>
-                                <div><span class="font-bold">Duration: </span>200 days</div>
-                                <div><span class="font-bold">Participants: </span>100</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col  mb-4">
-                    <div class="card card-trainning">
-                        <div class="card-trainning-body confirmed">
-                            <h3 class="confirmed-bg">ID13654</h3>
-                            <i class="confirmed-txt fas fa-check-circle"></i>
-                            <div class="card-info">
-                                <div><span class="font-bold">User: </span>Mahesh</div>
-                                <div><span class="font-bold">Start Date: </span>10-Jan-2021</div>
-                                <div><span class="font-bold">Area: </span>Java</div>
-                                <div><span class="font-bold">Duration: </span>200 days</div>
-                                <div><span class="font-bold">Participants: </span>100</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col  mb-4">
-                    <div class="card card-trainning">
-                        <div class="card-trainning-body process">
-                            <h3 class="process-bg">ID12356</h3>
-                            <i class="process-txt fas fa-spinner"></i>
-                            <div class="card-info">
-                                <div><span class="font-bold">User: </span>Mahesh</div>
-                                <div><span class="font-bold">Start Date: </span>10-Jan-2021</div>
-                                <div><span class="font-bold">Area: </span>Java</div>
-                                <div><span class="font-bold">Duration: </span>200 days</div>
-                                <div><span class="font-bold">Participants: </span>100</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col  mb-4">
-                    <div class="card card-trainning">
-                        <div class="card-trainning-body process">
-                            <h3 class="process-bg">ID12356</h3>
-                            <i class="process-txt fas fa-spinner"></i>
-                            <div class="card-info">
-                                <div><span class="font-bold">User: </span>Mahesh</div>
-                                <div><span class="font-bold">Start Date: </span>10-Jan-2021</div>
-                                <div><span class="font-bold">Area: </span>Java</div>
-                                <div><span class="font-bold">Duration: </span>200 days</div>
-                                <div><span class="font-bold">Participants: </span>100</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col  mb-4">
-                    <div class="card card-trainning">
-                        <div class="card-trainning-body process">
-                            <h3 class="process-bg">ID12356</h3>
-                            <i class="process-txt fas fa-spinner"></i>
-                            <div class="card-info">
-                                <div><span class="font-bold">User: </span>Mahesh</div>
-                                <div><span class="font-bold">Start Date: </span>10-Jan-2021</div>
-                                <div><span class="font-bold">Area: </span>Java</div>
-                                <div><span class="font-bold">Duration: </span>200 days</div>
-                                <div><span class="font-bold">Participants: </span>100</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3  col mb-4">
-                    <div class="card card-trainning">
-                        <div class="card-trainning-body rejected">
-                            <h3 class="rejected-bg">ID12356</h3>
-                            <i class="rejected-txt fas fa-times"></i>
-                            <div class="card-info">
-                                <div><span class="font-bold">User: </span>Mahesh</div>
-                                <div><span class="font-bold">Start Date: </span>10-Jan-2021</div>
-                                <div><span class="font-bold">Area: </span>Java</div>
-                                <div><span class="font-bold">Duration: </span>200 days</div>
-                                <div><span class="font-bold">Participants: </span>100</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>
