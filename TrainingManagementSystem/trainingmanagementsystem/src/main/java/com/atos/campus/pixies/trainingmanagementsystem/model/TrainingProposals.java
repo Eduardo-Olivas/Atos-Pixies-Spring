@@ -1,5 +1,8 @@
 package com.atos.campus.pixies.trainingmanagementsystem.model;
 
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -24,20 +27,37 @@ public class TrainingProposals {
 			@Parameter(name = SequenceStyleGenerator.INCREMENT_PARAM, value = "1"),
             @Parameter(name = StringIdGenerator.PREFIX, value = "TP"),
             @Parameter(name = StringIdGenerator.NUMBER_FORMAT, value = "%03d")})
-	private String ProporsalID;
+	private String ProposalID;
 	private String  RequirementID;
 	private String  MemberID;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date  ProposedDate;
 	private String  ProposedTime;
 	private int  ProposedDuration;
-	
-	
-	public String getProporsalID() {
-		return ProporsalID;
+	private String ProposalStatus;
+
+	public TrainingProposals(){};
+
+	public TrainingProposals(String proposalID, String RequirementID, String MemberID) throws ParseException {
+		this.ProposalID = proposalID;
+		this.RequirementID = RequirementID;
+		this.MemberID = MemberID;
+		this.ProposedDate = new SimpleDateFormat("yyyy-MM-dd").parse("1970-01-01");
 	}
-	public void setProporsalID(String proporsalID) {
-		ProporsalID = proporsalID;
+
+	public TrainingProposals(String RequirementID, String MemberID, Date ProposedDate) throws ParseException {
+		this.RequirementID = "";
+		this.MemberID = "";
+		this.ProposedDate = ProposedDate;
+		this.ProposedTime = "";
+		this.ProposedDuration = 0;
+	}
+	
+	public String getProposalID() {
+		return ProposalID;
+	}
+	public void setProposalID(String proposalID) {
+		ProposalID = proposalID;
 	}
 	public String getRequirementID() {
 		return RequirementID;
@@ -69,9 +89,16 @@ public class TrainingProposals {
 	public void setProposedDuration(int proposedDuration) {
 		ProposedDuration = proposedDuration;
 	}
+	public String getProposalStatus() {
+		return ProposalStatus;
+	}
+	public void setProposalStatus(String ProposalStatus) {
+		this.ProposalStatus = ProposalStatus;
+	}
+
 	@Override
 	public String toString() {
-		return "TrainingProposals [ProporsalID=" + ProporsalID + ", RequirementID=" + RequirementID + ", MemberID="
+		return "TrainingProposals [ProposalID=" + ProposalID + ", RequirementID=" + RequirementID + ", MemberID="
 				+ MemberID + ", ProposedDate=" + ProposedDate + ", ProposedTime=" + ProposedTime + ", ProposedDuration="
 				+ ProposedDuration + "]";
 	}

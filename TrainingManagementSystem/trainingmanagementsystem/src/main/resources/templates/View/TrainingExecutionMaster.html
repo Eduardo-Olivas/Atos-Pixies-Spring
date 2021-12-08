@@ -44,15 +44,15 @@
         </div>
         <div class="deploy-container">       	
             <div id="div-card-conatiner"  th:each="TrainingExecutionMaster : ${listTrainingExecutionMaster}" class="container-card-for-index">
-                <p id="requirement-id-identifier" th:text="${TrainingExecutionMaster.RequirementID}"> </p>
-                <h3  id="requirement-id" class="card-title-container-trainer" th:text="${TrainingExecutionMaster.RequirementID}">RequirementID</h3>
-                <p id="execution-id-identifier" th:text="${TrainingExecutionMaster.ExecutionID}"> </p>
+                <p id="requirement-id-identifier" th:text="${TrainingExecutionMaster.ExecutionID}"> </p>
+                <h3  id="requirement-id" class="card-title-container-trainer" th:text="${TrainingExecutionMaster.ExecutionID}">ExecutionID</h3>
+                <p id="execution-id-identifier" th:text="${TrainingExecutionMaster.ProposalID}">ProposalID</p>
                 <p class="user-trainer" th:text="${TrainingExecutionMaster.ConfirmedDate}"> Confirmed Date </p>
                 <p class="user-trainer" th:text="${TrainingExecutionMaster.ConfirmedTime}" >User</p>
                 <p class="user-trainer" th:text="${TrainingExecutionMaster.TotalHRS} + ' hrs'">User</p>
-                <p id="proposal-status-tag" class="user-trainer" th:text="${TrainingExecutionMaster.ProposalStatus}"> Carolina Navas </p>
-                <p class="user-trainer" th:text="${TrainingExecutionMaster.TotalParticipantsAllowed}"> Carolina Navas </p>
-                <a class="btn-for-card btn btn-primary" th:href="@{/new_TrainingProposals/{id}(id=${TrainingExecutionMaster.ExecutionID})}">+Proposal</a>
+                <p id="proposal-status-tag" class="user-trainer" th:text="${TrainingExecutionMaster.ProposalStatus}"> ProposalStatus</p>
+                <p class="user-trainer" th:text="${TrainingExecutionMaster.TotalParticipantsAllowed}">TotalParticipantsAllowed</p>
+                <a class="btn-for-card btn btn-primary" th:href="@{/New/new_TrainingProposals/{id}(id=${TrainingExecutionMaster.ExecutionID})}">+Proposal</a>
             </div>
         </div>
     </div>
