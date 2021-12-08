@@ -28,7 +28,7 @@ public class TrainingExecutionMasterDAO {
 	}
 	
 	public List<TrainingExecutionMaster> getByProposalID(String proposalID) {
-		String query = "SELECT * FROM TrainingExecutionMaster WHERE ProporsalID = ?";
+		String query = "SELECT * FROM TrainingExecutionMaster WHERE ProposalID = ?";
 		Object[] args = {proposalID};
 		List<TrainingExecutionMaster> res = jdbcTemplate.query(query, args, BeanPropertyRowMapper.newInstance(TrainingExecutionMaster.class));
 		return res;

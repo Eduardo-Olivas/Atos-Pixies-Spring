@@ -37,21 +37,23 @@
             </div>
             <div class="col-md-4 col-12">
                 <div class="card">
-                    <h3>Trainers</h3>
+                    <h3>Proposals responses</h3>
                     <div class="card-body">
                         <div class="row">
-                            <form class="col-lg-4" >
-                                <div class="form-check" th:each="proposal, iter : ${proposals}">
-                                    <input class="form-check-input" type="checkbox" value="" id="trainer">
-                                    <label class="form-check-label" for="trainer" th:text="'Trainer name: ' + ${ldMembers[iter.index].MemberName}"/>
-                                    <label class="form-check-label" for="trainer" th:text="'Proposed date: ' + ${#dates.format(proposal.ProposedDate, 'dd-MMM-yyyy')}"/>
-                                    <label class="form-check-label" for="trainer" th:text="'Proposed time: ' + ${proposal.ProposedTime}"/>
-                                    <label class="form-check-label" for="trainer" th:text="'Proposed duration: ' + ${proposal.ProposedDuration} + ' days'"/>
+                            <form class="col-lg-4" th:action="@{/send}" method="get">
+                                <div class="form-check" th:each="execution, iter : ${executions}">
+                                    <input class="form-check-input" type="radio" th:name="proposalID" th:value="${execution.ProposalID}" id="response" >
+                                    <label class="form-check-label" for="response" th:text="'Trainer name: ' + ${execution.Trainer}"/>
+                                    <label class="form-check-label" for="response" th:text="'Proposed date: ' + ${#dates.format(execution.ConfirmedDate, 'dd-MMM-yyyy')}"/>
+                                    <label class="form-check-label" for="response" th:text="'Proposed time: ' + ${execution.ConfirmedTime}"/>
+                                    <label class="form-check-label" for="response" th:text="'Total hours: ' + ${execution.totalHRS}"/>
+                                    <label class="form-check-label" for="response" th:text="'Status: ' + ${execution.ProposalStatus}"/>
+                                    <label class="form-check-label" for="response" th:text="'Participants allowed: ' + ${execution.TotalParticipantsAllowed}"/>
+                                    <label class="form-check-label" for="response" th:text="'Trainer response: ' + ${execution.TrainerResponse}"/>
+                                    <br>
                                     <br>
                                 </div>
-                                <button class="btn btn-primary" >
-                            		Send
-                            	</button>
+                                <input type="submit" value="Send">
                             </form>
                         </div>
                     </div>
