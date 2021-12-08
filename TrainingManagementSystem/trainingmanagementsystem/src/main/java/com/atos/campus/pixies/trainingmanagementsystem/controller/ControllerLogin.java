@@ -24,7 +24,7 @@ public class ControllerLogin {
 		}
 		model.addAttribute("username", username);
 		System.out.println(username + " Log In.");
-		return "index";
+		return "redirect:/";
 	}
 
 }

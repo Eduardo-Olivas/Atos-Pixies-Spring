@@ -1,56 +1,29 @@
 package com.atos.campus.pixies.trainingmanagementsystem.controller;
 
+import com.atos.campus.pixies.trainingmanagementsystem.dao.TrainingExecutionMasterDAO;
+import com.atos.campus.pixies.trainingmanagementsystem.dao.TrainingProposalsDAO;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class AppController_NavCommon {
+public class ControllerNavCommon {
 
-	@RequestMapping("/layout")
-	public String viewLayout() {
-	    return "main_layout";
+	@Autowired
+	private TrainingExecutionMasterDAO trainingExecution;
+
+	@Autowired
+	private TrainingProposalsDAO trainingProposal;
+
+	@GetMapping(value = "/")
+	public String mainPage(Model model) {
+		System.out.println(model);
+		if (!model.containsAttribute("username"))
+			return "index";
+		model.addAttribute("listTrainingExecutionMaster", trainingExecution.list());
+	    model.addAttribute("listTrainingProposal", trainingProposal.list());	    
+		return "indexLBP";
 	}
-
-	@RequestMapping("/IndexLBP")
-	public String IndexLBP() {
-	    return "View/IndexLBP";
-	}
-
-	@RequestMapping("/IndexTrainer")
-	public String IndexTrainer() {
-	    return "View/IndexTrainer";
-	}
-
-	@RequestMapping("/InProcessTraining")
-	public String InProcessTraining() {
-	    return "View/InProcessTraining";
-	}
-
-	@RequestMapping("/NewRequirement")
-	public String NewRequirement() {
-	    return "View/NewRequirement";
-	}
-
-	@RequestMapping("/RejectedLBP")
-	public String RejectedLBP() {
-	    return "View/RejectedLBP";
-	}
-
-	@RequestMapping("/RequirementConfirmed")
-	public String RequirementConfirmed() {
-	    return "View/RequirementConfirmed";
-	}
-
-	@RequestMapping("/TrainerAcceptance")
-	public String TrainerAcceptance() {
-	    return "View/TrainerAcceptance";
-	}
-
-	@RequestMapping("/TrainingRequest")
-	public String TrainingRequest() {
-	    return "View/TrainingRequest";
-	}
-
 }

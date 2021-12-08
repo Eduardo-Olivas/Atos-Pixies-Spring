@@ -21,7 +21,9 @@
                 <a class="btn btn-primary btn-lg ext-uppercase" href="Login" role="button">Login</a>
             </div>
         </div>
-        <div th:if="${username != null}"></div>
+        <div th:if="${username != null}">
+            <a class="btn btn-primary btn-lg ext-uppercase" href="Logout" role="button">Logout</a>
+        </div>
     </div>
 </body>
 </html>
