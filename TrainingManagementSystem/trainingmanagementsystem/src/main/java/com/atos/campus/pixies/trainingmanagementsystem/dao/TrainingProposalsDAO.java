@@ -76,11 +76,4 @@ public class TrainingProposalsDAO {
 		String sql = "DELETE FROM TrainingProposals WHERE ProposalID = ?";
 		jdbcTemplate.update(sql, ProposalID);
 	}
-
-	public List<TrainingProposals> getByRequirementID(String requirementID) {
-		String query = "SELECT * FROM TrainingProposals WHERE RequirementID = ?";
-		Object[] args = {requirementID};
-		List<TrainingProposals> proposals = jdbcTemplate.query(query, args, BeanPropertyRowMapper.newInstance(TrainingProposals.class));
-		return proposals;
-	}
 }

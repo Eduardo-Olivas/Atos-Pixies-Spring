@@ -17,15 +17,15 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Entity
 public class TrainingProposals {
 
-	@Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TPSequence")
-    @GenericGenerator(
-		name = "TPSequence", 
-        strategy = "com.atos.campus.pixies.trainingmanagementsystem.model.StringIdGenerator", 
-        parameters = {
-			@Parameter(name = SequenceStyleGenerator.INCREMENT_PARAM, value = "1"),
-            @Parameter(name = StringIdGenerator.PREFIX, value = "TP"),
-            @Parameter(name = StringIdGenerator.NUMBER_FORMAT, value = "%03d")})
+//	@Id
+//    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TPSequence")
+//    @GenericGenerator(
+//		name = "TPSequence", 
+//        strategy = "com.atos.campus.pixies.trainingmanagementsystem.model.StringIdGenerator", 
+//        parameters = {
+//			@Parameter(name = SequenceStyleGenerator.INCREMENT_PARAM, value = "1"),
+//            @Parameter(name = StringIdGenerator.PREFIX, value = "TP"),
+//            @Parameter(name = StringIdGenerator.NUMBER_FORMAT, value = "%03d")})
 	private String ProposalID;
 	private String  RequirementID;
 	private String  MemberID;
@@ -37,7 +37,8 @@ public class TrainingProposals {
 
 	public TrainingProposals(){};
 
-	public TrainingProposals(String RequirementID, String MemberID) throws ParseException {
+	public TrainingProposals(String proposalID, String RequirementID, String MemberID) throws ParseException {
+		this.ProposalID = proposalID;
 		this.RequirementID = RequirementID;
 		this.MemberID = MemberID;
 		this.ProposedDate = new SimpleDateFormat("yyyy-MM-dd").parse("1970-01-01");
