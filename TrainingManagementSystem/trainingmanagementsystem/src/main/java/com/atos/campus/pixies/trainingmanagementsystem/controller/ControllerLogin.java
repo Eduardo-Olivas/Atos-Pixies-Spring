@@ -32,7 +32,8 @@ public class ControllerLogin {
 			return "redirect:/Login?error=Invalid+Login+Attempt";
 		}
 		LDMemberData user = LDBMemberDataDao.getByEmail(email);
-		redirectAttrs.addAttribute("id", user.getMemberID());
+		if(user != null)
+			redirectAttrs.addAttribute("id", user.getMemberID());
 		System.out.println(email + " Log In.");
 		return "redirect:/";
 	}
