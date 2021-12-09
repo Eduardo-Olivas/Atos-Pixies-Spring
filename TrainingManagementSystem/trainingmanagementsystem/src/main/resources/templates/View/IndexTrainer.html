@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en"
+      xml:lang="en" 
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{main_layout.html}">
+<head>
+    <title>Training Management System</title>
+    <!-- Your meta, links and scripts goes here-->
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@300&family=Poppins:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+    <!-- Additional CSS-->
+    <link rel="stylesheet" type="text/css" href="../css/trainerIndex.css" />
+    <link rel="stylesheet" type="text/css" href="../css/trainerIndexContainer.css" />
+    <script th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
+    <!-- Custom JSS -->
+    
+    <script
+	  src="https://code.jquery.com/jquery-3.6.0.js"
+	  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+	  crossorigin="anonymous"></script>
+      <script src="../javascript/TrainingExecutionMaster.js"></script>
+</head>
+<body>
+   
+    <!-- Main component -->
+    <div layout:fragment="main-content">
+    	<div id="black-box" class="black-box-display-off">
+            <div id="content-injection-container" class="content-injection-container-on">
+                <h1 id="injecting-title">Hello</h1>
+                <p id="injecting-contents-1">Contents</p>
+                <p id="injecting-contents-2">Contents</p>
+                <p id="injecting-contents-3">Contents</p>
+                <p id="injecting-contents-4">Contents</p>
+                <p id="injecting-contents-5">Contents</p>
+                <p id="injecting-list">Proposals:</p>
+                <ol id="list-for-proposals">
+                </ol>
+                <h1 id="icon-x" class="icon-x-position">X</h1>
+            </div>
+        </div>
+        <div class="deploy-container">       	
+            <div id="div-card-conatiner"  th:each="Training : ${listTrainingProposals}" class="container-card-for-index">
+                <p  id="requirement-id-identifier" th:text="${Training.RequirementID}"> </p>
+                <h3   id="requirement-id" class="card-title-container-trainer" th:text="${Training.RequirementID}">ExecutionID</h3>
+                <p id="execution-id-identifier" th:text="${Training.MemberID}">MemberID</p>
+                <p style="display: none;" id="proposal-id-identifier" th:text="${Training.ProposalID}">ProposalID</p>
+                <p class="user-trainer" th:text="${Training.ProposedDate}"> Confirmed Date </p>
+                <p class="user-trainer" th:text="${Training.ProposedTime}" >User</p>
+                <p class="user-trainer" th:text="${Training.ProposedDuration} + ' hrs'">User</p>
+                <p id="proposal-status-tag" class="user-trainer" th:text="${Training.ProposalStatus}"> ProposalStatus</p>
+                <a class="btn-for-card btn btn-primary" th:href="@{/new_TrainingExecutionMaster/{id}(id=${Training.ProposalID})}">+Proposal</a>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
