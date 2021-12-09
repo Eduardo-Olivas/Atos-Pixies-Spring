@@ -37,16 +37,17 @@
                 <p id="injecting-contents-4">Contents</p>
                 <p id="injecting-contents-5">Contents</p>
                 <p id="injecting-list">Proposals:</p>
-                <ul id="list-for-proposals">
-                </ul>
+                <ol id="list-for-proposals">
+                </ol>
                 <h1 id="icon-x" class="icon-x-position">X</h1>
             </div>
         </div>
         <div class="deploy-container">       	
             <div id="div-card-conatiner"  th:each="Training : ${listTrainingProposals}" class="container-card-for-index">
-                <p id="requirement-id-identifier" th:text="${Training.RequirementID}"> </p>
-                <h3  id="requirement-id" class="card-title-container-trainer" th:text="${Training.RequirementID}">ExecutionID</h3>
-                <p id="execution-id-identifier" th:text="${Training.MemberID}">ProposalID</p>
+                <p  id="requirement-id-identifier" th:text="${Training.RequirementID}"> </p>
+                <h3   id="requirement-id" class="card-title-container-trainer" th:text="${Training.RequirementID}">ExecutionID</h3>
+                <p id="execution-id-identifier" th:text="${Training.MemberID}">MemberID</p>
+                <p style="display: none;" id="proposal-id-identifier" th:text="${Training.ProposalID}">ProposalID</p>
                 <p class="user-trainer" th:text="${Training.ProposedDate}"> Confirmed Date </p>
                 <p class="user-trainer" th:text="${Training.ProposedTime}" >User</p>
                 <p class="user-trainer" th:text="${Training.ProposedDuration} + ' hrs'">User</p>

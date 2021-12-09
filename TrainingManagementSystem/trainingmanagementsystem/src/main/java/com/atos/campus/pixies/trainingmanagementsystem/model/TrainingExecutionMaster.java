@@ -36,16 +36,22 @@ public class TrainingExecutionMaster {
 	private int TotalParticipantsAllowed;
 	private String TrainerResponse;
 	
+	public TrainingExecutionMaster() {}
+	
 	public TrainingExecutionMaster(String ExecutionID, String ProposalID, Date ConfirmedDate, String ConfirmedTime, String Trainer, int TotalHRS, String ProposalStatus, int TotalParticipantsAllowed, String TrainerResponse) {
-		this.ExecutionID = ExecutionID;
+		int random = (int) (Math.random()* 10000);
+		String randomS = String.valueOf(random);
+		this.ExecutionID = randomS;
 		this.ProposalID = ProposalID;
-		this.ConfirmedDate = ConfirmedDate;
-		this.ConfirmedTime = ConfirmedTime;
-		this.Trainer = Trainer;
-		this.TotalHRS = TotalHRS;
-		this.ProposalStatus = ProposalStatus;
-		this.TotalParticipantsAllowed = TotalParticipantsAllowed;
-		this.TrainerResponse = "";
+		long millis=System.currentTimeMillis();
+		java.sql.Date date = new java.sql.Date(millis); 
+		this.ConfirmedDate = date;
+		this.ConfirmedTime = "00:00";
+		this.Trainer = "0005";
+		this.TotalHRS = 0;
+		this.ProposalStatus = "Rejected";
+		this.TotalParticipantsAllowed = 0;
+		this.TrainerResponse = "Please enter your response";
 		
 	}
 

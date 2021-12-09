@@ -23,8 +23,14 @@ public class RestControllerReactTrainingExecutionMaster {
 		return list;
 	}
 	
+	@GetMapping("/api/TrainingExecutionMaster/foreign/{id}")
+	public List<TrainingExecutionMaster> getFromExecution(@PathVariable String id) {
+		List<TrainingExecutionMaster> list = dao.getOneForeign(id);
+		return list;
+	}
+	
 	@GetMapping("/api/TrainingExecutionMaster/{id}")
-	public TrainingExecutionMaster getOne(@PathVariable String id) {
+	public  TrainingExecutionMaster getOne(@PathVariable String id) {
 		TrainingExecutionMaster training = dao.getOne(id);
 		
 		return training;

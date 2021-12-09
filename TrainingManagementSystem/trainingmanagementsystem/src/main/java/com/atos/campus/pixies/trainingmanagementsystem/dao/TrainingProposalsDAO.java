@@ -27,7 +27,7 @@ public class TrainingProposalsDAO {
 	}
 	
 	public List<TrainingProposals> listSpecial(String id) {
-		String sql = "SELECT * FROM TrainingProposals WHERE ProposalID = ?";
+		String sql = "SELECT * FROM TrainingProposals WHERE RequirementID = ?";
 		Object[] args = {id};
 		List<TrainingProposals> listTrainingProposals = jdbcTemplate.query(sql,args,
 				BeanPropertyRowMapper.newInstance(TrainingProposals.class));

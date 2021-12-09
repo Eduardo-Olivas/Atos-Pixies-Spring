@@ -48,6 +48,13 @@ public class TrainingExecutionMasterDAO {
 		return TrainingExecutionMaster;
 	}
 	
+	public List <TrainingExecutionMaster> getOneForeign(String ProposalID) {
+		String sql = "SELECT * FROM TrainingExecutionMaster WHERE ProposalID = ?";
+		Object[] args = {ProposalID};
+		List <TrainingExecutionMaster> listExecutions = jdbcTemplate.query(sql, args, BeanPropertyRowMapper.newInstance(TrainingExecutionMaster.class));
+		return listExecutions;
+	}
+	
 	public void update(TrainingExecutionMaster TrainingExecutionMaster) {
 		String sql = "UPDATE TrainingExecutionMaster SET ExecutionID=:ExecutionID, ProposalID=:ProposalID, ConfirmedDate=:ConfirmedDate, ConfirmedTime=:ConfirmedTime, Trainer=:Trainer, TotalHRS=:TotalHRS, ProposalStatus=:ProposalStatus, TotalParticipantsAllowed=:TotalParticipantsAllowed, TrainerResponse:=TrainerResponse WHERE ExecutionID=:ExecutionID";
 		BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(TrainingExecutionMaster);
