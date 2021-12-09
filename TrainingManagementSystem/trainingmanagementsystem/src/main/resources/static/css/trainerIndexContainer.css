@@ -101,7 +101,7 @@
 .content-injection-container-on {
 	z-index: 9999; 
 	position: absolute; 
-	background-color: #979797;
+	background-color: white;
 	padding: 2em 5em;
 	height: 82%; 
 	width: 70%; 

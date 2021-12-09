@@ -1,18 +1,101 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html lang="en"
+      xml:lang="en" 
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{main_layout.html}">
 <head>
 <meta charset="utf-8"/>
 <title>Sales Manager Application</title>
+	<script>
+	const setDate = () => {
+		var myDate = new Date();
+		console.log(myDate);
+		document.getElementById('id').defaultValue = '1';
+		document.getElementById('todayDate').valueAsDate = myDate;
+		document.getElementById('user').defaultValue = "user1"
+	}
+	
+	</script>
 </head>
-<body>
-<div align="center">
-    <h1 th:text="${training.TrainingArea}" >TrainingRequirementMaster Record</h1>
-    <p th:text="${training.TrainingDescription}" >TrainingRequirementMaster Record</p>
-    <p th:text="${training.RequestedTrainingStartDate}" >TrainingRequirementMaster Record</p>
-    <p th:text="${training.TotalCandidates}" >TrainingRequirementMaster Record</p>
-    <p th:text="${training.TrainingTimeZone}" >TrainingRequirementMaster Record</p>
-    <p th:text="${training.TotalDurationDays}" >TrainingRequirementMaster Record</p>
-</div>
+<body onload="setDate();">
+  	<div layout:fragment="main-content">
+    	<div class="main__content-header">
+                <h2>New Trainning Request</h2>
+                <div>[<i class="fas fa-plus-square"></i>]</div>
+                <hr/>
+        </div>
+           
+        <div class="row">
+                <div class="col-6 m-auto">
+                    <div class="card">
+                        <h3>New Trainning Request</h3>
+                        <div class="card-body">
+                        
+                            <form class="row g-3"  th:action="@{/save_TrainingRequirementMaster}"  th:object="${TrainingRequirementMaster}" 
+                            method="post"> 
+                                <input type="text" id="id" th:field=*{RequirementID} name="RequirementID"/>
+                            
+                                 <div style="display:none">
+                                 
+                                	<input type="date" id="todayDate" th:field=*{RequirementReceivedDate} name="RequirementReceivedDate"/>
+                                	<input type="text" id="user" value="user1" th:field="*{RequirementUser}" name="RequirementUser"/>
+                                </div>
+                                 <div class="col-6">
+                                    <label for="vertical" class="form-label">Vertical</label>
+                                    <select class="form-select" aria-label="Vertical" name="RequirementUserVertical" >
+	                                	<option selected disabled>Select an option</option>
+	                                    <option th:field="*{RequirementUserVertical}" th:each="vertical:${verticalMaster}" th:text="${vertical.verticalName}" th:value="${vertical.VID}"></option>
+                                    </select>
+                                </div>
+                                <div class="col-6">
+                                    <label for="area" class="form-label">Area</label>
+                                    <input type="text" class="form-control" id="area" placeholder="Area" th:field="*{TrainingArea}" name="TrainingArea">
+                                </div>
+                                <div class="col-12">
+                                    <label for="commets">Comments</label>
+                                    <textarea class="form-control" placeholder="Leave a comment here" id="comments" th:field="*{TrainingDescription}" name="TrainingDescription"></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <label for="date" class="form-label">Date</label>
+                                    <input type="date" class="form-control" id="date" th:field="*{RequestedTrainingStartDate}" name="RequestedTrainingStartDate">
+                                </div>
+                                  
+
+                                
+                 
+                                
+                       
+                                
+                                <div class="col">
+                                    <label for="commets">Total Candidates</label>
+                                    <input type="number" class="form-control" id="area" placeholder="Total canditdates" th:field="*{TotalCandidates}"  name="TotalCandidates">
+                                </div>
+                           
+                                <div class="col">
+                                    <label for="timeZone">Time Zone</label>
+                                    <input type="text" class="form-control" id="timeZone" placeholder="Time zone"  th:field="*{TrainingTimeZone}" name="TrainingTimeZone">
+                                </div>
+                                    
+                                <div class="col">
+                                    <label for="duration">Duration in days</label>
+                                    <input type="number" class="form-control" id="duration" placeholder="Duration" th:field="*{TotalDurationDays}" name="TotalDurationDays">
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary">Request</button>
+                                </div>
+                                
+               
+                                                           
+                                
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+	</div>
+
 </body>
 </html>

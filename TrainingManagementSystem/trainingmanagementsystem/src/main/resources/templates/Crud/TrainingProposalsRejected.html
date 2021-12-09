@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title></title>
+</head>
+<body>
+<div align="center">
+    <h1>TrainingProposals Rejected Records</h1>
+    <a href="/New/new_TrainingProposals">Enter New Sale</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>ProposalID</th>
+                <th>RequirementID</th>
+                <th>MemberID</th>
+                <th>ProposedDate</th>
+                <th>ProposedTime</th>
+				<th>ProposedDuration</th>
+				<th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="TrainingProposals : ${listTrainingProposals}">
+                <td th:text="${TrainingProposals.ProposalID}">ProposalID</td>
+                <td th:text="${TrainingProposals.RequirementID}">RequirementID</td>
+                <td th:text="${TrainingProposals.MemberID}">MemberID</td>
+				<td th:text="${TrainingProposals.ProposedDate}">ProposedDate</td>
+				<td th:text="${TrainingProposals.ProposedTime}">ProposedTime</td>
+				<td th:text="${TrainingProposals.ProposedDuration}">ProposedDuration</td>
+				<td th:text="${TrainingProposals.ProposalStatus}">Status</td>
+				<a class="btn-for-card btn btn-primary" th:href="@{/New/new_TrainingProposals/{id}(id=${TrainingProposals.RequirementID})}">+Proposal</a>
+                <td>
+                    <a th:href="@{'/Edit/edit_TrainingProposals/' + ${TrainingProposals.ProposalID}}">Edit</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a th:href="@{'/delete_TrainingProposals/' + ${TrainingProposals.ProposalID}}">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>   
+</body>
+</html> 

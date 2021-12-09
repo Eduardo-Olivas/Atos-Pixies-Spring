@@ -1,13 +1,13 @@
 let resource;
 const apiCall = async () => {
-	retrievedData = await fetch("/api/TrainingRequirements");
+	retrievedData = await fetch("/api/TrainingProposals");
 	data = await retrievedData.json();
 	console.log(data);
 	return data;
 }
 
 const apiCallOne = async (param) => {
-	retrievedData = await fetch("/api/TrainingRequirements/"+ param);
+	retrievedData = await fetch("/api/TrainingProposals/"+ param);
 	data = await retrievedData.json();
 	console.log(data);
 	return data;
@@ -15,13 +15,6 @@ const apiCallOne = async (param) => {
 
 const apiCallProposals = async (param) => {
 	retrievedData = await fetch("/api/proposals/foreign-key/"+ param);
-	data = await retrievedData.json();
-	console.log(data);
-	return data;
-}
-
-const apiCallExecutions = async (param) => {
-	retrievedData = await fetch("/api/TrainingExecutionMaster/foreign/"+ param);
 	data = await retrievedData.json();
 	console.log(data);
 	return data;
@@ -36,6 +29,7 @@ async function convertion(){
 		let cards = Array.from( document.querySelectorAll("#div-card-conatiner") )
 		console.log($("#div-card-conatiner"));
 		console.log(cards);
+		alert("JOSELITO");
 
 		cards.forEach( (card) => {
 			card.addEventListener("click", async function(e){
@@ -56,24 +50,14 @@ async function convertion(){
 				content3.innerText = "Total Candidates: " + infoApi.totalCandidates
 				content4.innerText = "Duration: " + infoApi.totalDurationDays
 				content5.innerText = "Description: " + infoApi.trainingDescription
-				console.log(card.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.innerText, "JOJOJO")
-				let element = document.querySelector("#requirement-id-identifier");
-				console.log(element.innerText, "jijji");
-				
-				console.log(card.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.innerText,"Checking")
-				let infoApiProposals = await apiCallProposals(card.firstElementChild.innerText);
-				let infoApiExecutions = await apiCallExecutions(card.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.innerText);
-				console.log(infoApiExecutions, "Succesfully retrieved")
-				
-				console.log(infoApiProposals, "list retrievd")
+				console.log(card.firstElementChild.nextElementSibling.nextElementSibling.innerText)
+				let infoApiProposals = await apiCallProposals(card.firstElementChild.nextElementSibling.nextElementSibling.innerText);
 				let list = document.querySelector("#list-for-proposals");
 				list.replaceChildren("")
-				infoApiExecutions.forEach( e => {
-					console.log(card.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.innerText, e.proposalID, "Inner Loop")
-					if(card.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.innerText == e.proposalID  ){
+				infoApiProposals.forEach( e => {
+					if(card.firstElementChild.nextElementSibling.nextElementSibling.innerText == e.executionID  ){
 						listItem = document.createElement("li");
-						listItem.innerText = e.executionID
-						console.log(e, "jonas")
+						listItem.innerText = e.proposalID
 						list.appendChild(listItem)
 					}
 				})
