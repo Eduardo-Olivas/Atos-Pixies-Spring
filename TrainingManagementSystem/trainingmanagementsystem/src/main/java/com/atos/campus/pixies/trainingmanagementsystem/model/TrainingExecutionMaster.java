@@ -47,7 +47,7 @@ public class TrainingExecutionMaster {
 		java.sql.Date date = new java.sql.Date(millis); 
 		this.ConfirmedDate = date;
 		this.ConfirmedTime = "00:00";
-		this.Trainer = "0005";
+		this.Trainer = "MEM01";
 		this.TotalHRS = 0;
 		this.ProposalStatus = "Rejected";
 		this.TotalParticipantsAllowed = 0;

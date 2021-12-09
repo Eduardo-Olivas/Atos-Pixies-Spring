@@ -69,7 +69,7 @@ $(document).ready(function () {
 				$("#execution-id-for-form").hide();
 				$("#date-id-for-form").hide();
 				$("#proposed-id-for-form").hide();
-				$("#trainer-id-field").val("0001")
+				$("#trainer-id-field").val("MEM01")
 				$("#trainer-id-for-form").hide();
 				$("#totalhrs-id-for-form").hide();
 				$("#proposalstatus-id-for-form").hide();
