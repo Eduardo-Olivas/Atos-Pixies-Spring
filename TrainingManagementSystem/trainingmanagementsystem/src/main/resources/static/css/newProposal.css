@@ -1,0 +1,99 @@
+.main-container-section-exe {
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	padding: 3em;
+	justify-content: center;
+	align-items: center;
+}
+
+.secondary-container-exec-1 {
+	flex: 1;
+	background-color: #B8DAEF;
+	border: 1px solid #184B6B;
+	padding: 1em;
+	margin: 5px;
+	height: 80%;
+	border-radius: 12px;
+	position: relative;
+}
+
+.secondary-container-exec-2 {
+	flex: 3;
+	margin: 5px;
+	height: 80%;
+	border-radius: 12px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.third-container-exec-1 {
+	flex: 2;
+	background-color: #B8DAEF;
+	border: 1px solid #184B6B;
+	width: 99%;
+	padding: 1em;
+	border-radius: 12px;
+	margin: 5px;
+}
+
+.third-container-exec-2 {
+	flex: 1;
+	background-color: #E7F3FA;
+	border: 1px solid #184B6B;
+	width: 99%;
+	padding: 1em;
+	border-radius: 12px;
+	margin: 5px;
+}
+
+#trainer-response-id {
+	width: 90%;
+	height: 200px;
+	border-radius: 15px;
+}
+
+#title-page-new-proposal-execution {
+	position: absolute;
+	margin: 1.5em;
+}
+
+.container-decision-1 {
+	flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #184B6B;
+    background-color: #B8DAEF;
+    border-radius: 9px;
+    height: 100%;
+    width: 100%;
+    margin-bottom: 12px;
+    padding: 1em;
+    position: relative;
+}
+
+.title-for-trainer-details-4 {
+	border-bottom: 3px solid #184B6B;
+    padding: 10px;
+    position: absolute;
+    top: 0;
+}
+
+#img-logo-form {
+	height: 10em;
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+}
+
+#status-id-field {
+	background-color:#0d96eb;
+}
+
+#execution-field {
+	background-color:#0d96eb;
+}
