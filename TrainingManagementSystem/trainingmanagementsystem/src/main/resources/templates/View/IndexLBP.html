@@ -8,6 +8,16 @@
 <head>
     <title>Training Management System</title>
     <!-- Your meta, links and scripts goes here-->
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Karla:wght@300&family=Poppins:ital,wght@0,300;1,300&display=swap"
+        rel="stylesheet">
+    <!-- Additional CSS-->
+    <link rel="stylesheet" type="text/css" href="../css/trainerIndex.css" />
+    <link rel="stylesheet" type="text/css" href="../css/trainerIndexContainer.css" />
+    <script th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
 </head>
 <body>
     <!-- Main component -->
@@ -18,38 +28,16 @@
             <hr/>
         </div>
         <div class="container">
-            <div class="row justify-content-center">
-                    <div th:each="TrainingRequirementMaster : ${listTrainingMaster}" class="col-md-3  col mb-4">
-                        <span id="ProposalID" th:text="${mapTrainingProposal.get(TrainingRequirementMaster.RequirementID).ProposalID}" style="display: none;">ProposalID</span>
-                        <div class="card card-trainning">
-                            <div class="card-trainning-body new">
-                                <h3 class="new-bg" th:text="${TrainingRequirementMaster.RequirementID}">ID</h3>
-                                <i class="new-txt fas fa-plus-circle"></i>
-                                <div class="card-info">
-                                    <div>
-                                        <span class="font-bold">User: </span>
-                                        <p th:text="${TrainingRequirementMaster.RequirementUser}">RequirementUser</p>
-                                    </div>
-                                    <div>
-                                        <span class="font-bold">Start Date: </span>
-                                        <p th:text="${TrainingRequirementMaster.RequestedTrainingStartDate}">RequestedTrainingStartDate</p>
-                                    </div>
-                                    <div>
-                                        <span class="font-bold">Area: </span>
-                                        <p th:text="${TrainingRequirementMaster.RequirementUserVertical}">RequirementUserVertical</p>
-                                    </div>
-                                    <div>
-                                        <span class="font-bold">Duration: </span>
-                                        <p th:text="${TrainingRequirementMaster.TotalDurationDays}">TotalDurationDays</p>
-                                    </div>
-                                    <div>
-                                        <span class="font-bold">Participants: </span>
-                                        <p th:text="${TrainingRequirementMaster.TotalCandidates}">TotalCandidates</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="row justify-content-center div-card-conatiner">
+                <div th:each="requirement : ${listRequirement}" class="container-card-for-index">
+                    <h3 id="area-${requirement.get('Area')}" class="card-title-container-trainer"
+                    th:text="${requirement.get('Area')}">Area</h3>
+                    <p id="trainer-${requirement.get('Vertical')}" class="user-trainer" th:text="${requirement.get('Vertical')}">Vertical</p>
+                    <p id="trainer-${requirement.get('StartDate')}" class="user-trainer" th:text="${requirement.get('StartDate')}">StartDate</p>
+                    <p id="trainer-${requirement.get('Duration')}" class="user-trainer" th:text="${requirement.get('Duration')}">Duration</p>
+                    <p id="trainer-${requirement.get('Status')}" class="user-trainer" th:text="${requirement.get('Status')}">Status</p>
+                    <a class="btn btn-primary"
+					    th:href="@{{link}(link=${requirement.get('Link')})}">Details</a>
                 </div>
             </div>
         </div>

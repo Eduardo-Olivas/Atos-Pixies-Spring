@@ -79,17 +79,11 @@ public class TrainingProposalsDAO {
 	}
 
 	public TrainingProposals getBy(String ProposalID) {
-		String sql = "SELECT * FROM TrainingProposals WHERE ProposalID = ?";
-		Object[] args = {ProposalID};
-		TrainingProposals TrainingProposals = jdbcTemplate.queryForObject(sql, args, BeanPropertyRowMapper.newInstance(TrainingProposals.class));
-		return TrainingProposals;
+		return get("SELECT * FROM TrainingProposals WHERE ProposalID = ?", ProposalID);
 	}
 	
 	public TrainingProposals getOneSpecial(String ProposalID) {
-		String sql = "SELECT * FROM TrainingProposals WHERE ProposalID = ?";
-		Object[] args = {ProposalID};
-		TrainingProposals TrainingProposals = jdbcTemplate.queryForObject(sql, args, BeanPropertyRowMapper.newInstance(TrainingProposals.class));
-		return TrainingProposals;
+		return get("SELECT * FROM TrainingProposals WHERE ProposalID = ?", ProposalID);
 	}
 	
 	public void update(TrainingProposals TrainingProposals) {
