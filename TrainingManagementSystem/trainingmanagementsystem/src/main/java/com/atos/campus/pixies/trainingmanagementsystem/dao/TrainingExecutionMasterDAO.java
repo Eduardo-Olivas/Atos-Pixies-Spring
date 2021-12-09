@@ -36,7 +36,7 @@ public class TrainingExecutionMasterDAO {
 	
 	public void save(TrainingExecutionMaster TrainingExecutionMaster) { 
 		SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
-		insertActor.withTableName("TrainingExecutionMaster").usingColumns("ExecutionID", "ProposalID", "ConfirmedDate","ConfirmedTime","Trainer","TotalHRS","ProposalStatus","TotalParticipantsAllowed");
+		insertActor.withTableName("TrainingExecutionMaster").usingColumns("ExecutionID", "ProposalID", "ConfirmedDate","ConfirmedTime","Trainer","TotalHRS","ProposalStatus","TotalParticipantsAllowed", "TrainerResponse");
 		BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(TrainingExecutionMaster);
 		
 		insertActor.execute(param);		
@@ -54,6 +54,13 @@ public class TrainingExecutionMasterDAO {
 		Object[] args = {ExecutionID};
 		TrainingExecutionMaster TrainingExecutionMaster = jdbcTemplate.queryForObject(sql, args, BeanPropertyRowMapper.newInstance(TrainingExecutionMaster.class));
 		return TrainingExecutionMaster;
+	}
+	
+	public List <TrainingExecutionMaster> getOneForeign(String ProposalID) {
+		String sql = "SELECT * FROM TrainingExecutionMaster WHERE ProposalID = ?";
+		Object[] args = {ProposalID};
+		List <TrainingExecutionMaster> listExecutions = jdbcTemplate.query(sql, args, BeanPropertyRowMapper.newInstance(TrainingExecutionMaster.class));
+		return listExecutions;
 	}
 	
 	public void update(TrainingExecutionMaster TrainingExecutionMaster) {
