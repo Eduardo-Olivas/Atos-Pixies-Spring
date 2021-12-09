@@ -40,6 +40,13 @@ public class LDMemberDataDAO {
 		LDMemberData LDMemberData = jdbcTemplate.queryForObject(sql, args, BeanPropertyRowMapper.newInstance(LDMemberData.class));
 		return LDMemberData;
 	}
+
+	public LDMemberData getByEmail(String MemberEmail) {
+		String sql = "SELECT * FROM LDMemberData WHERE MemberEmail = ?";
+		Object[] args = {MemberEmail};
+		LDMemberData LDMemberData = jdbcTemplate.queryForObject(sql, args, BeanPropertyRowMapper.newInstance(LDMemberData.class));
+		return LDMemberData;
+	}
 	
 	public void update(LDMemberData LDMemberData) {
 		String sql = "UPDATE LDMemberData SET MemberID=:MemberID, MemberName=:MemberName, MemberContact=:MemberContact, MemberLocation=:MemberLocation, MemberEmail=:MemberEmail, LDRoleID=:LDRoleID WHERE MemberID=:MemberID";

@@ -54,7 +54,7 @@ public class AppController_TrainingRequirementMaster {
 	
 	@RequestMapping("/Edit/edit_TrainingRequirementMaster/{RequirementID}")
 	public ModelAndView showEditForm(@PathVariable(name = "RequirementID") String RequirementID) {
-	    ModelAndView mav = new ModelAndView("edit_form_TrainingRequirementMaster");
+	    ModelAndView mav = new ModelAndView("Edit/edit_form_TrainingRequirementMaster");
 	    TrainingRequirementMaster TrainingRequirementMaster = dao.get(RequirementID);
 	    mav.addObject("TrainingRequirementMaster", TrainingRequirementMaster);
 	     

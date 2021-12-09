@@ -45,7 +45,7 @@ public class TrainingRequirementMaster {
 		return RequirementReceivedDate;
 	}
 	public void setRequirementReceivedDate(Date requirementReceivedDate) {
-		RequirementReceivedDate = requirementReceivedDate;
+		this.RequirementReceivedDate = requirementReceivedDate;
 	}
 	public String getRequirementUser() {
 		return RequirementUser;
