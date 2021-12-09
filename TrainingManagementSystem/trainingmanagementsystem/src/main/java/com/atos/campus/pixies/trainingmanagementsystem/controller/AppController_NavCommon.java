@@ -23,10 +23,10 @@ public class AppController_NavCommon {
 	    return "View/RejectedLBP";
 	}
 
-	@RequestMapping("/RequirementConfirmed")
-	public String RequirementConfirmed() {
-	    return "View/RequirementConfirmed";
-	}
+	// @RequestMapping("/RequirementConfirmed")
+	// public String RequirementConfirmed() {
+	//     return "View/RequirementConfirmed";
+	// }
 
 	@RequestMapping("/TrainerAcceptance")
 	public String TrainerAcceptance() {
