@@ -27,6 +27,23 @@ public class TrainingProposalsDAO {
 		return listTrainingProposals;
 	}
 	
+	public List<TrainingProposals> listRejected() {
+		String sql = "SELECT * FROM TrainingProposals WHERE ProposalStatus = 'Rejected'";
+
+		List<TrainingProposals> listTrainingProposals = jdbcTemplate.query(sql, 
+				BeanPropertyRowMapper.newInstance(TrainingProposals.class));
+
+		return listTrainingProposals;
+	}
+	
+	public List<TrainingProposals> listRejectedRequirementID(String requirementID) {
+		String query = "SELECT * FROM TrainingProposals WHERE RequirementID = ? AND ProposalStatus = 'Rejected'";
+		Object[] args = {requirementID};
+		List<TrainingProposals> res = jdbcTemplate.query(query, args, BeanPropertyRowMapper.newInstance(TrainingProposals.class));
+
+		return res;
+	}
+	
 	public List<TrainingProposals> getByRequirementID(String requirementID) {
 		String query = "SELECT * FROM TrainingProposals WHERE RequirementID = ?";
 		Object[] args = {requirementID};
