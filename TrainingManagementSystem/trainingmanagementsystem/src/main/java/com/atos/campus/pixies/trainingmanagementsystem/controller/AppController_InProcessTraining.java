@@ -54,7 +54,7 @@ public class AppController_InProcessTraining {
 		//Initialize trainers data
 		ldMembers = new ArrayList<LDMemberData>();
 		//Initialize the executions list
-		executions = new ArrayList<TrainingExecutionMaster>();
+		executions = new ArrayList<TrainingExecutionMaster>();		
 		
 		//Get the executions from the proposals
 		for (TrainingProposals proposal : proposals) {
@@ -62,12 +62,21 @@ public class AppController_InProcessTraining {
 			executions.addAll(temDAO.getByProposalID(proposal.getProposalID()));				
 		}
 		
-		for (TrainingExecutionMaster e : executions)
-			System.out.println(e);
-		
 		//Get trainers data from the proposals
 		for (TrainingProposals proposal : proposals)
 			ldMembers.add(ldMemberDAO.get(proposal.getMemberID()));
+		
+		//Print the requirement
+		System.out.println("Requirement: ");
+		System.out.println(requirement);
+		//Print the proposals linked to that requirement
+		System.out.println("Proposals: ");
+		for (TrainingProposals proposal : proposals)
+			System.out.println(proposal);
+		//Print the executions linked to those proposals
+		System.out.println("Executions: ");
+		for (TrainingExecutionMaster execution : executions)
+			System.out.println(execution);
 		
 		//Add all the data to the model
 		model.addAttribute("requirement", requirement);
@@ -75,8 +84,6 @@ public class AppController_InProcessTraining {
 		model.addAttribute("proposals", proposals);
 		model.addAttribute("ldMembers", ldMembers);
 		model.addAttribute("executions", executions);
-		
-		System.out.println(requirement);
 
 	    return "View/InProcessTraining";
 	}
@@ -86,9 +93,11 @@ public class AppController_InProcessTraining {
 		
 		Date confirmedDate = new Date();
 		String confirmedTime = "";
+		System.out.println("Received proposalID: " + proposalID);
 		
 		for (TrainingExecutionMaster e : executions) {
-			if (e.getProposalID() == proposalID) {
+			System.out.println(e.getProposalID());
+			if (e.getProposalID().equals(proposalID)) {
 				confirmedDate = e.getConfirmedDate();
 				confirmedTime = e.getConfirmedTime();
 				break;
@@ -96,7 +105,7 @@ public class AppController_InProcessTraining {
 		}
 		
 		for (TrainingProposals proposal : proposals) {
-			if (proposal.getProposalID() == proposalID) {
+			if (proposal.getProposalID().equals(proposalID)) {
 				proposal.setProposalStatus("Confirmed");
 				proposal.setProposedDate(confirmedDate);
 				proposal.setProposedTime(confirmedTime);
@@ -104,7 +113,7 @@ public class AppController_InProcessTraining {
 			}
 			else {
 				proposal.setProposalStatus("Rejected");
-//				tpDAO.update(proposal);
+				tpDAO.update(proposal);
 			}
 		}
 		
