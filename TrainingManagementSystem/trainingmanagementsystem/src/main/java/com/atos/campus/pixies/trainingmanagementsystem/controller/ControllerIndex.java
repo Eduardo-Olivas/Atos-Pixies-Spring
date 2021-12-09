@@ -37,8 +37,8 @@ public class ControllerIndex {
             HashMap<String,String> requirementMap = new HashMap<>();
             requirementMap.put("RequirementID", i.getRequirementID());            
             requirementMap.put("Area", i.getTrainingArea());
-            requirementMap.put("ReceivedDate", i.getRequirementReceivedDate().toString());
-            requirementMap.put("StartDate", i.getRequestedTrainingStartDate().toString());            
+            requirementMap.put("ReceivedDate", i.getRequirementReceivedDate() + "");
+            requirementMap.put("StartDate", i.getRequestedTrainingStartDate() + "");            
             requirementMap.put("Duration", i.getTotalDurationDays() + " days");
             requirementMap.put("Status", "New");
             VerticalMaster v = verticalMaster.get(i.getRequirementUserVertical());
@@ -55,19 +55,19 @@ public class ControllerIndex {
             String linkTo;
             switch (requirementMap.get("Status")) {
                 case "New":
-                    linkTo = "/View/NewRequirement/"  + i.getRequirementID();
+                    linkTo = "/NewRequirement/"  + i.getRequirementID();
                     break;
                 case "Confirmed":
-                    linkTo = "/View/RequirementConfirmed/" + i.getRequirementID();
+                    linkTo = "/RequirementConfirmed?requirementID=" + i.getRequirementID();
                     break;
                 case "Pending":
-                    linkTo = "/View/"  + i.getRequirementID();
+                    linkTo = "/"  + i.getRequirementID();
                     break;
                 case "Process":
-                    linkTo = "/View/InProcessTraining/"  + i.getRequirementID();
+                    linkTo = "/InProcessTraining/"  + i.getRequirementID();
                     break;
                 case "Rejected":
-                    linkTo = "/View/LBPRejected/"  + i.getRequirementID();
+                    linkTo = "/LBPRejected/"  + i.getRequirementID();
                     break;
                 default:
                     linkTo = "#";

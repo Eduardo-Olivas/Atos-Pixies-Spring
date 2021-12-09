@@ -23,19 +23,25 @@
     <!-- Main component -->
     <div layout:fragment="main-content">
         <div class="main__content-header">
-            <h2>Index LBP</h2>
+            <h2>Training Requirements</h2>
             <div>[<i class="fas fa-plus-square"></i>]</div>
             <hr/>
         </div>
         <div class="container">
             <div class="row justify-content-center div-card-conatiner">
                 <div th:each="requirement : ${listRequirement}" class="container-card-for-index">
-                    <h3 id="area-${requirement.get('Area')}" class="card-title-container-trainer"
-                    th:text="${requirement.get('Area')}">Area</h3>
-                    <p id="trainer-${requirement.get('Vertical')}" class="user-trainer" th:text="${requirement.get('Vertical')}">Vertical</p>
-                    <p id="trainer-${requirement.get('StartDate')}" class="user-trainer" th:text="${requirement.get('StartDate')}">StartDate</p>
-                    <p id="trainer-${requirement.get('Duration')}" class="user-trainer" th:text="${requirement.get('Duration')}">Duration</p>
-                    <p id="trainer-${requirement.get('Status')}" class="user-trainer" th:text="${requirement.get('Status')}">Status</p>
+                    <div id="requirement-${requirement.get('RequirementID')}">
+                    </div>
+                    <h3 id="area-${requirement.get('RequirementID')}" class="card-title-container-trainer"
+                        th:text="${requirement.get('Area')}"></h3>    
+                    <p id="vertical-${requirement.get('RequirementID')}" class="user-trainer" 
+                        th:text="${requirement.get('Vertical')}"></p>
+                    <p id="startDate-${requirement.get('RequirementID')}" class="user-trainer" 
+                        th:text="${requirement.get('StartDate')}"></p>
+                    <p id="duration-${requirement.get('RequirementID')}" class="user-trainer" 
+                        th:text="${requirement.get('Duration')}"></p>
+                    <p id="status-${requirement.get('RequirementID')}" class="user-trainer" 
+                        th:text="${requirement.get('Status')}"></p>
                     <a class="btn btn-primary"
 					    th:href="@{{link}(link=${requirement.get('Link')})}">Details</a>
                 </div>
