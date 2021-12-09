@@ -89,3 +89,11 @@
 	bottom: 20px;
 	right: 20px;
 }
+
+#status-id-field {
+	background-color:#0d96eb;
+}
+
+#execution-field {
+	background-color:#0d96eb;
+}

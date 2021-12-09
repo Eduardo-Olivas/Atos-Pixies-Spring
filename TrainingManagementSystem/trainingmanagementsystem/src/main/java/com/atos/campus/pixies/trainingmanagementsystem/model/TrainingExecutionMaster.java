@@ -49,7 +49,7 @@ public class TrainingExecutionMaster {
 		this.ConfirmedTime = "00:00";
 		this.Trainer = "MEM01";
 		this.TotalHRS = 0;
-		this.ProposalStatus = "Rejected";
+		this.ProposalStatus = "Not Confirmed";
 		this.TotalParticipantsAllowed = 0;
 		this.TrainerResponse = "Please enter your response";
 		
