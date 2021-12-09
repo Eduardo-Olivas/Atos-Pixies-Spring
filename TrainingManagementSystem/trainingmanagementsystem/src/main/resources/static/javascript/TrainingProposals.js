@@ -1,13 +1,13 @@
 let resource;
 const apiCall = async () => {
-	retrievedData = await fetch("/api/TrainingRequirements");
+	retrievedData = await fetch("/api/TrainingProposals");
 	data = await retrievedData.json();
 	console.log(data);
 	return data;
 }
 
 const apiCallOne = async (param) => {
-	retrievedData = await fetch("/api/TrainingRequirements/"+ param);
+	retrievedData = await fetch("/api/TrainingProposals/"+ param);
 	data = await retrievedData.json();
 	console.log(data);
 	return data;

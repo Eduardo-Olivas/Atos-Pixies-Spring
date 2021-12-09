@@ -3,6 +3,7 @@ package com.atos.campus.pixies.trainingmanagementsystem.dao;
 import java.util.List;
 
 import com.atos.campus.pixies.trainingmanagementsystem.model.TrainingExecutionMaster;
+import com.atos.campus.pixies.trainingmanagementsystem.model.TrainingProposals;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -26,7 +27,14 @@ public class TrainingExecutionMasterDAO {
 		return listTrainingExecutionMaster;
 	}
 	
-	public void save(TrainingExecutionMaster TrainingExecutionMaster) {
+	public List<TrainingExecutionMaster> getByProposalID(String proposalID) {
+		String query = "SELECT * FROM TrainingExecutionMaster WHERE ProposalID = ?";
+		Object[] args = {proposalID};
+		List<TrainingExecutionMaster> res = jdbcTemplate.query(query, args, BeanPropertyRowMapper.newInstance(TrainingExecutionMaster.class));
+		return res;
+	}
+	
+	public void save(TrainingExecutionMaster TrainingExecutionMaster) { 
 		SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
 		insertActor.withTableName("TrainingExecutionMaster").usingColumns("ExecutionID", "ProposalID", "ConfirmedDate","ConfirmedTime","Trainer","TotalHRS","ProposalStatus","TotalParticipantsAllowed");
 		BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(TrainingExecutionMaster);

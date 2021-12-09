@@ -28,6 +28,14 @@ public class AppController_TrainingProposals {
 		model.addAttribute("listTrainingProposals", listTrainingProposals);
 	    return "Crud/TrainingProposals";
 	}
+	@RequestMapping("/Crud/TrainingProposalsRejected")
+	public String viewHomePageRejected(Model model) {
+		List<TrainingProposals> listTrainingProposals = dao.listRejected();
+		model.addAttribute("listTrainingProposals", listTrainingProposals);
+	    return "Crud/TrainingProposalsRejected";
+	}
+	
+	
 	
 	@RequestMapping("/New/new_TrainingProposals")
 	public String showNewForm(Model model) {
@@ -54,12 +62,14 @@ public class AppController_TrainingProposals {
 	
 	@RequestMapping("/Edit/edit_TrainingProposals/{ProposalID}")
 	public ModelAndView showEditForm(@PathVariable(name = "ProposalID") String ProposalID) {
-	    ModelAndView mav = new ModelAndView("edit_form_TrainingProposals");
+	    ModelAndView mav = new ModelAndView("Edit/edit_form_TrainingProposals");
 	    TrainingProposals TrainingProposals = dao.get(ProposalID);
 	    mav.addObject("TrainingProposals", TrainingProposals);
 	     
 	    return mav;
 	}
+	
+
 	
 	@RequestMapping(value = "/update_TrainingProposals", method = RequestMethod.POST)
 	public String update(@ModelAttribute("TrainingProposals") TrainingProposals TrainingProposals) {

@@ -46,7 +46,7 @@ public class AppController_VerticalMaster {
 	
 	@RequestMapping("/Edit/edit_form_VerticalMaster/{VID}")
 	public ModelAndView showEditForm(@PathVariable(name = "VID") String VID) {
-	    ModelAndView mav = new ModelAndView("edit_form_VerticalMaster");
+	    ModelAndView mav = new ModelAndView("Edit/edit_form_VerticalMaster");
 	    VerticalMaster VerticalMaster = dao.get(VID);
 	    mav.addObject("VerticalMaster", VerticalMaster);
 	     

@@ -45,7 +45,7 @@ public class TrainingExecutionMaster {
 		return ProposalID;
 	}
 	public void setProposalID(String ProposalID) {
-		ProposalID = ProposalID;
+		this.ProposalID = ProposalID;
 	}
 	public String getExecutionID() {
 		return ExecutionID;

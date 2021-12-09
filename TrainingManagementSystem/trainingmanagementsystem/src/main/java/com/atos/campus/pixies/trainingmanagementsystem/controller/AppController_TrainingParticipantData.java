@@ -44,9 +44,9 @@ public class AppController_TrainingParticipantData {
 	    return "redirect:/TrainingParticipantData";
 	}
 	
-	@RequestMapping("/edit_TrainingParticipantData/{ParticipantID}")
+	@RequestMapping("Edit/edit_TrainingParticipantData/{ParticipantID}")
 	public ModelAndView showEditForm(@PathVariable(name = "ParticipantID") String ParticipantID) {
-	    ModelAndView mav = new ModelAndView("edit_form_TrainingParticipantData");
+	    ModelAndView mav = new ModelAndView("Edit/edit_form_TrainingParticipantData");
 	    TrainingParticipantData TrainingParticipantData = dao.get(ParticipantID);
 	    mav.addObject("TrainingParticipantData", TrainingParticipantData);
 	     

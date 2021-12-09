@@ -1,5 +1,6 @@
 package com.atos.campus.pixies.trainingmanagementsystem.model;
 
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -37,10 +38,17 @@ public class TrainingProposals {
 
 	public TrainingProposals(){};
 
-	public TrainingProposals(String RequirementID, String MemberID) throws ParseException {
+	public TrainingProposals(String proposalID, String RequirementID, String MemberID) throws ParseException {
+		this.ProposalID = proposalID;
 		this.RequirementID = RequirementID;
 		this.MemberID = MemberID;
 		this.ProposedDate = new SimpleDateFormat("yyyy-MM-dd").parse("1970-01-01");
+	}
+
+	public TrainingProposals(String RequirementID, String MemberID, Date ProposedDate) throws ParseException {
+		this.RequirementID = "";
+		this.MemberID = "";
+		this.ProposedDate = ProposedDate;
 		this.ProposedTime = "";
 		this.ProposedDuration = 0;
 	}
