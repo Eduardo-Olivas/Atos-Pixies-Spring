@@ -34,7 +34,7 @@ public class LDRolesDAO {
 		insertActor.execute(param);		
 	}
 	
-	public LDRoles get(int LDRoleID) {
+	public LDRoles get(String LDRoleID) {
 		String sql = "SELECT * FROM LDRoles WHERE LDRoleID = ?";
 		Object[] args = {LDRoleID};
 		LDRoles LDRoles = jdbcTemplate.queryForObject(sql, args, BeanPropertyRowMapper.newInstance(LDRoles.class));
