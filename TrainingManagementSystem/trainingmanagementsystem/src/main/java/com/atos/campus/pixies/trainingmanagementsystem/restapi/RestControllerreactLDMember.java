@@ -7,6 +7,7 @@ import com.atos.campus.pixies.trainingmanagementsystem.model.LDMemberData;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -20,5 +21,11 @@ public class RestControllerreactLDMember {
 		List<LDMemberData> list = dao.list();
 		
 		return list;
+	}
+	@GetMapping("/api/LDMember/{id}")
+	public List<LDMemberData> LDMember(@PathVariable String id) {
+		List<LDMemberData> lb = dao.getLDRoleID(id);
+		
+		return lb;
 	}
 }
