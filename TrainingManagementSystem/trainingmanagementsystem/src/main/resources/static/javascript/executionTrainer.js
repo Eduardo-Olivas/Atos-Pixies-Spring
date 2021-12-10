@@ -60,8 +60,7 @@ $(document).ready(function () {
 				$("#trainer-id-for-form").show();
 				$("#totalhrs-id-for-form").show();
 				$("#status-id-field").val("Not Confirmed")
-				$("#status-id-field").show()
-				$("#proposalstatus-id-for-form").show();
+				
 				$("#total-allowed").show();
 				
             } else {

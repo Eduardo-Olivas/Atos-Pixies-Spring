@@ -26,6 +26,7 @@
 	    
 	    <div class="secondary-container-exec-1">
 	    	<div class="container-requirements-trainer">
+                <h1 id="title-new-form-execution-master">Training request details:</h1>
                         <span class="">Requirement User:</span>
                         <span > <strong id="requirement-id-form"> REQ001</strong>  </span>
                         <br>
@@ -65,35 +66,37 @@
 	    	<div  class="third-container-exec-1">
 		        <span style="display: none;" th:text="${proposalID}">RequirementID</span>
 		        <br />
-		        <form action="#" th:action="@{/save_TrainingExecutionMaster}" th:object="${TrainingExecutionMaster}"
+		        <form id="form-execution-master-new" action="#" th:action="@{/save_TrainingExecutionMaster}" th:object="${TrainingExecutionMaster}"
 		            method="post">
-		 			<label id="execution-id-for-form" for="">Execution ID
+                    <img id="img-logo-form-1" src="../images/calendar.svg" alt="" srcset="">
+		 			<label id="execution-id-for-form" for="">
 		            	<input id="execution-field" readonly class="input-date-trainer" type="text" th:field="*{ExecutionID}" />
 		            </label>
 		            
 		            	<input class="input-date-trainer" readonly type="text" id="proposalID" name="ProposalID" th:value="${proposalID}" >
 		            
 		            <label id="date-id-for-form">Date:
-		            	<input class="input-date-trainer" type="date" th:field="*{ConfirmedDate}" >
+		            	<input id="trainer-date-exe-field" class="input-date-trainer" type="date" th:field="*{ConfirmedDate}" >
 		            </label>
-		            
+		            <br>
 		            <label id="proposed-id-for-form" for="">Time:
-		            	<input class="input-date-trainer" type="time" th:field="*{ConfirmedTime}" />
+		            	<input id="trainer-time-exe-field" class="input-date-trainer" type="time" th:field="*{ConfirmedTime}" />
 	            	</label>
+                    <br>
 		            <label id="trainer-id-for-form" for="">Trainer:
 		            	<input id="trainer-id-field" class="input-date-trainer" type="text" th:field="*{Trainer}" >
 		            </label>
-		            
+		            <br>
 		            <label id="totalhrs-id-for-form" for="">TotalHRS:
-		            	<input class="input-date-trainer" type="number" th:field="*{TotalHRS}" />
+		            	<input id="input-trainer-hrs-exe" class="input-date-trainer" type="number" th:field="*{TotalHRS}" />
 		            </label>
 		            
 		            <label  id="proposalstatus-id-for-form" for="">ProposalStatus:
 		            	<input  readonly id="status-id-field" class="input-date-trainer" type="text" th:field="*{ProposalStatus}" />
 		            </label>
-		            
-		 			<label id="total-allowed" for="">TotalParticipantsAllowed:
-		            	<input class="input-date-trainer" type="text" th:field="*{TotalParticipantsAllowed}" />
+		            <br>
+		 			<label id="total-allowed" for="">Participants :
+		            	<input id="input-trainer-participants-exe" class="input-date-trainer" type="text" th:field="*{TotalParticipantsAllowed}" />
 		            </label>
 		            
 		            	<input id="trainer-response-id" class="input-date-trainer" type="text" th:field="*{TrainerResponse}" />

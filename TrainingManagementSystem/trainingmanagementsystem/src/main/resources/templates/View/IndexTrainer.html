@@ -23,6 +23,7 @@
 	  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
 	  crossorigin="anonymous"></script>
       <script src="../javascript/TrainingExecutionMaster.js"></script>
+      
 </head>
 <body>
    
@@ -42,19 +43,22 @@
                 <h1 id="icon-x" class="icon-x-position">X</h1>
             </div>
         </div>
-        <div class="deploy-container">       	
+       
+        <div class="deploy-container">
+            <input placeholder="Search by User ID" id="input-search-bar" type="text">      	
             <div id="div-card-conatiner"  th:each="Training : ${listTrainingProposals}" class="container-card-for-index">
                 <p  id="requirement-id-identifier" th:text="${Training.RequirementID}"> </p>
                 <h3   id="requirement-id" class="card-title-container-trainer" th:text="${Training.RequirementID}">ExecutionID</h3>
                 <p id="execution-id-identifier" th:text="${Training.MemberID}">MemberID</p>
                 <p style="display: none;" id="proposal-id-identifier" th:text="${Training.ProposalID}">ProposalID</p>
-                <p class="user-trainer" th:text="${Training.ProposedDate}"> Confirmed Date </p>
-                <p class="user-trainer" th:text="${Training.ProposedTime}" >User</p>
-                <p class="user-trainer" th:text="${Training.ProposedDuration} + ' hrs'">User</p>
+                <p style="display: none;" class="user-trainer" th:text="${Training.ProposedDate}"> Confirmed Date </p>
+                <p style="display: none;" class="user-trainer" th:text="${Training.ProposedTime}" >User</p>
+                <p style="display: none;" class="user-trainer" th:text="${Training.ProposedDuration} + ' hrs'">User</p>
                 <p id="proposal-status-tag" class="user-trainer" th:text="${Training.ProposalStatus}"> ProposalStatus</p>
                 <a class="btn-for-card btn btn-primary" th:href="@{/new_TrainingExecutionMaster/{id}(id=${Training.ProposalID})}">+Proposal</a>
             </div>
         </div>
+        <script src="../javascript/searchbar.js"></script>
     </div>
     
 </body>

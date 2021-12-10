@@ -166,3 +166,8 @@
     color: black;
 }
 
+#input-search-bar{
+    border-radius: 22px;
+    position: absolute;
+    top: 100px;
+}
