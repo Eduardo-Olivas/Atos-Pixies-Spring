@@ -33,28 +33,28 @@
                             <tbody>
                                 <tr>
                                     <th scope="row">Received date: </th>
-                                    <td class="text-muted">DD/MM/YYYY</td>
-                                    <td class="text-muted">Small Description</td>
+                                    <td class="text-muted" th:text="${#dates.format(requirement.RequirementReceivedDate, 'dd-MMM-yyyy')}"></td>
+                                    <td class="text-muted">Date when received the requirement</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Start date: </th>
-                                    <td class="text-muted">DD/MM/YYYY</td>
-                                    <td class="text-muted">Small Description</td>
+                                    <td class="text-muted" th:text="${#dates.format(proposalsdata.ProposedDate, 'dd-MMM-yyyy')}"></td>
+                                    <td class="text-muted">Date when requirement started</td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">End date: </th>
-                                    <td class="text-muted">DD/MM/YYYY</td>
-                                    <td class="text-muted">Small Description</td>
+                                    <th scope="row">Proposed end date: </th>
+                                    <td class="text-muted">Pending</td>
+                                    <td class="text-muted">Date when requirement finished</td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">Trainner: </th>
-                                    <td class="text-muted">Trainner name</td>
-                                    <td class="text-muted">......</td>
+                                    <th scope="row">Trainer: </th>
+                                    <td class="text-muted" th:text="${trainner.MemberName}"></td>
+                                    <td class="text-muted">Name from the trainer responsible of this requirement</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Participants: </th>
-                                    <td class="text-muted">Total of Participants</td>
-                                    <td class="text-muted">Small Description</td>
+                                    <td class="text-muted" th:text="${requirement.TotalCandidates}"></td>
+                                    <td class="text-muted">Amout of all participants in this requirement (MAX:25)</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -65,9 +65,9 @@
                 <div class="card">
                     <h3>Done</h3>
                     <div class="card-body">
-                        <p class="font-bold mb-0 mt-5">Finished on: dd/mm/yyyy</p>
-                        <p class="mt-0">Some other Description</p>
-                        <button class="btn btn-primary">Go to</button>
+                        <p class="font-bold mb-0 mt-5">Will finish on: Pending</p>
+                        <p class="mt-0">Description from the trainer</p>
+                        <button class="btn btn-primary">Go to home</button>
                     </div>
                 </div>
             </div>

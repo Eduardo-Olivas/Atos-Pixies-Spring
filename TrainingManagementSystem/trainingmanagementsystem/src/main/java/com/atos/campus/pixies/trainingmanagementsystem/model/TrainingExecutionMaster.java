@@ -44,8 +44,8 @@ public class TrainingExecutionMaster {
 	public String getProposalID() {
 		return ProposalID;
 	}
-	public void setProposalID(String ProposalID) {
-		ProposalID = ProposalID;
+	public void setProposalID(String proposalID) {
+		ProposalID = proposalID;
 	}
 	public String getExecutionID() {
 		return ExecutionID;
