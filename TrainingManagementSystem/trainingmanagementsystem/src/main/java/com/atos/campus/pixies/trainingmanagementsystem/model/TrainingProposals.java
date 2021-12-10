@@ -100,7 +100,7 @@ public class TrainingProposals {
 	public String toString() {
 		return "TrainingProposals [ProposalID=" + ProposalID + ", RequirementID=" + RequirementID + ", MemberID="
 				+ MemberID + ", ProposedDate=" + ProposedDate + ", ProposedTime=" + ProposedTime + ", ProposedDuration="
-				+ ProposedDuration + "]";
+				+ ProposedDuration + ", ProposalStatus=" + ProposalStatus + "]";
 	}
 	
 	

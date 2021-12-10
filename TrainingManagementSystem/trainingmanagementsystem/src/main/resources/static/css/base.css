@@ -1,3 +1,6 @@
+@import "trainerIndex.css";
+@import "trainerIndexContainer.css";
+
 *::after,
 *::before {
     margin: 0;

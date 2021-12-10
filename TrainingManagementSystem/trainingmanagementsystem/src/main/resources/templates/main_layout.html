@@ -57,53 +57,71 @@
                     </li>
                     <li class="nav-user dropdown">
                         <i class="fas fa-user dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
-
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="#">Profile</a></li>
-                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                            <li><a class="dropdown-item" th:href="@{/}">Logout</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-
                     </li>
                 </ul>
             </div>
         </nav>
     </header>
+    
     <section class="main">
-        <div class="main__menu">
+        <div class="main__menu" th:if="${userRol != null}">
             <div class="main__menu_container">
                 <ul>
-                    <li class="menu-item active">
-                        <a th:href="@{'/TrainingExecutionMaster/'}">
+                    <a th:href="@{'/TrainingExecutionMaster/'}">
+                        <li  th:if="${userRol != 'LBP'}" class="menu-item active">
 							<i class="fas fa-plus-square"></i>
-                    	</a>
-						<p>New Trainning</p>
-                        <p>Request</p>
-                    </li>
-                    <li class="menu-item">
-                        <a th:href="@{'/TrainingExecutionMaster/'}">
-							<i class="fas fa-file-alt"></i>
-						</a>
-                        <p>Trainning</p>
-                        <p>Request
-                        </p>
-                    </li>
-                    <li class="menu-item">
-                        <a th:href="@{'/TrainingExecutionMaster/'}">
+                            <p>New Training</p>
+                            <p>Request</p>
+                        </li>
+                    </a>
+                    <a th:href="@{${#request.requestURI}}">
+                        <li th:class="${userRol == 'LBP'? 'menu-item active': 'menu-item'}">
 							<i class="fas fa-border-all"></i>
-						</a>
-                        <p>View All</p>
-                        <p>Trainnings</p>
-                    </li>
-                    <li class="menu-item">
-						<a th:href="@{'/TrainningStatusPage/'}">
-                        	<i class="fas fa-search-plus"></i>
-					    </a>
-                        <p>Trainning</p>
-                        <p>Status</p>
-                    </li>
-
+                            <p>View All</p>
+                            <p>Requests</p>
+                        </li>
+                    </a>
+                    <a th:href="@{${#request.requestURI}(filter='New')}">
+                        <li class="menu-item">
+							<i class="fas fa-graduation-cap"></i>
+                            <p>View New</p>
+                            <p>Requests</p>
+                        </li>
+                    </a>
+                    <a th:href="@{${#request.requestURI}(filter='Pending')}">
+                        <li class="menu-item">
+							<i class="fas fa-hourglass"></i>
+                            <p>View Pending</p>
+                            <p>Requests</p>
+                        </li>
+                    </a>
+                    <a th:href="@{${#request.requestURI}(filter='Approved')}">
+                        <li class="menu-item">
+							<i class="fas fa-check-square"></i>
+                            <p>View Approved</p>
+                            <p>Requests</p>
+                        </li>
+                    </a>
+                    <a th:href="@{${#request.requestURI}(filter='Completed')}">
+                        <li class="menu-item">
+							<i class="fas fa-calendar"></i>
+                            <p>View Completed</p>
+                            <p>Requests</p>
+                        </li>
+                    </a>
+                    <a th:href="@{${#request.requestURI}(filter='Rejected')}">
+                        <li class="menu-item">
+							<i class="fas fa-ban"></i>
+                            <p>View Rejected</p>
+                            <p>Requests</p>
+                        </li>
+                    </a>
                 </ul>
             </div>
         </div>

@@ -16,7 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class ControllerLogin {
 
 	@Autowired
-	private LDMemberDataDAO LDBMemberDataDao;
+	private LDMemberDataDAO memberDataDao;
 
 	@GetMapping(value = "/Login")
 	public String viewHomePage() {
@@ -26,15 +26,16 @@ public class ControllerLogin {
 	@PostMapping(value = "/Login")
 	public String loginUser(@RequestParam String email, @RequestParam String password, Model model, RedirectAttributes redirectAttrs) {
 		/**
-		 * TODO: Properly handling the Login from the user input.
+		 * Pending: Properly handling the Login from the user input, this is an insecure method.
 		 */
 		if (email.equals("") || password.equals("")) {
 			return "redirect:/Login?error=Invalid+Login+Attempt";
 		}
-		LDMemberData user = LDBMemberDataDao.getByEmail(email);
-		redirectAttrs.addAttribute("id", user.getMemberID());
-		System.out.println(email + " Log In.");
-		return "redirect:/";
+		LDMemberData user = memberDataDao.getByEmail(email);
+		if(user != null)
+			return "redirect:/" + user.getMemberID();
+		return "redirect:/?error=Unknown+Credentials";
+		
 	}
 
 }

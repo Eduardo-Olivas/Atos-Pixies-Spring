@@ -25,7 +25,12 @@ public class LDMemberDataDAO {
 
 		return listLDMemberData;
 	}
-	
+	public List<LDMemberData> getLDRoleID(String MembeLDRoleID) {
+		String sql = "select * from  LDMemberData where LDRoleID= ?";
+		Object[] args = {MembeLDRoleID};
+		List listLDMemberData = jdbcTemplate.query(sql,args,BeanPropertyRowMapper.newInstance(LDMemberData.class));
+		return listLDMemberData;
+	}
 	public void save(LDMemberData LDMemberData) {
 		SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
 		insertActor.withTableName("LDMemberData").usingColumns("MemberID", "MemberName", "MemberContact","MemberLocation","MemberEmail","LDRoleID");
@@ -40,6 +45,7 @@ public class LDMemberDataDAO {
 		LDMemberData LDMemberData = jdbcTemplate.queryForObject(sql, args, BeanPropertyRowMapper.newInstance(LDMemberData.class));
 		return LDMemberData;
 	}
+	
 
 	public LDMemberData getByEmail(String MemberEmail) {
 		String sql = "SELECT * FROM LDMemberData WHERE MemberEmail = ?";

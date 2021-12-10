@@ -31,5 +31,26 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
-### VS Code ###
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# Package Files
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Visual Studio Code Config files
 .vscode/
+
+# Binary folders
+**/bin
+# Property files
+*.properties
+TrainingManagementSystem/trainingmanagementsystem/src/main/resources/application.properties

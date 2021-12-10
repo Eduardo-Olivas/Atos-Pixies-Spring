@@ -3,7 +3,6 @@ package com.atos.campus.pixies.trainingmanagementsystem.dao;
 import java.util.List;
 
 import com.atos.campus.pixies.trainingmanagementsystem.model.TrainingExecutionMaster;
-import com.atos.campus.pixies.trainingmanagementsystem.model.TrainingProposals;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -28,7 +27,7 @@ public class TrainingExecutionMasterDAO {
 	}
 	
 	public List<TrainingExecutionMaster> getByProposalID(String proposalID) {
-		String query = "SELECT * FROM TrainingExecutionMaster WHERE ProporsalID = ?";
+		String query = "SELECT * FROM TrainingExecutionMaster WHERE ProposalID = ?";
 		Object[] args = {proposalID};
 		List<TrainingExecutionMaster> res = jdbcTemplate.query(query, args, BeanPropertyRowMapper.newInstance(TrainingExecutionMaster.class));
 		return res;
@@ -36,7 +35,7 @@ public class TrainingExecutionMasterDAO {
 	
 	public void save(TrainingExecutionMaster TrainingExecutionMaster) { 
 		SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
-		insertActor.withTableName("TrainingExecutionMaster").usingColumns("ExecutionID", "ProposalID", "ConfirmedDate","ConfirmedTime","Trainer","TotalHRS","ProposalStatus","TotalParticipantsAllowed");
+		insertActor.withTableName("TrainingExecutionMaster").usingColumns("ExecutionID", "ProposalID", "ConfirmedDate","ConfirmedTime","Trainer","TotalHRS","ProposalStatus","TotalParticipantsAllowed", "TrainerResponse");
 		BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(TrainingExecutionMaster);
 		
 		insertActor.execute(param);		
@@ -48,12 +47,25 @@ public class TrainingExecutionMasterDAO {
 		TrainingExecutionMaster TrainingExecutionMaster = jdbcTemplate.queryForObject(sql, args, BeanPropertyRowMapper.newInstance(TrainingExecutionMaster.class));
 		return TrainingExecutionMaster;
 	}
+
+	public List<TrainingExecutionMaster> getByTrainer(String TrainerID) {
+		String sql = "SELECT * FROM TrainingExecutionMaster WHERE Trainer = ?";
+		Object[] args = {TrainerID};
+		return jdbcTemplate.query(sql, args, BeanPropertyRowMapper.newInstance(TrainingExecutionMaster.class));
+	}
 	
 	public TrainingExecutionMaster getOne(String ExecutionID) {
 		String sql = "SELECT * FROM TrainingExecutionMaster WHERE ExecutionID = ?";
 		Object[] args = {ExecutionID};
 		TrainingExecutionMaster TrainingExecutionMaster = jdbcTemplate.queryForObject(sql, args, BeanPropertyRowMapper.newInstance(TrainingExecutionMaster.class));
 		return TrainingExecutionMaster;
+	}
+	
+	public List <TrainingExecutionMaster> getOneForeign(String ProposalID) {
+		String sql = "SELECT * FROM TrainingExecutionMaster WHERE ProposalID = ?";
+		Object[] args = {ProposalID};
+		List <TrainingExecutionMaster> listExecutions = jdbcTemplate.query(sql, args, BeanPropertyRowMapper.newInstance(TrainingExecutionMaster.class));
+		return listExecutions;
 	}
 	
 	public void update(TrainingExecutionMaster TrainingExecutionMaster) {

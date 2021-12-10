@@ -12,7 +12,7 @@
 <body>
     <!-- Main component -->
     <div layout:fragment="main-content">
-        <div th:if="${username == null}" class="bs-component">
+        <div th:if="${param.error == null}" class="bs-component">
             <div class="jumbotron">
                 <h2 class="display-3">Welcome To Atos ©</h2>
                 <h1 class="display-3">Training Management System</h1>
@@ -21,8 +21,9 @@
                 <a class="btn btn-primary btn-lg ext-uppercase" href="Login" role="button">Login</a>
             </div>
         </div>
-        <div th:if="${username != null}">
-            <a class="btn btn-primary btn-lg ext-uppercase" href="Logout" role="button">Logout</a>
+        <div th:if="${param.error}">
+            <h1 class="display-3">Invalid login. Please Log Out.</h1>
+            <a class="btn btn-primary btn-lg ext-uppercase" th:href="@{/}" role="button">Logout</a>
         </div>
     </div>
 </body>
