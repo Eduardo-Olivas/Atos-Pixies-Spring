@@ -13,6 +13,7 @@ import com.atos.campus.pixies.trainingmanagementsystem.model.LDMemberData;
 import com.atos.campus.pixies.trainingmanagementsystem.model.TrainingExecutionMaster;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,40 +36,87 @@ public class AppController_InProcessTraining {
 	@Autowired
 	private TrainingExecutionMasterDAO temDAO;
 	
+	List<TrainingExecutionMaster> executions;
+	TrainingRequirementMaster requirement;
+	VerticalMaster vertical;
+	List<TrainingProposals> proposals;
+	List<LDMemberData> ldMembers;
+	
 	@GetMapping("/InProcessTraining")
 	public String InProcessTraining(@RequestParam(name = "requirementID", required = true) String requirementID, Model model) {
 		
-		List<TrainingExecutionMaster> executions;
-		
-		TrainingRequirementMaster requirement;
-		VerticalMaster vertical;
-		List<TrainingProposals> proposals;
-		List<LDMemberData> ldMembers;
-
+		//Get the requirement data
 		requirement = trmDAO.get(requirementID);
+		//Get the vertical data
 		vertical = vmDAO.get(requirement.getRequirementUserVertical());
+		//Get the proposals list
 		proposals = tpDAO.getByRequirementID(requirementID);
+		//Initialize trainers data
 		ldMembers = new ArrayList<LDMemberData>();
-		executions = new ArrayList<TrainingExecutionMaster>();
+		//Initialize the executions list
+		executions = new ArrayList<TrainingExecutionMaster>();		
 		
+		//Get the executions from the proposals
 		for (TrainingProposals proposal : proposals) {
-			System.out.println(proposal.getProposalID());
-			executions = temDAO.getByProposalID("PRO01");
+			System.out.println(proposal);
+			executions.addAll(temDAO.getByProposalID(proposal.getProposalID()));				
 		}
 		
-		for (TrainingExecutionMaster e : executions)
-			System.out.println(e);
-		
+		//Get trainers data from the proposals
 		for (TrainingProposals proposal : proposals)
 			ldMembers.add(ldMemberDAO.get(proposal.getMemberID()));
 		
+		//Print the requirement
+		System.out.println("Requirement: ");
+		System.out.println(requirement);
+		//Print the proposals linked to that requirement
+		System.out.println("Proposals: ");
+		for (TrainingProposals proposal : proposals)
+			System.out.println(proposal);
+		//Print the executions linked to those proposals
+		System.out.println("Executions: ");
+		for (TrainingExecutionMaster execution : executions)
+			System.out.println(execution);
+		
+		//Add all the data to the model
 		model.addAttribute("requirement", requirement);
 		model.addAttribute("vertical", vertical);
 		model.addAttribute("proposals", proposals);
 		model.addAttribute("ldMembers", ldMembers);
-
+		model.addAttribute("executions", executions);
 
 	    return "View/InProcessTraining";
 	}
+	
+	@GetMapping("/send")
+	public String sendResponse(@RequestParam(value = "proposalID") String proposalID, Model model) {
+		
+		Date confirmedDate = new Date();
+		String confirmedTime = "";
+		System.out.println("Received proposalID: " + proposalID);
+		
+		for (TrainingExecutionMaster e : executions) {
+			System.out.println(e.getProposalID());
+			if (e.getProposalID().equals(proposalID)) {
+				confirmedDate = e.getConfirmedDate();
+				confirmedTime = e.getConfirmedTime();
+				break;
+			}
+		}
+		
+		for (TrainingProposals proposal : proposals) {
+			if (proposal.getProposalID().equals(proposalID)) {
+				proposal.setProposalStatus("Confirmed");
+				proposal.setProposedDate(confirmedDate);
+				proposal.setProposedTime(confirmedTime);
+				tpDAO.update(proposal);
+			}
+			else {
+				proposal.setProposalStatus("Rejected");
+				tpDAO.update(proposal);
+			}
+		}
+		
+		return "View/IndexLBP";
+	}
 }
-

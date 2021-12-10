@@ -49,4 +49,6 @@ build/
 
 # Binary folders
 **/bin
+# Property files
+*.properties
 TrainingManagementSystem/trainingmanagementsystem/src/main/resources/application.properties

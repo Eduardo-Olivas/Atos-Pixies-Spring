@@ -28,6 +28,21 @@ public class AppController_TrainingProposals {
 		model.addAttribute("listTrainingProposals", listTrainingProposals);
 	    return "Crud/TrainingProposals";
 	}
+	@RequestMapping("/Crud/TrainingProposalsRejected")
+	public String viewHomePageRejected(Model model) {
+		List<TrainingProposals> listTrainingProposals = dao.listRejected();
+		model.addAttribute("listTrainingProposals", listTrainingProposals);
+	    return "Crud/TrainingProposalsRejected";
+	}
+	
+	
+	
+	@RequestMapping("/index-Trainer/allRequirements")
+	public String viewIndexPage(Model model) {
+		List<TrainingProposals> listTrainingProposals = dao.list();
+		model.addAttribute("listTrainingProposals", listTrainingProposals);
+	    return "View/IndexTrainer";
+	}
 	
 	@RequestMapping("/New/new_TrainingProposals")
 	public String showNewForm(Model model) {
@@ -41,6 +56,7 @@ public class AppController_TrainingProposals {
 		TrainingProposals TrainingProposals = new TrainingProposals();
 	    model.addAttribute("TrainingProposals", TrainingProposals);
 	    model.addAttribute("requirementID", id);
+	    model.addAttribute("id", id);
 	     
 	    return "New/new_form_TrainingProposals";
 	}
@@ -60,6 +76,8 @@ public class AppController_TrainingProposals {
 	     
 	    return mav;
 	}
+	
+
 	
 	@RequestMapping(value = "/update_TrainingProposals", method = RequestMethod.POST)
 	public String update(@ModelAttribute("TrainingProposals") TrainingProposals TrainingProposals) {

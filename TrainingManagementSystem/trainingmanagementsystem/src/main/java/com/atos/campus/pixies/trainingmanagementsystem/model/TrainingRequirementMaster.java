@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 import org.hibernate.id.enhanced.SequenceStyleGenerator;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class TrainingRequirementMaster {
@@ -24,15 +25,17 @@ public class TrainingRequirementMaster {
             @Parameter(name = StringIdGenerator.PREFIX, value = "TRM"),
             @Parameter(name = StringIdGenerator.NUMBER_FORMAT, value = "%02d")})
 	private String RequirementID;
-	private Date RequirementReceivedDate;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date RequirementReceivedDate; //
 	private String RequirementUser;
-	private String RequirementUserVertical;
-	private String TrainingArea;
-	private String TrainingDescription;
+	private String RequirementUserVertical; //
+	private String TrainingArea;  //
+	private String TrainingDescription; //
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date RequestedTrainingStartDate;
-	private int TotalCandidates;
-	private String TrainingTimeZone;
-	private int TotalDurationDays;
+	private int TotalCandidates; //
+	private String TrainingTimeZone; //
+ 	private int TotalDurationDays; //
 	
 	
 	public String getRequirementID() {
@@ -45,7 +48,7 @@ public class TrainingRequirementMaster {
 		return RequirementReceivedDate;
 	}
 	public void setRequirementReceivedDate(Date requirementReceivedDate) {
-		RequirementReceivedDate = requirementReceivedDate;
+		this.RequirementReceivedDate = requirementReceivedDate;
 	}
 	public String getRequirementUser() {
 		return RequirementUser;

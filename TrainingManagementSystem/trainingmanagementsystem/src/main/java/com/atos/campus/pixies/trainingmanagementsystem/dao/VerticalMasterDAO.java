@@ -25,6 +25,15 @@ public class VerticalMasterDAO {
 
 		return listVerticalMaster;
 	}
+
+	public List<VerticalMaster> listByLPID(String id) {
+		String sql = "SELECT * FROM VerticalMaster WHERE VerticalLBPID = '" + id +"'";
+
+		List<VerticalMaster> listVerticalMaster = jdbcTemplate.query(sql, 
+				BeanPropertyRowMapper.newInstance(VerticalMaster.class));
+
+		return listVerticalMaster;
+	}
 	
 	public void save(VerticalMaster VerticalMaster) {
 		SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);

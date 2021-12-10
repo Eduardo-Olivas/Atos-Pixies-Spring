@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en"
+      xml:lang="en" 
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{main_layout.html}">
+<head>
+    <title>Training Management System</title>
+    <!-- Your meta, links and scripts goes here-->
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Karla:wght@300&family=Poppins:ital,wght@0,300;1,300&display=swap"
+        rel="stylesheet">
+    <!-- Additional CSS-->
+    <link rel="stylesheet" type="text/css" href="../css/trainerIndex.css" />
+    <link rel="stylesheet" type="text/css" href="../css/trainerIndexContainer.css" />
+    <script th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
+</head>
+<body>
+    <!-- Main component -->
+    <div layout:fragment="main-content">
+        <div class="main__content-header">
+            <h2>Training Requirements</h2>
+            <div>[<i class="fas fa-plus-square"></i>]</div>
+            <hr/>
+        </div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div id="div-card-conatiner" th:each="requirement : ${listRequirement}" class="container-card-for-index">
+                    <div id="requirement-${requirement.get('RequirementID')}">
+                    </div>
+                    <h3 id="area-${requirement.get('RequirementID')}" class="card-title-container-trainer"
+                        th:text="${requirement.get('Area')}"></h3>    
+                    <p id="vertical-${requirement.get('RequirementID')}" class="user-trainer" 
+                        th:text="${requirement.get('Vertical')}"></p>
+                    <p id="startDate-${requirement.get('RequirementID')}" class="user-trainer" 
+                        th:text="${requirement.get('StartDate')}"></p>
+                    <p id="duration-${requirement.get('RequirementID')}" class="user-trainer" 
+                        th:text="${requirement.get('Duration')}"></p>
+                    <p id="status-${requirement.get('RequirementID')}" class="user-trainer" 
+                        th:text="${requirement.get('Status')}"></p>
+                    <a class="btn btn-primary"
+					    th:href="@{{link}(link=${requirement.get('Link')})}">Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

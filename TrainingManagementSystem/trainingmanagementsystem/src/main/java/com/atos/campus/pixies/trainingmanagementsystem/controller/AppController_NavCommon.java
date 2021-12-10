@@ -1,6 +1,7 @@
 package com.atos.campus.pixies.trainingmanagementsystem.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
@@ -13,8 +14,9 @@ public class AppController_NavCommon {
 	    return "Crud/TrainingRequirementMaster";
 	}
 
-	@RequestMapping("/NewRequirement")
-	public String NewRequirement() {
+	@RequestMapping("/NewRequirement/{RequirementID}")
+	public String NewRequirement( @PathVariable(required=false) String RequirementID) {
+		System.out.println(RequirementID);
 	    return "View/NewRequirement";
 	}
 

@@ -25,6 +25,15 @@ public class TrainingRequirementMasterDAO {
 
 		return listTrainingRequirementMaster;
 	}
+
+	public List<TrainingRequirementMaster> listTrainingStatus(String TrainingStatus) {
+		String sql = "SELECT * FROM TrainingRequirementMaster WHERE TrainingStatus = '" + TrainingStatus + "'";
+
+		List<TrainingRequirementMaster> listTrainingRequirementMaster = jdbcTemplate.query(sql, 
+				BeanPropertyRowMapper.newInstance(TrainingRequirementMaster.class));
+
+		return listTrainingRequirementMaster;
+	}
 	
 	public void save(TrainingRequirementMaster TrainingRequirementMaster) {
 		SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
