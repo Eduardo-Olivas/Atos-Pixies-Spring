@@ -27,11 +27,15 @@ const apiCallExecutions = async (param) => {
 	return data;
 }
 
+
 async function convertion(){
 	let contents;
 	let datas = await apiCall("");
 	
 	$(document).ready(function(){
+		
+		
+		
 
 		let cards = Array.from( document.querySelectorAll("#div-card-conatiner") )
 		console.log($("#div-card-conatiner"));
@@ -111,6 +115,5 @@ async function convertion(){
 async function blackbox() {
 	
 }
-
 blackbox();
 convertion();
