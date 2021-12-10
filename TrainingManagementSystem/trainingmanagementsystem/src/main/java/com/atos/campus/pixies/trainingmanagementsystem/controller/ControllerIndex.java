@@ -3,6 +3,8 @@ package com.atos.campus.pixies.trainingmanagementsystem.controller;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import com.atos.campus.pixies.trainingmanagementsystem.dao.LDMemberDataDAO;
 import com.atos.campus.pixies.trainingmanagementsystem.dao.LDRolesDAO;
@@ -11,6 +13,7 @@ import com.atos.campus.pixies.trainingmanagementsystem.dao.TrainingProposalsDAO;
 import com.atos.campus.pixies.trainingmanagementsystem.dao.TrainingRequirementMasterDAO;
 import com.atos.campus.pixies.trainingmanagementsystem.dao.VerticalMasterDAO;
 import com.atos.campus.pixies.trainingmanagementsystem.model.LDMemberData;
+import com.atos.campus.pixies.trainingmanagementsystem.model.LDRoles;
 import com.atos.campus.pixies.trainingmanagementsystem.model.TrainingExecutionMaster;
 import com.atos.campus.pixies.trainingmanagementsystem.model.TrainingProposals;
 import com.atos.campus.pixies.trainingmanagementsystem.model.TrainingRequirementMaster;
@@ -52,13 +55,12 @@ public class ControllerIndex {
         if (user == null) {
 		    return "index";
         }
-/*
         List<TrainingRequirementMaster> listTrainings;
         if (filter == null || filter.equals("")) {
             listTrainings = trainingMaster.list();
         } else {
             System.out.println(filter);
-            listTrainings = trainingMaster.listBy("TrainingStatus", filter);
+            listTrainings = trainingMaster.listTrainingStatus(filter);
         }
         
         LDRoles role = rolesData.get(user.getLDRoleID());
@@ -67,7 +69,7 @@ public class ControllerIndex {
             case "Trainer":
                 return mainPageTrainer(model, uid);
             case "LBP":
-                Set<String> verticalsLBP = verticalMaster.listBy("VerticalLBPID", uid).stream()
+                Set<String> verticalsLBP = verticalMaster.listByLPID(uid).stream()
                     .map(VerticalMaster::getVID)
                     .collect(Collectors.toSet());
                 listTrainings.removeIf(e -> (!verticalsLBP.contains(e.getRequirementUserVertical())));
@@ -80,13 +82,13 @@ public class ControllerIndex {
             default:
                 listTrainings.clear();
         }
-        model.addAttribute("listRequirement", generateCardsMaps(listTrainings));*/
+        model.addAttribute("listRequirement", generateCardsMaps(listTrainings));
         return "View/IndexManagerLPB";
 	}
 
     private String mainPageTrainer(Model model, String uid) {
         List<HashMap<String,String>> listCards = new ArrayList<>();
-        for (TrainingExecutionMaster i : trainingExecutions.listBy("Trainer", uid)) {
+        for (TrainingExecutionMaster i : trainingExecutions.getByTrainer(uid)) {
             TrainingProposals p = trainingProposal.get(i.getProposalID());
             HashMap<String,String> cardMap = new HashMap<>();
             cardMap.put("RequirementID", p.getRequirementID());
@@ -95,7 +97,7 @@ public class ControllerIndex {
             cardMap.put("ProposedDate", p.getProposedDate().toString());
             cardMap.put("ProposedTime", p.getProposedTime());
             cardMap.put("ProposedDuration", String.format("%d", p.getProposedDuration()));
-            cardMap.put("ProposalStatus", i.getResponseStatus());
+            cardMap.put("ProposalStatus", "New");
             listCards.add(cardMap);
         }
         model.addAttribute("listTrainingProposals", listCards);
@@ -111,7 +113,7 @@ public class ControllerIndex {
             cardMap.put("ReceivedDate", i.getRequirementReceivedDate() + "");
             cardMap.put("StartDate", i.getRequestedTrainingStartDate() + "");            
             cardMap.put("Duration", i.getTotalDurationDays() + " days");
-            cardMap.put("Status", i.getTrainingStatus());
+            cardMap.put("Status", "New");
             VerticalMaster v = verticalMaster.get(i.getRequirementUserVertical());
             cardMap.put("Vertical", v.getVerticalName());
             String linkTo;
