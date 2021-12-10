@@ -52,7 +52,7 @@
                 <p class="user-trainer" th:text="${Training.ProposedTime}" >User</p>
                 <p class="user-trainer" th:text="${Training.ProposedDuration} + ' hrs'">User</p>
                 <p id="proposal-status-tag" class="user-trainer" th:text="${Training.ProposalStatus}"> ProposalStatus</p>
-                <a class="btn-for-card btn btn-primary" th:href="@{/new_TrainingExecutionMaster/{id}(id=${Training.ProposalID})}">+Proposal</a>
+                <a class="btn-for-card btn btn-primary" th:href="@{/new_TrainingExecutionMaster/{id}(id=${Training.ProposalID})/}">+Proposal</a>
             </div>
         </div>
     </div>
