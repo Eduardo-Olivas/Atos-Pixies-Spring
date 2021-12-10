@@ -3,7 +3,9 @@ package com.atos.campus.pixies.trainingmanagementsystem.controller;
 import java.util.List;
 
 import com.atos.campus.pixies.trainingmanagementsystem.dao.TrainingRequirementMasterDAO;
+import com.atos.campus.pixies.trainingmanagementsystem.dao.VerticalMasterDAO;
 import com.atos.campus.pixies.trainingmanagementsystem.model.TrainingRequirementMaster;
+import com.atos.campus.pixies.trainingmanagementsystem.model.VerticalMaster;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,14 +23,19 @@ public class AppController_TrainingRequirementMaster {
 	
 	@Autowired
 	private TrainingRequirementMasterDAO dao;
+	@Autowired
+	private VerticalMasterDAO dao1;
+
+	
 	
 	@RequestMapping("/TrainingRequirementMaster")
-	public String viewHomePage(Model model) {
-		List<TrainingRequirementMaster> listTrainingRequirementMaster = dao.list();
-		model.addAttribute("listTrainingRequirementMaster", listTrainingRequirementMaster);
-	    return "Crud/TrainingRequirementMaster";
-	}
-	
+	public String viewHomePage1(Model model) {
+		List<VerticalMaster> listVerticalMaster = dao1.list();
+		TrainingRequirementMaster TrainingRequirementMaster = new TrainingRequirementMaster();
+	    model.addAttribute("TrainingRequirementMaster", TrainingRequirementMaster);
+		model.addAttribute("verticalMaster", listVerticalMaster);
+	    return "View/OneTrainingRequirement";
+	} 
 	@RequestMapping("/TrainingRequirementMaster/{id}")
 	public String showOneRequirement(@PathVariable String id, Model map) {
 		TrainingRequirementMaster training =dao.get(id);
@@ -47,9 +54,10 @@ public class AppController_TrainingRequirementMaster {
 	
 	@RequestMapping(value = "/save_TrainingRequirementMaster", method = RequestMethod.POST)
 	public String save(@ModelAttribute("TrainingRequirementMaster") TrainingRequirementMaster TrainingRequirementMaster) {
-	    dao.save(TrainingRequirementMaster);
-	     
-	    return "redirect:/Crud/TrainingRequirementMaster";
+		dao.save(TrainingRequirementMaster);
+		
+	    return "redirect:/TrainingRequirementMaster";
+
 	}
 	
 	@RequestMapping("/Edit/edit_TrainingRequirementMaster/{RequirementID}")

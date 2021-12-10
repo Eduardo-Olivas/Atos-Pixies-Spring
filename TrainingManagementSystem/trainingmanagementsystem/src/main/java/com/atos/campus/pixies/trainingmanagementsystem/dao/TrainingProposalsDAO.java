@@ -1,6 +1,5 @@
 package com.atos.campus.pixies.trainingmanagementsystem.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.atos.campus.pixies.trainingmanagementsystem.model.TrainingProposals;
@@ -93,7 +92,7 @@ public class TrainingProposalsDAO {
 	}
 	
 	public void update(TrainingProposals TrainingProposals) {
-		String sql = "UPDATE TrainingProposals SET ProposalID=:ProposalID, RequirementID=:RequirementID, MemberID=:MemberID, ProposedDate=:ProposedDate, ProposedTime=:ProposedTime, ProposedDuration=:ProposedDuration, ProposalStatus:=ProposalStatus WHERE ProposalID=:ProposalID";
+		String sql = "UPDATE TrainingProposals SET ProposalID=:ProposalID, RequirementID=:RequirementID, MemberID=:MemberID, ProposedDate=:ProposedDate, ProposedTime=:ProposedTime, ProposedDuration=:ProposedDuration, ProposalStatus=:ProposalStatus WHERE ProposalID=:ProposalID";
 		BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(TrainingProposals);
 		NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(jdbcTemplate);
 		template.update(sql, param);		
