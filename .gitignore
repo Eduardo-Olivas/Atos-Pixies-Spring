@@ -33,7 +33,6 @@ build/
 *.class
 
 # Log file
-*.log
 
 # Package Files
 *.jar
@@ -50,5 +49,4 @@ build/
 # Binary folders
 **/bin
 # Property files
-*.properties
 TrainingManagementSystem/trainingmanagementsystem/src/main/resources/application.properties
