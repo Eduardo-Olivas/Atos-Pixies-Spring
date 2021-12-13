@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +25,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class AppController_InProcessTraining {
+	
+	private static Logger logJava = Logger.getLogger(AppController_InProcessTraining.class);
 	
 	@Autowired
 	private TrainingProposalsDAO tpDAO;
@@ -58,7 +61,7 @@ public class AppController_InProcessTraining {
 		
 		//Get the executions from the proposals
 		for (TrainingProposals proposal : proposals) {
-			System.out.println(proposal);
+			logJava.info(proposal);
 			executions.addAll(temDAO.getByProposalID(proposal.getProposalID()));				
 		}
 		
@@ -66,17 +69,17 @@ public class AppController_InProcessTraining {
 		for (TrainingProposals proposal : proposals)
 			ldMembers.add(ldMemberDAO.get(proposal.getMemberID()));
 		
-		//Print the requirement
-		System.out.println("Requirement: ");
-		System.out.println(requirement);
+	
+		logJava.info("Requirement: ");
+		logJava.info(requirement);
 		//Print the proposals linked to that requirement
-		System.out.println("Proposals: ");
+		logJava.info("Proposals: ");
 		for (TrainingProposals proposal : proposals)
-			System.out.println(proposal);
+			logJava.info(proposal);
 		//Print the executions linked to those proposals
-		System.out.println("Executions: ");
+		logJava.info("Executions: ");
 		for (TrainingExecutionMaster execution : executions)
-			System.out.println(execution);
+			logJava.info(execution);
 		
 		//Add all the data to the model
 		model.addAttribute("requirement", requirement);
@@ -93,10 +96,10 @@ public class AppController_InProcessTraining {
 		
 		Date confirmedDate = new Date();
 		String confirmedTime = "";
-		System.out.println("Received proposalID: " + proposalID);
+		logJava.info("Received proposalID: " + proposalID);
 		
 		for (TrainingExecutionMaster e : executions) {
-			System.out.println(e.getProposalID());
+			logJava.info(e.getProposalID());
 			if (e.getProposalID().equals(proposalID)) {
 				confirmedDate = e.getConfirmedDate();
 				confirmedTime = e.getConfirmedTime();

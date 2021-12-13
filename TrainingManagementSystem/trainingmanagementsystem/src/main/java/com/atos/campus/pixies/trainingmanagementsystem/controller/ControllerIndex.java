@@ -8,6 +8,7 @@ import com.atos.campus.pixies.trainingmanagementsystem.dao.TrainingRequirementMa
 import com.atos.campus.pixies.trainingmanagementsystem.model.TrainingProposals;
 import com.atos.campus.pixies.trainingmanagementsystem.model.TrainingRequirementMaster;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class ControllerIndex {
 
+	private static Logger logJava = Logger.getLogger(ControllerIndex.class);
+	
 	@Autowired
 	private TrainingRequirementMasterDAO trainingMaster;
 	@Autowired
@@ -24,6 +27,9 @@ public class ControllerIndex {
 
 	@GetMapping(value = "/")
 	public String mainPage(Model model, @RequestParam(required=false) String id) {
+		
+		logJava.info("/");
+		
 		if (id == null || id.equals(""))
 			return "index";
         model.addAttribute("listTrainingMaster", trainingMaster.list());
@@ -34,6 +40,9 @@ public class ControllerIndex {
                 temp.put(i.getRequirementID(),p);
         }
         model.addAttribute("mapTrainingProposal", temp);
+        
+    	logJava.info("View/indexLBP");
+        
 		return "View/indexLBP";
 	}
 }

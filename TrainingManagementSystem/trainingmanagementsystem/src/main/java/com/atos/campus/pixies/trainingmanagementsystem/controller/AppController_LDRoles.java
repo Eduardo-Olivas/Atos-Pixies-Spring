@@ -5,6 +5,7 @@ import java.util.List;
 import com.atos.campus.pixies.trainingmanagementsystem.dao.LDRolesDAO;
 import com.atos.campus.pixies.trainingmanagementsystem.model.LDRoles;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +18,8 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class AppController_LDRoles {
 	
+	private static Logger logJava = Logger.getLogger(AppController_LDRoles.class);
+	
 	@Autowired
 	private LDRolesDAO dao;
 	
@@ -24,6 +27,7 @@ public class AppController_LDRoles {
 	public String viewHomePage(Model model) {
 		List<LDRoles> listLDRoles = dao.list();
 		model.addAttribute("listLDRoles", listLDRoles);
+		logJava.info("/Crud/LDRoles");
 	    return "Crud/LDRoles";
 	}
 	
@@ -31,14 +35,14 @@ public class AppController_LDRoles {
 	public String showNewForm(Model model) {
 		LDRoles LDRoles = new LDRoles();
 	    model.addAttribute("LDRoles", LDRoles);
-	     
+	    logJava.info("/Crud/new_LDRoles");
 	    return "New/new_form_LDRoles";
 	}
 	
 	@RequestMapping(value = "/save_LDRoles", method = RequestMethod.POST)
 	public String save(@ModelAttribute("LDRoles") LDRoles LDRoles) {
 	    dao.save(LDRoles);
-	     
+	    logJava.info("redirect:/Crud/LDRoles");
 	    return "redirect:/Crud/LDRoles";
 	}
 	
@@ -47,20 +51,21 @@ public class AppController_LDRoles {
 	    ModelAndView mav = new ModelAndView("Edit/edit_form_LDRoles");
 	    LDRoles LDRoles = dao.get(LDRoleID);
 	    mav.addObject("LDRoles", LDRoles);
-	     
+	    logJava.info("Edit/edit_LDRoles/{LDRoleID}");
 	    return mav;
 	}
 	
 	@RequestMapping(value = "/update_LDRoles", method = RequestMethod.POST)
 	public String update(@ModelAttribute("LDRoles") LDRoles LDRoles) {
 	    dao.update(LDRoles);
-	     
+	    logJava.info("redirect:/Crud/LDRoles");
 	    return "redirect:/Crud/LDRoles";
 	}
 	
 	@RequestMapping("/delete_LDRoles/{LDRoleID}")
 	public String delete(@PathVariable(name = "LDRoleID") int LDRoleID) {
 	    dao.delete(LDRoleID);
+	    logJava.info("redirect:/Crud/LDRoles");
 	    return "redirect:/Crud/LDRoles";       
 	}	
 }
